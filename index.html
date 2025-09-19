@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tatuaje Coyotes</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+<!-- Bootstrap JS (necesario para el carrusel) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+
+/* Contenedor del logo con fondo marrón */
+
+
+  /* Modal (oculto por defecto) */
+
+ 
+body {
+  padding-top: 80px; /* deja espacio debajo del navbar fijo */
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(159, 23, 23, 0.9);
+}
+
+/* Imagen dentro del modal */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+}
+
+/* Texto debajo de la imagen */
+#caption {
+  margin: 15px auto;
+  text-align: center;
+  color: #f1f1f1;
+  font-size: 16px;
+}
+
+
+  #personal {
+  background: #0d1f0d; /* verde oscuro de fondo */
+  padding: 60px 20px;
+  border-radius: 20px;
+}
+
+#personal h2 {
+  color: #ebf3f1; /* verde brillante */
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#personal h1 {
+  color: #fff;
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#personal p {
+  color: #ccc;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+/* Tarjetas de tatuadores */
+.personal-card {
+  background: #1a2e1a; /* verde más suave */
+  border: 2px solid #040505; /* contorno verde */
+  border-radius: 15px;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 12px rgba(16, 16, 16, 0.3);
+}
+
+.personal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(13, 13, 13, 0.5);
+}
+
+.personal-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.personal-card h5 {
+  color: #151817;
+  margin-bottom: 5px;
+}
+
+.personal-card p {
+  color: #ddd;
+  font-size: 14px;
+}
+
+    :root {
+      --primary:#a0e11d;
+      --accent:#f59e0b;
+    }
+
+    body {
+    
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #231616;
+      color: #e3dbdb;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: linear-gradient(90deg,#000000 0%, #000000 20%,  #410614 100%);   /* cambio de la franja princioalinicio menu */
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: 10px 26px;
+      backdrop-filter: blur(6px);
+    }
+    .navbar h1 { font: 700 20px/1 'Cinzel', serif; color: #fff; margin: 0; }
+    .navbar a { color:#fff; text-decoration: none; font-weight:600; }
+    .navbar a:hover { color:#ffd7dd; }
+
+    /* Secciones #410614  background: linear-gradient(90deg, #111112 0%, #2a0c14 40%, #d0113e 100%);#3a3535 */
+    .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+    .section-title { text-align: center; font: 700 clamp(24px,3vw,36px)/1.1 'Cinzel', serif; margin-bottom: 30px; }
+
+    /* Galería */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .tattoo-card {
+      background: #141417;
+      border: 2px solid var(--primary);
+      border-radius: 15px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+    .tattoo-card:hover { transform: translateY(-5px); }
+    .tattoo-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .tattoo-card .info { padding: 15px; }
+    .tattoo-card h5 { color: var(--primary); margin-bottom: 5px; }
+    .tattoo-card p { color: #ccc; font-size: 14px; margin-bottom: 10px; }
+    .price {
+      display: inline-block;
+      padding: 5px 12px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    /* Personal */
+    .personal-card {
+      background: #1a2e1a;
+      border: 2px solid #121513;
+      border-radius: 15px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 12px rgba(6, 6, 6, 0.3);
+      cursor: pointer;
+    }
+    .personal-card:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(16, 18, 17, 0.5); }
+    .personal-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 15px;
+    }
+    .personal-card h5 { color: #141615; margin-bottom: 5px; }
+
+    /* Modal Lightbox */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      text-align: center;
+      padding-top: 60px;
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 80vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+    .modal .close {
+      position: absolute;
+      top: 20px; right: 40px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #fff;
+      cursor: pointer;
+    }
+    #caption {
+      margin-top: 15px;
+      color: #f1f1f1;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    .footer {
+      background: #111;
+      color: #ddd;
+      padding: 40px 20px;
+    }
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .footer h3 { color: var(--primary); }
+    .social-icons a {
+      color: #cf1313;
+      margin-right: 12px;
+      font-size: 22px;
+      transition: color .3s;
+    }
+    .social-icons a:hover { color: var(--accent); }
+
+
+    
+  </style>
+</head>
+<!-- Carrusel -->
+ <style>
+
+.carousel-inner, 
+.carousel-item {
+  height: 100%;
+}
+
+
+
+</style>
+<section id="inicio" class="video-container">
+  <video autoplay muted loop playsinline class="video-fondo">
+    <source src="video16.mp4" type="video/mp4">
+    Tu navegador no soporta la reproducción de video.
+  </video>
+
+  <!-- Texto dinámico sobre el video -->
+  <div class="overlay-text">
+    <h1 id="frasePrincipal"></h1>
+    <p id="miniFrase"></p>
+    <a href="citas.html" class="btn-cta">Reserva tu cita</a>
+
+  </div>
+</section>
+
+<style>
+/* Contenedor */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 600px;   /* ✅ Ajusta la altura del video */
+  overflow: hidden;
+}
+
+/* Video de fondo */
+.video-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Texto encima */
+.overlay-text {
+  position: relative;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+  max-width: 90%;
+}
+
+/* Animaciones */
+.overlay-text h1, .overlay-text p {
+  opacity: 0;
+  animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.overlay-text h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.overlay-text p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+/* Botón estilo marketing */
+.btn-overlay {
+  position: absolute;
+  bottom: 30px;       /* Ajusta la distancia desde el fondo */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.btn-cta {
+  background: linear-gradient(45deg, #c59d5f, #ffd700);
+  color: #111;
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.btn-cta:hover {
+  background: linear-gradient(45deg, #ffd700, #c59d5f);
+  transform: scale(1.05);
+}
+</style>
+
+<script>
+// Frases que irán rotando
+const frases = [
+  {
+    principal: "",
+    mini: ""
+  },
+  {
+    principal: "",
+    mini: ""
+  }
+];
+
+let index = 0;
+const frasePrincipal = document.getElementById("frasePrincipal");
+const miniFrase = document.getElementById("miniFrase");
+
+function cambiarFrase() {
+  index = (index + 1) % frases.length;
+  frasePrincipal.textContent = frases[index].principal;
+  miniFrase.textContent = frases[index].mini;
+
+  // Reinicia animación
+  frasePrincipal.style.animation = "none";
+  miniFrase.style.animation = "none";
+  void frasePrincipal.offsetWidth; // Forzar reflow
+  frasePrincipal.style.animation = "fadeIn 1.5s forwards";
+  miniFrase.style.animation = "fadeIn 1.5s forwards";
+}
+
+// Cambia frase cada 6 segundos
+setInterval(cambiarFrase, 6000);
+</script>
+
+</style>
+
+
+
+
+<style>
+.carousel-container {
+  margin-top: 40px; /* separa el carrusel del header */
+}
+
+.carousel-media {
+  max-width: 80%;        /* ajusta ancho */
+  max-height: 500px;     /* limita altura */
+  object-fit: contain;   /* mantiene proporción sin recortar */
+  margin-top: 20px;      /* espacio superior */
+}
+</style>
+
+
+
+
+
+<body>
+ <!-- Navbar -->
+<header class="navbar d-flex justify-content-between align-items-center">
+  <div class="logo d-flex align-items-center">
+    <img src="5454.jpg" alt="Logo Tatuaje Coyote" style="width:100px; height:100px; margin-right:10px;">
+    <h1>Coyote's Tattoo </h1>
+  </div>
+
+  <nav>
+    <ul class="d-flex gap-3 m-0 list-unstyled align-items-center">
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
+      <li><a href="galeria.html">Tatuajes</a></li>
+      <li><a href="personal.html">Tatuadores</a></li>
+  <li><a href="citas.html">Citas</a></li>
+      <!-- Botón para abrir modal  <li><a href="#citas">Citas</a></li> -->
+       
+    </ul>
+  </nav>
+</header>
+
+<!-- Modal flotante -->
+<div id="modalCodigo" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+     background: rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+  <div style="background:white; padding:20px; border-radius:10px; width:300px; text-align:center;">
+    <h3>Ingresa tu código</h3>
+    <input type="text" id="codigo" placeholder="Código" style="width:80%; padding:5px;"><br><br>
+    <button onclick="verificarCodigo()" style="padding:5px 10px;">Validar</button>
+    <p id="mensaje" style="margin:0; font-size:12px; color:red;"></p>
+    <button onclick="cerrarModal()" style="margin-top:10px; padding:3px 8px;">Cerrar</button>
+  </div>
+</div>
+
+<script>
+// Lista de códigos en orden
+let codigosUsuario = ["Q45", "R34", "T12", "A89", "B56"];
+let indiceSiguienteCodigo = 0;
+
+// Abrir modal
+function abrirModal() {
+    document.getElementById("modalCodigo").style.display = "flex";
+}
+
+// Cerrar modal
+function cerrarModal() {
+    document.getElementById("modalCodigo").style.display = "none";
+}
+
+// Verificar código
+function verificarCodigo() {
+    let codigoIngresado = document.getElementById("codigo").value.trim();
+    let mensaje = document.getElementById("mensaje");
+    
+    if(codigoIngresado === codigosUsuario[indiceSiguienteCodigo]) {
+        mensaje.style.color = "green";
+        mensaje.textContent = "Código correcto: " + codigoIngresado;
+
+        // Abrir Google Form en nueva ventana
+        window.open("https://docs.google.com/forms/d/e/1FAIpQLSf5pU7nnP10GauiyS9MrXTggr8_1yUrS-VE451lBYz7Lp_lHA/viewform", "_blank");
+
+        // Pasar al siguiente código (cíclico)
+        indiceSiguienteCodigo++;
+        if(indiceSiguienteCodigo >= codigosUsuario.length) indiceSiguienteCodigo = 0;
+
+        // Cerrar modal automáticamente
+        setTimeout(cerrarModal, 1000);
+    } else {
+        mensaje.style.color = "red";
+        mensaje.textContent = "Código incorrecto o fuera de orden";
+    }
+
+    document.getElementById("codigo").value = "";
+}
+</script>
+
+<!-- Sección del formulario -->
+
+ <!-- Tatuajes -->
+<!-- Tatuajes -->
+
+<!-- 🔽 Aquí sí va el formulario, fuera del menú -->
+
+<!-- Tatuajes -->
+<section id="galeria" class="container">
+  <h2 class="section-title">Tatuajes</h2>
+
+  <!-- Recuadro general -->
+  <div class="ink-frame">
+
+    <!-- Recuadro del título y descripción -->
+    <div class="info-box">
+      <h1>
+       
+      </h1>
+      <p>
+        Diseños personalizados, linework fino, blackwork y microrealismo. 
+        Esterilización profesional y materiales certificados. 
+        Agenda tu <strong>cita</strong> en línea en menos de 1 minuto.
+      </p>
+    </div>
+
+    <!-- Recuadro de galería -->
+    <div class="gallery-box">
+      <div class="gallery">
+        <div class="tattoo-card rectangular">
+          <img src="12.png" alt="Tattoo" data-descripcion="Tatuaje geométrico en el brazo" />
+          <div class="info">
+            <h5>Tatuaje dragon</h5>
+            <p>Tatuaje dragon en el brazo</p>
+            
+          </div>
+        </div>
+
+        <div class="tattoo-card oval">
+          <img src="13.png" alt="Tattoo" data-descripcion="Tatuaje de ojo con detalles finos" />
+          <div class="info">
+            <h5>Tatuaje de ojo</h5>
+            <p>Tatuaje de ojo con detalles finos</p>
+            
+          </div>
+        </div>
+
+        <div class="tattoo-card circular">
+          <img src="14.png" alt="Tattoo" data-descripcion="Tatuaje de león en realismo" />
+          <div class="info">
+            <h5>Tatuaje de león</h5>
+            <p>Tatuaje de león en realismo</p>
+          
+          </div>
+        </div>
+            <div class="tattoo-card rectangular">
+          <img src="coyote.jpg" alt="Tattoo" data-descripcion="Tatuaje de  coyote" />
+          <div class="info">
+            <h5>Tatuaje coyote</h5>
+            <p>Tatuaje de coyote </p>
+          
+          </div>
+        </div>
+
+        <div class="tattoo-card oval">
+          <img src="img/2m.jpg" alt="Tattoo" data-descripcion="Tatuaje de ojo con detalles finos" />
+          <div class="info">
+            <h5>Tatuaje de letering</h5>
+            <p>tatuaje lettering</p>
+           
+          </div>
+        </div>
+
+        <div class="tattoo-card circular">
+          <img src="img/5a.jpg" alt="Tattoo" data-descripcion="Tatuaje de león en realismo" />
+          <div class="info">
+            <h5>Tatuaje en blanco y negro</h5>
+            <p>Tatuaje en blanco y negro</p>
+            
+          </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* Recuadro general */
+.ink-frame {
+  border: 2px solid #444;
+  border-radius: 15px;
+  padding: 20px;
+  background: #1a1a1a;
+  margin-bottom: 40px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.05);
+}
+
+/* Recuadro de texto */
+.info-box {
+  border: 1px solid #666;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  background: #222;
+  text-align: center;
+}
+
+/* Recuadro de galería */
+.gallery-box {
+  border: 1px dashed #555;
+  border-radius: 10px;
+  padding: 20px;
+  background: #111;
+}
+
+/* Galería */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* Forzar 2 en 2 en pantallas pequeñas */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* En celulares muy pequeños (menos de 480px) → 1 por fila */
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.tattoo-card {
+  border: 1px solid #333;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #0f0f0f;
+  padding: 10px;
+  width: 100%;          /* Se adapta al grid */
+  max-width: 300px;     /* Límite en PC */
+  text-align: center;
+  margin: 0 auto;       /* Centrado */
+}
+
+.tattoo-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+</style>
+
+
+
+<style>.gallery {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tattoo-card {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 12px; /* por defecto cuadrado */
+  border: 4px dotted var(--primary); /* efecto puntos */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #111;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tattoo-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(225, 29, 72, 0.6);
+}
+
+.tattoo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit; /* respeta la forma */
+}
+
+/* Variantes */
+.tattoo-card.circular {
+  border-radius: 50%; /* círculo */
+}
+
+.tattoo-card.oval {
+  border-radius: 50% / 30%; /* ovalado */
+}
+
+.tattoo-card.rectangular {
+  border-radius: 12px; /* cuadrado/rectangular */
+}
+
+.tattoo-card .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+}
+
+</style>
+ <!-- Galería -->
+<!-- Galería -->
+<!-- ===== GALERÍA (AISLADA) ===== -->
+<section id="galeria-cg" class="cg-section">
+  <div class="cg-wrap">
+
+    <!-- Recuadro del título + descripción -->
+    <div class="cg-header">
+      <h2 class="cg-title">Servicios</h2>
+      <p class="cg-desc">
+        
+        Diseños personalizados, linework fino, blackwork y microrealismo.<br>
+        Esterilización profesional y materiales certificados. Agenda tu cita en línea en menos de 1 minuto.
+      </p>
+    </div>
+
+    <!-- Recuadro de IMÁGENES -->
+    <div class="cg-frame">
+      <div class="cg-grid">
+      
+
+        <figure class="cg-card">
+          <img src="img/8r.jpg" alt="Tatuaje de ojo" data-desc="Painting Tattoo">
+          <figcaption class="cg-info">
+            <h5>Painting Tattoo</h5>
+           
+          </figcaption>
+        </figure>
+
+        <figure class="cg-card">
+          <img src="img/2m.jpg" alt="Tatuaje de león" data-desc="lettering">
+          <figcaption class="cg-info">
+            <h5>lettering</h5>
+            
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Lightbox propio de esta sección -->
+  <div class="cg-lightbox" id="cgLightbox" aria-hidden="true">
+    <button class="cg-close" id="cgClose" aria-label="Cerrar">&times;</button>
+    <img id="cgLightboxImg" alt="">
+    <p id="cgLightboxCaption"></p>
+  </div>
+</section>
+
+<style>
+/* ===== Estilo AISLADO de la galería (prefijo cg-) ===== */
+#galeria-cg.cg-section {
+  --cg-primary: #e11d48;
+  --cg-ink: #111;
+  --cg-muted: #222;
+  --cg-white: #ffffff;
+
+  background: var(--cg-white);      /* franja blanca */
+  color: var(--cg-ink);
+  padding: 44px 20px;
+  margin: 40px 0;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+}
+
+#galeria-cg .cg-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Recuadro TÍTULO + DESCRIPCIÓN */
+#galeria-cg .cg-header {
+  background: #f5f5f5;
+  border: 1px solid #e9e9e9;
+  border-radius: 12px;
+  padding: 22px 18px;
+  margin-bottom: 26px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
+#galeria-cg .cg-title {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--cg-ink);   /* fuerte */
+}
+
+#galeria-cg .cg-desc {
+  margin: 0;
+  color: var(--cg-muted); /* fuerte/legible */
+  line-height: 1.55;
+}
+
+/* Recuadro de IMÁGENES (borde punteado) */
+#galeria-cg .cg-frame {
+  background: #fff;
+  border: 2px dotted var(--cg-primary);
+  border-radius: 14px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+/* Grid de tarjetas */
+#galeria-cg .cg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* Tarjeta */
+#galeria-cg .cg-card {
+  background: #fafafa;
+  border: 1px solid #ececec;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+#galeria-cg .cg-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+}
+
+#galeria-cg .cg-card img {
+  width: 100%;
+  height: 220px;
+  display: block;
+  object-fit: cover;
+}
+
+#galeria-cg .cg-info {
+  padding: 12px;
+  text-align: center;
+}
+
+#galeria-cg .cg-info h5 {
+  margin: 6px 0;
+  font-size: 1.05rem;
+  color: var(--cg-ink);  /* fuerte */
+}
+
+#galeria-cg .cg-price {
+  display: inline-block;
+  margin-top: 4px;
+  font-weight: 800;
+  color: var(--cg-primary);
+}
+
+/* Lightbox (aislado) */
+#galeria-cg .cg-lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 20px;
+  background: rgba(0,0,0,0.9);
+  z-index: 9999;
+}
+
+#galeria-cg .cg-lightbox.open { display: flex; }
+
+#galeria-cg .cg-lightbox img {
+  max-width: min(92vw, 1100px);
+  max-height: 80vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.6);
+}
+
+#galeria-cg #cgLightboxCaption {
+  margin-top: 12px;
+  color: #f1f1f1;
+  text-align: center;
+}
+
+#galeria-cg .cg-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+}
+</style>
+
+<script>
+/* Lightbox aislado para #galeria-cg */
+(()=> {
+  const root = document.getElementById('galeria-cg');
+  if (!root) return;
+
+  const imgs = root.querySelectorAll('.cg-card img');
+  const lightbox = root.querySelector('#cgLightbox');
+  const lbImg = root.querySelector('#cgLightboxImg');
+  const lbCap = root.querySelector('#cgLightboxCaption');
+  const btnClose = root.querySelector('#cgClose');
+
+  const open = (img) => {
+    lbImg.src = img.src;
+    lbImg.alt = img.alt || '';
+    lbCap.textContent = img.getAttribute('data-desc') || img.alt || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const close = () => {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+
+  imgs.forEach(img => img.addEventListener('click', ()=> open(img)));
+  btnClose.addEventListener('click', close);
+  lightbox.addEventListener('click', (e)=> { if (e.target === lightbox) close(); });
+  document.addEventListener('keydown', (e)=> { if (e.key === 'Escape') close(); });
+})();
+</script>
+
+
+ <!-- Personal    <strong>cita</strong> en línea en menos de 1 minuto.-->
+<section id="personal" class="container">
+  <h2 class="section-title">Tatuadores</h2>
+  <div class="ink-frame">
+    <h1>
+      Arte en piel con <span style="color:var(--primary)">seguridad</span> y 
+      <span style="color:var(--primary)">estilo</span>
+    </h1>
+    <p>
+      Diseños exclusivos y personalizados.
+    Linework fino, blackwork y microrealismo.
+     
+    </p>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="personal-card">
+          <img src="img/1r.jpg" alt="Especialista en linea fina y painting" class="clickable-img" />
+         <h5 style="color: #fff;">ROBLES</h5>
+          <p>realismo, acuarelas, black and grey, color, neotradicional y blackwork.</p>
+           <a href="robles.html" class="btn-ver-tatuajes">Ver tatuajes</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="personal-card">
+          <img src="img/9m.jpg" alt="especialista en lettering." class="clickable-img" />
+         <h5 style="color: #fff;">MARIO ALVARADO</h5>
+          <p>especialista en lettering.</p>
+           <a href="madek.html" class="btn-ver-tatuajes">Ver tatuajes</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="personal-card">
+          <img src="img/22a.jpg" alt="especialista airbrush y realismo" class="clickable-img" />
+         <h5 style="color: #fff;">ADAN SEGURA</h5>
+          <p>especialista airbrush y realismo.</p>
+           <a href="adan.html" class="btn-ver-tatuajes">Ver tatuajes</a>
+        </div>
+      </div>
+   
+  </div>
+
+
+  
+</section>
+
+
+
+  <!-- Modal -->
+  <div id="imgModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="imgPreview">
+    <div id="caption"></div>
+  </div>
+
+  <!-- Footer -->
+ 
+
+  <script>
+    // Modal
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("imgPreview");
+    const caption = document.getElementById("caption");
+    const closeBtn = document.querySelector(".close");
+
+    // Todas las imágenes clickeables
+    document.querySelectorAll(".gallery img, .personal-card img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        caption.textContent = img.alt || img.dataset.descripcion || "";
+      });
+    });
+
+    // Cerrar modal
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+    
+  </script>
+
+
+
+<style>.btn-ver-tatuajes {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 22px;
+  background: #0d1b2a;  /* Azul oscuro elegante */
+  color: #fff;          /* Texto blanco */
+  font-weight: 600;
+  border-radius: 30px;   /* Bordes redondeados */
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+.btn-ver-tatuajes:hover {
+  background: #1b263b;   /* Azul un poco más claro al hover */
+  transform: scale(1.05);
+}</style>
+<section id="servicios" class="servicios-section">
+  <h2></h2>
+
+  <!-- Switch elegante -->
+  <label class="switch">
+    <input type="checkbox" id="toggleServicios">
+    <span class="slider"></span>
+  </label>
+
+  <!-- Contenido -->
+  <div id="contenidoServicios" class="contenido">
+
+    <!-- TATUAJES -->
+    <div class="servicio" id="tatuajes">
+      <h3>Tatuajes personalizados</h3>
+      <div class="galeria">
+        <img src="img/14a.png" alt="Tatuaje 1">
+        <img src="img/1r.jpg" alt="Tatuaje 2">
+        <img src="img/2m.jpg" alt="Tatuaje 3">
+        <img src="img/3a.jpg" alt="Tatuaje 4">
+        <img src="img/5r.jpg" alt="Tatuaje 5">
+        <img src="img/a13.png" alt="Tatuaje 6">
+      </div>
+    </div>
+<style>
+.aftercare-icons p {
+  color: #000;         /* Texto negro */
+  font-weight: 500;    /* Semi-negrita para más fuerza */
+  line-height: 1.5;    /* Mejor legibilidad */
+}
+
+.servicios-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: "Poppins", sans-serif;
+
+  /* 🔥 Azul verdoso en toda la franja */
+  background: linear-gradient(90deg, #eeeff3, #f4f4f7);
+  width: 100%;       /* Ocupar todo el ancho */
+  border-radius: 0;  /* Quitar bordes redondeados */
+  margin: 0;         /* Sin márgenes a los lados */
+  color: #161616;       /* Texto blanco */
+}
+.galeria img {
+  width: 100%;
+  height: 220px;           /* 🔥 Alto fijo para todas */
+  object-fit: cover;       /* Recorta y ajusta la imagen */
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform .3s;
+}
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+
+
+</style>
+    <!-- AFTERCARE -->
+    <div class="servicio hidden" id="aftercare">
+      <h3>Cuidado y mantenimiento</h3>
+      <div class="aftercare-icons">
+        <div class="item">
+          <span class="icon">💧</span>
+          <p>Lava tu tatuaje suavemente con agua tibia y jabón neutro.</p>
+        </div>
+        <div class="item">
+          <span class="icon">🧴</span>
+          <p>Aplica crema cicatrizante recomendada por el tatuador.</p>
+        </div>
+        <div class="item">
+          <span class="icon">☀️</span>
+          <p>Evita la exposición directa al sol durante la cicatrización.</p>
+        </div>
+        <div class="item">
+          <span class="icon">🚫</span>
+          <p>No rasques ni retires costras para evitar infecciones.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section id="reseñas" style="background:#231616; padding:60px 20px; color:#fff;">
+  <h2 style="text-align:center; font-family:'Permanent Marker', cursive; color:#FFD700; margin-bottom:40px;">Reseñas de Clientes</h2>
+
+  <!-- Comentarios existentes -->
+  <div id="comentarios" style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px;">
+    <!-- Se rellenarán con JS -->
+  </div>
+
+  <!-- Formulario para dejar comentario -->
+  <div style="max-width:500px; margin:40px auto; text-align:center;">
+    <h3 style="margin-bottom:15px;">Deja tu comentario</h3>
+    <input type="text" id="nombreCliente" placeholder="Tu nombre" style="padding:10px; border-radius:8px; border:none; width:100%; margin-bottom:10px;">
+    <textarea id="textoComentario" rows="3" placeholder="Escribe tu comentario" style="padding:10px; border-radius:8px; border:none; width:100%; margin-bottom:10px;"></textarea>
+    <select id="estrellas" style="padding:10px; border-radius:8px; border:none; width:100%; margin-bottom:10px;">
+      <option value="5">★★★★★</option>
+      <option value="4">★★★★☆</option>
+      <option value="3">★★★☆☆</option>
+      <option value="2">★★☆☆☆</option>
+      <option value="1">★☆☆☆☆</option>
+    </select>
+    <button id="enviarComentario" style="padding:12px 20px; background:#FFD700; color:#231616; font-weight:bold; border:none; border-radius:10px; cursor:pointer; width:100%;">Enviar</button>
+  </div>
+</section>
+
+<script>
+  const comentariosIniciales = [
+    {nombre:'Ana R.', texto:'¡Excelente trabajo, muy profesional!', estrellas:5},
+    {nombre:'Luis M.', texto:'El tatuaje quedó increíble, super detallado.', estrellas:5},
+    {nombre:'Camila S.', texto:'Muy buena atención y creatividad.', estrellas:4},
+    {nombre:'Jorge P.', texto:'Me encantó el estilo realista.', estrellas:5},
+    {nombre:'Sofia L.', texto:'Ambiente cómodo y limpio.', estrellas:4},
+    {nombre:'Diego F.', texto:'Recomiendo 100%, volveré por otro tatuaje.', estrellas:5}
+  ];
+
+  let comentarios = JSON.parse(localStorage.getItem('comentariosTattoo')) || comentariosIniciales;
+
+  function mostrarComentarios() {
+    const contenedor = document.getElementById('comentarios');
+    contenedor.innerHTML = '';
+    comentarios.forEach(c => {
+      const div = document.createElement('div');
+      div.style.background = '#1a1a1a';
+      div.style.padding = '15px';
+      div.style.borderRadius = '12px';
+      div.style.textAlign = 'center';
+      div.innerHTML = `
+        <p style="margin:5px 0; font-weight:bold; color:#FFD700;">${c.nombre}</p>
+        <p style="margin:5px 0;">${'★'.repeat(c.estrellas)}${'☆'.repeat(5-c.estrellas)}</p>
+        <p style="margin:5px 0; color:#ccc;">${c.texto}</p>
+      `;
+      contenedor.appendChild(div);
+    });
+  }
+
+  mostrarComentarios();
+
+  document.getElementById('enviarComentario').addEventListener('click', () => {
+    const nombre = document.getElementById('nombreCliente').value.trim();
+    const texto = document.getElementById('textoComentario').value.trim();
+    const estrellas = parseInt(document.getElementById('estrellas').value);
+
+    if(!nombre || !texto) { alert('Completa todos los campos'); return; }
+
+    comentarios.push({nombre,texto,estrellas});
+    localStorage.setItem('comentariosTattoo', JSON.stringify(comentarios));
+    mostrarComentarios();
+
+    document.getElementById('nombreCliente').value = '';
+    document.getElementById('textoComentario').value = '';
+    document.getElementById('estrellas').value = '5';
+  });
+</script>
+
+
+
+
+
+
+<style>
+.servicios-section {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.servicios-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #111;
+}
+
+/* Switch elegante */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 70px;
+  height: 36px;
+  margin-bottom: 2rem;
+}
+.switch input { display: none; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(45deg, #111, #444);
+  border-radius: 50px;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 28px; width: 28px;
+  left: 4px; bottom: 4px;
+  background: white;
+  border-radius: 50%;
+  transition: .4s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+input:checked + .slider {
+  background: linear-gradient(45deg, #c59d5f, #ffd700);
+}
+input:checked + .slider:before {
+  transform: translateX(34px);
+}
+
+/* Galería tatuajes */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+.galeria img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: transform .3s;
+}
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+/* Aftercare */
+.aftercare-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  max-width: 800px;
+  margin: 2rem auto;
+}
+.item {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  transition: transform .3s;
+}
+.item:hover { transform: translateY(-5px); }
+.icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: .5rem;
+}
+
+.hidden { display: none; }
+
+.servicio {
+  animation: fadeIn .5s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+
+<script>
+const toggle = document.getElementById("toggleServicios");
+const tatuajes = document.getElementById("tatuajes");
+const aftercare = document.getElementById("aftercare");
+
+toggle.addEventListener("change", () => {
+  if (toggle.checked) {
+    tatuajes.classList.add("hidden");
+    aftercare.classList.remove("hidden");
+  } else {
+    aftercare.classList.add("hidden");
+    tatuajes.classList.remove("hidden");
+  }
+});
+</script>
+
+
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Columna 1 -->
+    <div class="footer-column">
+      <h2>Coyote Tattoo Perú</h2>
+      <p>
+        Descubre nuestro arte en tatuajes de alta calidad, diseñados para
+        expresar tu estilo y personalidad. En <strong>Coyote Tattoo</strong>, 
+        nos comprometemos a brindarte la mejor experiencia en cada diseño.
+      </p>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-column">
+      <h3>UBICACIÓN</h3>
+      <p>📍 Miraflores – Lima, Perú 🇵🇪<br>
+      🏠 Bajada Balta 127 y 135</p>
+      <!-- Google Maps -->
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.831319857298!2d-77.03118452491782!3d-12.125219088126265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81c4bdf2cb1%3A0x40b828b0b57232ce!2sBajada%20Balta%20127%2C%20Miraflores%2015047!5e0!3m2!1ses!2spe!4v1724499999999!5m2!1ses!2spe" 
+          width="100%" height="200" style="border:0;" 
+          allowfullscreen="" loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-column">
+      <h3>CONTÁCTANOS</h3>
+      <p>Teléfono: (+51) 📞 902769003<br>
+      Correo: info@cydllantas.com</p>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="footer-column">
+      <h3>HORARIOS DE ATENCIÓN</h3>
+      <p> ⏰ Lun–Sáb: 10am–9pm<br>Dom: 12–9pm</p>
+    </div>
+
+    <!-- Columna 5 -->
+    <div class="footer-column">
+      <h3>REDES SOCIALES</h3>
+      <div class="social-icons">
+        <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank">
+          <i class="bi bi-facebook"></i>
+        </a>
+        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank">
+          <i class="bi bi-instagram"></i>
+        </a>
+        <a href="https://wa.me/51908926534" target="_blank">
+          <i class="bi bi-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* --- Footer --- */
+.footer {
+  background-color: #111;
+  color: #f1f1f1;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 columnas iguales */
+  gap: 30px;
+  justify-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  max-width: 250px;
+}
+
+.footer h2, .footer h3 {
+  margin-bottom: 10px;
+  color: #facc15;
+}
+
+.footer h2 {
+  font-size: 22px;
+  color: #facc15;
+}
+
+.footer p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Títulos con efecto brillante */
+.footer h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #facc15; /* Amarillo brillante */
+  text-shadow: 0 0 5px #facc15,
+               0 0 10px #facc15,
+               0 0 20px #e11d48,
+               0 0 40px #e11d48;
+  animation: glow 2s infinite alternate;
+}
+
+/* Si quieres también para el h2 (Coyote Tattoo Perú) */
+.footer h2 {
+  font-size: 22px;
+  color: #facc15;
+  text-shadow: 0 0 5px #e11d48,
+               0 0 10px #e11d48,
+               0 0 20px #facc15,
+               0 0 40px #facc15;
+  animation: glow 2s infinite alternate;
+}
+
+/* Animación de brillo */
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #fff,
+                 0 0 10px #facc15,
+                 0 0 20px #e11d48,
+                 0 0 30px #e11d48;
+  }
+  to {
+    text-shadow: 0 0 10px #fff,
+                 0 0 20px #facc15,
+                 0 0 30px #e11d48,
+                 0 0 50px #e11d48;
+  }
+}
+
+
+
+/* Contenedor del mapa */
+.map-container {
+  margin-top: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Redes sociales centradas */
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  font-size: 28px;
+  color: #f1f1f1;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: #e11d48;
+}
+</style>
+
+
+ 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- WhatsApp -->
+ 
+
+  <a href="https://wa.me/51998189846" target="_blank" class="btn-whatsapp">💬</a>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+</body>
+</html>

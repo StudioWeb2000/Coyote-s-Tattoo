@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Leon | Coyote's Tattoo</title>
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Pirata+One&family=UnifrakturMaguntia&family=Tangerine:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Reset */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background:#131212;
+      color:#fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      background-color: #301a0b; 
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 40px;
+      box-sizing: border-box;
+    }
+    .logo {
+      height: 60px;
+      width: auto;
+      display: block;
+    }
+    nav a {
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      margin-left: 20px;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero */
+    .hero img {
+      width: 300px;
+      height: auto;
+      border-radius: 12px;
+      border: 3px solid #4ee11d;
+      display: block;
+      margin: 30px auto;
+    }
+
+    /* Artist Card */
+    .artist-card {
+      text-align: center;
+      background: #111;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.8);
+      margin: 30px auto;
+      max-width: 700px;
+    }
+    .artist-name {
+      font-family: 'UnifrakturMaguntia', cursive;
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 0 0 10px #ff0000, 0 0 20px #8B0000, 0 0 35px #ff4d4d;
+      margin: 0;
+      letter-spacing: 2px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff0000, 0 0 20px #8B0000, 0 0 35px #ff4d4d; }
+      to { text-shadow: 0 0 20px #e11d48, 0 0 40px #ff1d1d, 0 0 60px #ff4d4d; }
+    }
+    .artist-tag {
+      font-size: 1.2em;
+      color: #aaa;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .artist-description {
+      font-family: 'Tangerine', cursive;
+      font-size: 2em;
+      line-height: 1.5;
+      color: #f0f0f0;
+      text-shadow: 0 0 6px rgba(255,255,255,0.8), 0 0 12px rgba(255,255,255,0.6);
+      margin: 0 auto;
+      max-width: 600px;
+    }
+
+    /* Categorías */
+    .category {
+      padding:20px;
+      margin:0;
+    }
+    .category h2 {
+      margin-bottom:15px;
+      text-align:center;
+      font-family: 'Pirata One', cursive;
+      color:#fff;
+      font-size: 2em;
+      letter-spacing: 1px;
+      text-shadow: 0 0 8px #e11d48, 0 0 20px rgba(225,29,72,0.7);
+    }
+    .category.tinta-vegetal { background:#6E6E6E; }
+    .category.realismo { background:#3D3D3D; }
+    .category.minimalistas { background:#A9A9A9; }
+
+    /* Galería */
+    .category .gallery {
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:15px;
+    }
+    .category .gallery img {
+      width:100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius:10px;
+      border:2px solid #e11d48;
+      transition: transform .3s, box-shadow .3s;
+      cursor:pointer;
+    }
+    .category .gallery img:hover {
+      transform: scale(1.05) rotate(-1deg);
+      box-shadow: 0 15px 35px rgba(225,29,72,0.4);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display:none;
+      position:fixed;
+      z-index:9999;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.9);
+      justify-content:center;
+      align-items:center;
+    }
+    .lightbox img {
+      max-width:90%;
+      max-height:80%;
+      border:4px solid #e11d48;
+      border-radius:12px;
+    }
+    .lightbox:target { display:flex; }
+    .lightbox a {
+      position:absolute;
+      top:20px;
+      right:30px;
+      font-size:40px;
+      color:#fff;
+      text-decoration:none;
+      font-weight:bold;
+    }
+    .lightbox a:hover { color:#e11d48; }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      background: #111;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .social-follow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      margin: 20px 0;
+    }
+    .social-follow a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .social-follow a:hover { transform: scale(1.2); }
+    .instagram { color: #E1306C; }
+    .facebook { color: #1877F2; }
+    .social-follow i { font-size: 45px; }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo-link">
+      <img src="logo coyotes tattoo.png" alt="Coyote's Tattoo" class="logo">
+    </a>
+    <nav>
+     
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <div class="hero">
+      <img src="img/9m.jpg" alt="Mario Alvarado, artista del lettering">
+    </div>
+
+    <!-- Artista -->
+    <div class="artist-card">
+      <h2 class="artist-name">𝕸𝖆𝖗𝖎𝖔 𝕬𝖑𝖛𝖆𝖗𝖆𝖉𝖔</h2>
+      <h3 class="artist-tag">(madek_404)</h3>
+      <p class="artist-description">
+        Artista especializado en <strong>Lettering Chicano</strong> y 
+        <strong>Tattoo Custom Lettering</strong>.  
+        Cada trazo refleja <em>identidad, fuerza y personalidad</em>, 
+        fusionando la tradición del arte urbano con un estilo moderno y único.
+      </p>
+    </div>
+
+    <!-- Categorías -->
+    <div class="categories">
+      <div class="category tinta-vegetal">
+        <h2>𝕷𝖊𝖙𝖙𝖊𝖗𝖎𝖓𝖌 𝕮𝖍𝖎𝖈𝖆𝖓𝖔</h2>
+        <div class="gallery">
+          <a href="#img1"><img src="img/1m.jpg" alt="Lettering chicano 1"></a>
+          <a href="#img2"><img src="img/2m.jpg" alt="Lettering chicano 2"></a>
+          <a href="#img3"><img src="img/3m.jpg" alt="Lettering chicano 3"></a>
+        </div>
+      </div>
+
+      <div class="category realismo">
+        <h2>𝕿𝖆𝖙𝖙𝖔𝖔 𝕮𝖚𝖘𝖙𝖔𝖒 𝖑𝖊𝖙𝖙𝖊𝖗𝖎𝖓𝖌</h2>
+        <div class="gallery">
+          <a href="#img4"><img src="img/4m.jpg" alt="Lettering custom 1"></a>
+          <a href="#img5"><img src="img/5m.jpg" alt="Lettering custom 2"></a>
+          <a href="#img6"><img src="img/6m.jpg" alt="Lettering custom 3"></a>
+        </div>
+      </div>
+
+      <div class="category minimalistas">
+        <h2>𝕮𝖍𝖎𝖈𝖆𝖓𝖔 𝖆𝖗𝖙 , 𝕷𝖔𝖌𝖔𝖘</h2>
+        <div class="gallery">
+          <a href="#img7"><img src="img/7m.jpg" alt="Chicano art 1"></a>
+          <a href="#img8"><img src="img/8m.jpg" alt="Chicano art 2"></a>
+          <a href="#img9"><img src="img/2m.jpg" alt="Chicano art 3"></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div id="img1" class="lightbox"><img src="img/1m.jpg"><a href="#">✖</a></div>
+  <div id="img2" class="lightbox"><img src="img/2m.jpg"><a href="#">✖</a></div>
+  <div id="img3" class="lightbox"><img src="img/3m.jpg"><a href="#">✖</a></div>
+  <div id="img4" class="lightbox"><img src="img/4m.jpg"><a href="#">✖</a></div>
+  <div id="img5" class="lightbox"><img src="img/5m.jpg"><a href="#">✖</a></div>
+  <div id="img6" class="lightbox"><img src="img/6m.jpg"><a href="#">✖</a></div>
+  <div id="img7" class="lightbox"><img src="img/7m.jpg"><a href="#">✖</a></div>
+  <div id="img8" class="lightbox"><img src="img/8m.jpg"><a href="#">✖</a></div>
+  <div id="img9" class="lightbox"><img src="img/2m.jpg"><a href="#">✖</a></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <h3>Síguenos en nuestras redes sociales</h3>
+    <div class="social-follow">
+      <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram">
+        <i class="fab fa-instagram"></i>
+        <span>@coyotetattoo</span>
+      </a>
+      <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" class="facebook">
+        <i class="fab fa-facebook"></i>
+        <span>/coyotetattoo</span>
+      </a>
+    </div>
+    <p>© 2025 Coyote's Tattoo | Lima</p>
+  </footer>
+
+</body>
+</html>
