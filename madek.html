@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -195,7 +193,7 @@
   <div class="banner-content">
     <!-- Logo y nombre -->
     <div class="logo-container">
-      <img src="logo coyotes tattoo.png"Coyote Tattoo" class="logo">
+     <a href="index.html"><img src="logo coyotes tattoo.png" alt="Coyote's Tattoo Logo" class="logo"></a>
       <h1 class="title">Coyote Tattoo</h1>
     </div>
 
@@ -211,7 +209,7 @@
   position: relative;
   width: 100%;
   height: 400px; /* 🔥 controla la altura */
-  background: url("img/122.png") no-repeat center center;
+  background: url("122.png") no-repeat center center;
   background-size: cover;
   display: flex;
   align-items: flex-start;  /* contenido arriba */
@@ -300,7 +298,7 @@
     </button>
     <button class="gallery-btn" data-gallery="tintas">
       <img src="img/4r.jpg" alt="Tintas">
-      <span>Tintas</span>
+      <span>logos</span>
     </button>
   </div>
 
@@ -311,13 +309,17 @@
       <a href="#img1"><img src="img/1m.jpg" alt="Lettering 1"></a>
       <a href="#img2"><img src="img/2m.jpg" alt="Lettering 2"></a>
       <a href="#img3"><img src="img/3m.jpg" alt="Lettering 3"></a>
+       <a href="#img8"><img src="img/8m.jpg" alt="Lettering 3"></a>
+       
     </div>
 
     <!-- Tintas -->
     <div class="gallery-set" id="tintas">
-      <a href="#img4"><img src="img/4r.jpg" alt="Tintas 1"></a>
-      <a href="#img5"><img src="img/5r.jpg" alt="Tintas 2"></a>
-      <a href="#img6"><img src="img/6r.jpg" alt="Tintas 3"></a>
+      <a href="#img4"><img src="img/4m.jpg" alt="Tintas 1"></a>
+      <a href="#img5"><img src="img/5m.jpg" alt="Tintas 2"></a>
+      <a href="#img6"><img src="img/6m.jpg" alt="Tintas 3"></a>
+       <a href="#img7"><img src="img/7m.jpg" alt="Tintas 4"></a>
+
     </div>
   </div>
 </section>
@@ -329,6 +331,9 @@
 <div id="img4" class="lightbox"><img src="img/4r.jpg"><a href="#">✖</a></div>
 <div id="img5" class="lightbox"><img src="img/5r.jpg"><a href="#">✖</a></div>
 <div id="img6" class="lightbox"><img src="img/6r.jpg"><a href="#">✖</a></div>
+<div id="img7" class="lightbox"><img src="img/7m.jpg"><a href="#">✖</a></div>
+<div id="img8" class="lightbox"><img src="img/8m.jpg"><a href="#">✖</a></div>
+
 <style>.galeria-seccion {
   text-align: center;
   padding: 40px 20px;
@@ -426,27 +431,207 @@ document.querySelectorAll('.gallery-btn').forEach(btn => {
 </script>
 
 
-  <!-- Botón siguiente tatuador -->
-  <div class="next-artist">
+  <!-- Botón siguiente tatuador   <div class="next-artist">
     <a href="adan.html">⟶ Ver siguiente tatuador</a>
       <a href="robles.html">⟶ Ver anterior tatuador</a>
   </div>
+-->
+  
+<!-- Navegación entre tatuadores -->
+<section class="artist-navigation">
+  <a href="robles.html" class="nav-btn">← Anterior Tatuador</a>
+  <a href="adan.html" class="nav-btn">Siguiente Tatuador →</a>
+</section>
+
+<style>/* Navegación de tatuadores */
+.artist-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  padding: 20px 40px;
+  margin-top: 30px;
+}
+.artist-navigation .nav-btn {
+  color: #f5f5f5;
+  font-size: 1.1rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s;
+}
+.artist-navigation .nav-btn:hover {
+  color: #e11d48;
+  transform: scale(1.05);
+}
+</style>
+<!-- Footer -->
+
+  
 
   <!-- FOOTER -->
-  <footer>
-    <h3>Síguenos en nuestras redes sociales</h3>
-    <div class="social-follow">
-      <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram">
-        <i class="fab fa-instagram"></i>
-        <span>@coyotetattoo</span>
-      </a>
-      <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" class="facebook">
-        <i class="fab fa-facebook"></i>
-        <span>/coyotetattoo</span>
-      </a>
+ <!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Columna 1 -->
+    <div class="footer-column">
+      <h2>Coyote Tattoo Perú</h2>
+      <p>
+        Descubre nuestro arte en tatuajes de alta calidad, diseñados para expresar tu estilo y personalidad. En <strong>Coyote Tattoo</strong>, nos comprometemos a brindarte la mejor experiencia en cada diseño.
+      </p>
     </div>
-    <p>© 2025 Coyote's Tattoo | Lima</p>
-  </footer>
+
+    <!-- Columna 2 -->
+    <div class="footer-column">
+      <h3>UBICACIÓN</h3>
+      <p>📍 Miraflores – Lima, Perú 🇵🇪<br>🏠 Bajada Balta 127 y 135</p>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.831319857298!2d-77.03118452491782!3d-12.125219088126265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81c4bdf2cb1%3A0x40b828b0b57232ce!2sBajada%20Balta%20127%2C%20Miraflores%2015047!5e0!3m2!1ses!2spe!4v1724499999999!5m2!1ses!2spe" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-column">
+      <h3>CONTÁCTANOS</h3>
+      <p>Teléfono: (+51) 📞 902769003</p>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="footer-column">
+      <h3>HORARIOS DE ATENCIÓN</h3>
+      <p>⏰ Lun–Sáb: 10am–9pm<br>Dom: 12–9pm</p>
+    </div>
+
+    <!-- Columna 5 -->
+    <div class="footer-column">
+      <h3>REDES SOCIALES</h3>
+        <div class="social-icons">
+    
+        <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://wa.me/51998189846" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+    
+  /* Colores originales */
+ .social-icons a.facebook { color: #1877F2; }
+  .social-icons a.instagram { 
+    color: #E1306C; 
+   
+   
+  }
+  .social-icons a.whatsapp { color: #25D366; }
+  /* Footer general */
+  .footer {
+  background: #231616;
+    color: #fff;
+    padding: 40px 20px;
+    width: 100%;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+  }
+
+  .footer-column {
+    flex: 1 1 200px;
+    min-width: 200px;
+  }
+
+  .footer-column h2, .footer-column h3 {
+    margin-bottom: 15px;
+    color: #FFD700;
+  }
+
+  .footer-column p {
+    line-height: 1.6;
+  }
+
+  /* Iconos de redes sociales */
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .social-icons a {
+    color: #fff;
+    font-size: 24px;
+    transition: transform 0.2s;
+  }
+
+  .social-icons a:hover {
+    transform: scale(1.2);
+    color: #FFD700;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-column {
+      min-width: 100%;
+    }
+
+    .map-container iframe {
+      height: 150px;
+    }
+  }
+  .btn-inicio {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #FFD700;
+    color: #000;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: 0.3s;
+    z-index: 999;
+  }
+
+  .btn-inicio:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.1);
+  }
+
+</style>
+
+</style>
+
+<a href="index.html" class="btn-inicio">⬆️ Ir a inicio</a>
+
+</style>
+
+
+ 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- WhatsApp -->
+ 
+
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+ 
 
 </body>
 </html>
+
+
