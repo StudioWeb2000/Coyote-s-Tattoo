@@ -9,216 +9,495 @@
 
   <!-- Tipografía estilo tatuaje -->
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-     header {
-      width: 100%;
-        background-color: #301a0b; 
-      padding: 15px 40px;
-      box-sizing: border-box;
+    /* VARIABLES DE COLOR */
+    :root {
+      --bg: #131212;
+      --surface: #1a1a1a;
+      --surface-2: #231616;
+      --fg: #fff;
+      --muted: #ccc;
+      --primary: #e11d48;
+      --accent: #FFD700;
     }
 
-    .header-container {
-      display: flex;
-      align-items: center;
+    /* RESET Y BODY */
+    *{box-sizing:border-box;}
+    html, body {height:100%; margin:0; padding:0; font-family: 'Montserrat', sans-serif; color: var(--fg);}
+ body {
+  margin: 0;
+  background: #000; /* 🔥 Fondo negro */
+  font-family: 'Montserrat', sans-serif;
+  color: #fff; /* texto en blanco */
+}
+
+    header, footer {padding:20px; text-align:center; background:var(--surface-2);}
+    nav a {margin:0 10px; color:var(--fg); text-decoration:none;}
+    nav a:hover {color:var(--primary);}
+    
+    h1,h2 {margin:10px 0;}
+
+    main {padding: 20px; flex:1;}
+
+    /* LOGO */
+    .logo {width:120px; height:auto; display:block; margin:0 auto;}
+
+    /* HERO - Conoce a Fido */
+    .fido-section {padding:4rem 2rem; background: rgba(0,0,0,0.6); border-radius:12px; max-width:1200px; margin: 30px auto; box-shadow:0 10px 40px rgba(0,0,0,0.7);}
+    .fido-container {display:flex; align-items:center; gap:40px; flex-wrap:wrap;}
+    .fido-img img {width:400px; max-width:100%; border-radius:12px; object-fit:cover; border:3px solid var(--primary);}
+    .fido-text h2 {font-family:'Permanent Marker', cursive; color:var(--primary); margin-bottom:1rem; text-shadow:0 0 6px var(--primary), 0 0 12px var(--primary);}
+    .fido-text p {line-height:1.6; margin-bottom:1rem; color:#ddd;}
+
+    @media (max-width:768px){
+      .fido-container {flex-direction:column; text-align:center;}
+      .fido-img img {margin-bottom:20px;}
     }
 
-    .logo {
-      width: 120px;
-      height: auto;
-      display: block;
-    }
+    /* EQUIPO */
+    .team {display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px; padding:10px 0;}
+    .member {text-align:center; background:var(--surface); padding:20px; border-radius:12px; transition: transform .3s, box-shadow .3s; cursor:pointer;}
+    .member:hover {transform:translateY(-10px); box-shadow: 0 15px 35px rgba(225,29,72,.4);}
+    .member img {width:120px; height:120px; border-radius:50%; object-fit:cover; border:3px solid var(--primary); margin-bottom:12px; transition: transform .3s;}
+    .member img:hover {transform:scale(1.08);}
+    .member p {color:var(--muted); font-size:14px; margin:8px 0 6px;}
+    .member h3 {font-family:'Permanent Marker', cursive; margin:6px 0 12px; color:var(--primary); font-size:22px; text-shadow:0 0 6px var(--primary),0 0 12px var(--primary);}
+    .btn {display:inline-block; padding:10px 14px; border-radius:10px; font-weight:600; background:var(--primary); color:#fff; text-decoration:none; transition: transform .2s, box-shadow .2s, opacity .2s; cursor:pointer;}
+    .btn:hover {transform:translateY(-2px); box-shadow:0 8px 20px rgba(225,29,72,.35); opacity:.95;}
 
-    /* Hero */
-    .hero img {
-      width: 300px;
-      height: auto;
-      border-radius: 12px;
-      border: 3px solid #336775;
-      display: block;
-      margin: 30px auto;
-    }
+    /* MODAL */
+    .modal {display:none; position:fixed; inset:0; width:100%; height:100%; background: rgba(0,0,0,.85); justify-content:center; align-items:center; z-index:1000; padding:20px;}
+    .modal-content {background:#222; border-radius:12px; max-width:90%; width:auto; text-align:center; padding:15px; position:relative;}
+    .modal-content img {width:100%; height:auto; max-height:80vh; object-fit:contain; border-radius:12px;}
+    .modal-content p {margin:10px 0; color:#f0f0f0;}
+    .close-btn {position:absolute; top:10px; right:10px; background:var(--primary); border:none; color:#fff; font-size:18px; padding:4px 10px; border-radius:6px; cursor:pointer;}
 
-    :root{
-      --bg:#131212; --surface:#1a1a1a; --surface-2:#231616; --fg:#fff; --muted:#ccc; --primary:#e11d48;
-    }
-    *{box-sizing:border-box}
-    body { font-family: 'Montserrat', sans-serif; margin:0; padding:0; background:var(--bg); color:var(--fg); }
+    /* RESEÑAS DE TATUAJES */
+    .tatuajes-section {text-align:center; padding:4rem 1rem; background: linear-gradient(120deg, rgba(30,0,0,0.8), rgba(60,0,0,0.9)); border-radius:12px; box-shadow:0 10px 40px rgba(0,0,0,0.7);}
+    .tatuajes-section h2 {font-family:'Permanent Marker', cursive; color:var(--accent); margin-bottom:2rem; text-shadow:0 0 6px var(--accent), 0 0 12px var(--accent);}
+    .tatuajes-grid {display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:20px;}
+    .tatuaje-item {background: rgba(0,0,0,0.6); padding:15px; border-radius:12px; transition: transform .3s, box-shadow .3s, border-color .3s; border:1px solid var(--primary);}
+    .tatuaje-item:hover {transform:translateY(-5px) scale(1.02); box-shadow:0 15px 35px rgba(225,29,72,0.6); border-color: var(--accent);}
+    .tatuaje-item img {width:100%; height:180px; object-fit:cover; border-radius:10px; margin-bottom:10px;}
+    .tatuaje-item h3 {font-family:'Permanent Marker', cursive; color:var(--accent); margin-bottom:6px; text-shadow:0 0 6px var(--accent),0 0 12px var(--accent);}
+    .tatuaje-item p {font-size:14px; color:#fff; margin-bottom:6px;}
 
-    header, footer { padding:20px; text-align:center; background:var(--surface-2); }
-    nav a { margin:0 10px; color:var(--fg); text-decoration:none; }
-    nav a:hover { color:var(--primary); }
+    @media(max-width:768px){.tatuajes-grid {grid-template-columns:1fr;} .tatuaje-item img {height:160px;}}
 
-    h1,h2 { margin:10px 0; }
-    main { padding: 20px; }
-
-    .team {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      padding: 10px 0;
-    }
-
-    .member {
-      text-align:center; background:var(--surface); padding:20px; border-radius:12px;
-      transition: transform .3s, box-shadow .3s; cursor:pointer;
-    }
-    .member:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(225,29,72,.4); }
-    .member img { width:120px; height:120px; border-radius:50%; object-fit:cover; border: 3px solid var(--primary); margin-bottom:12px; transition: transform .3s; }
-    .member img:hover { transform: scale(1.08); }
-
-    .member p { color:var(--muted); font-size:14px; margin: 8px 0 6px; }
-    .member h3 { font-family: 'Permanent Marker', cursive; margin:6px 0 12px; color:var(--primary); font-size:22px; }
-
-    /* Botón "Ver tatuajes" */
-    .btn {
-      display:inline-block; padding:10px 14px; border-radius:10px; font-weight:600;
-      background:var(--primary); color:#fff; text-decoration:none; transition: transform .2s, box-shadow .2s, opacity .2s;
-      cursor:pointer;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow:0 8px 20px rgba(225,29,72,.35); opacity:.95; }
-
-    /* Modal */
-    .modal { display:none; position:fixed; inset:0; width:100%; height:100%; background: rgba(0,0,0,.85); justify-content:center; align-items:center; z-index:1000; padding:20px; }
-    .modal-content { 
-      background:#222; 
-      border-radius:12px; 
-      max-width:90%; 
-      width:auto; 
-      text-align:center; 
-      padding:15px; 
-      position:relative; 
-    }
-    .modal-content img { 
-      width:100%; 
-      height:auto; 
-      max-height:80vh; 
-      object-fit:contain; 
-      border-radius:12px; 
-    }
-    .modal-content p { margin:10px 0; color:#f0f0f0; }
-    .close-btn { position:absolute; top:10px; right:10px; background:var(--primary); border:none; color:#fff; font-size:18px; padding:4px 10px; border-radius:6px; cursor:pointer; }
-
-    /* Nav con <ul> (opcional) */
-    nav ul { list-style:none; padding:0; margin:0; display:flex; gap:20px; }
-    nav ul li a { text-decoration:none; color:#000; font-weight:bold; transition:color .3s; }
-    nav ul li a:hover { color:var(--primary); }
-
-    /* Instagram footer */
-    .instagram-follow { text-align:center; margin:20px 0; }
-    .instagram-follow a { display:inline-block; text-decoration:none; }
-    .instagram-text { font-family:'Permanent Marker', cursive; font-size:18px; color:#E1306C; margin-top:5px; }
+    /* FOOTER */
+    .instagram-follow {text-align:center; margin:20px 0;}
+    .instagram-follow a {display:inline-block; text-decoration:none; margin:0 10px;}
+    .instagram-text, .facebook-text {font-family:'Permanent Marker', cursive; font-size:18px; color:#E1306C; margin-top:5px;}
+    footer {margin-top:auto; color:#fff;}
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="header-container">
-      <a href="index.html">
-        <img src="logo coyotes tattoo.png" alt="Coyote's Tattoo Logo" class="logo">
-      </a>
+<!-- HEADER / BANNER -->
+<header class="banner">
+  <div class="banner-content">
+    <!-- Logo y nombre -->
+    <div class="logo-container">
+      <img src="logo coyotes tattoo.png"Coyote Tattoo" class="logo">
+      <h1 class="title">Coyote Tattoo</h1>
     </div>
-  </header>
 
-  <main>
-    <h2>Nuestro Equipo</h2>
-
-    <div class="team">
-      <div class="member" data-img="img/9m.jpg" data-desc="𝕷𝖊𝖙𝖙𝖊𝖗𝖎𝖓𝖌 𝕮𝖍𝖎𝖈𝖆𝖓𝖔 ,𝕿𝖆𝖙𝖙𝖔𝖔 𝕮𝖚𝖘𝖙𝖔𝖒 𝖑𝖊𝖙𝖙𝖊𝖗𝖎𝖓𝖌 ,𝕮𝖍𝖎𝖈𝖆𝖓𝖔 𝖆𝖗𝖙 , 𝕷𝖔𝖌𝖔𝖘">
-        <img src="img/9m.jpg" alt="Artista 1">
-        <p>𝕷𝖊𝖙𝖙𝖊𝖗𝖎𝖓𝖌 𝕮𝖍𝖎𝖈𝖆𝖓𝖔 ,𝕿𝖆𝖙𝖙𝖔𝖔 𝕮𝖚𝖘𝖙𝖔𝖒 𝖑𝖊𝖙𝖙𝖊𝖗𝖎𝖓𝖌 ,𝕮𝖍𝖎𝖈𝖆𝖓𝖔 𝖆𝖗𝖙 , 𝕷𝖔𝖌𝖔𝖘.</p>
-        <h3>𝕸𝖆𝖗𝖎𝖔 𝕬𝖑𝖛𝖆𝖗𝖆𝖉𝖔(madek_404)</h3>
-        <a class="btn" href="madek.html">Ver tatuajes</a>
-      </div>
-
-      <div class="member" data-img="img/22a.jpg" data-desc="Realismo color - black and grey">
-        <img src="img/22a.jpg" alt="Artista 2">
-        <p>Realismo color - black and grey.</p>
-        <h3>Adan Segura Art </h3>
-        <a class="btn" href="adan.html">Ver tatuajes</a>
-      </div>
-
-      <div class="member" data-img="img/1r.jpg" data-desc="realismo, acuarelas, black and grey, color, neotradicional y blackwork.">
-        <img src="img/1r.jpg" alt="Artista 3">
-        <p>realismo, acuarelas, black and grey, color, neotradicional y blackwork.</p>
-        <h3>Robles Ronnie(robles_tattooo) </h3>
-        <a class="btn" href="robles.html">Ver tatuajes</a>
-      </div>
-
-    
-    </div>
-  </main>
-
-  <!-- Modal -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <button class="close-btn" id="closeBtn" aria-label="Cerrar modal">&times;</button>
-      <img id="modalImg" src="" alt="">
-      <p id="modalDesc"></p>
+    <!-- Menú hamburguesa -->
+    <div class="menu-toggle">
+      <i class="bi bi-list"></i>
     </div>
   </div>
+</header>
 
-  
 
-  <footer>
-    <div class="instagram-follow">
-      <a href="https://instagram.com/coyotetattoo" target="_blank" title="Sígueme en Instagram" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#E1306C" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.97.24 2.43.402a4.92 4.92 0 0 1 1.785 1.049 4.92 4.92 0 0 1 1.049 1.785c.162.46.346 1.26.402 2.43.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.402 2.43a4.92 4.92 0 0 1-1.049 1.785 4.92 4.92 0 0 1-1.785 1.049c-.46.162-1.26.346-2.43.402-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.43-.402a4.92 4.92 0 0 1-1.785-1.049 4.92 4.92 0 0 1-1.049-1.785c-.162-.46-.346-1.26-.402-2.43C2.175 15.747 2.163 15.367 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.97.402-2.43a4.92 4.92 0 0 1 1.049-1.785A4.92 4.92 0 0 1 5.47 2.635c.46-.162 1.26-.346 2.43-.402C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.014 7.052.072 5.775.129 4.733.328 3.888.641a6.919 6.919 0 0 0-2.52 1.646A6.919 6.919 0 0 0 .641 4.807c-.313.845-.512 1.887-.569 3.164C0 8.332 0 8.741 0 12s.014 3.668.072 4.948c.057 1.277.256 2.319.569 3.164a6.919 6.919 0 0 0 1.646 2.52 6.919 6.919 0 0 0 2.52 1.646c.845.313 1.887.512 3.164.569C8.332 24 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.057 2.319-.256 3.164-.569a6.919 6.919 0 0 0 2.52-1.646 6.919 6.919 0 0 0 1.646-2.52c.313-.845.512-1.887.569-3.164C24 15.668 24 15.259 24 12s-.014-3.668-.072-4.948c-.057-1.277-.256-2.319-.569-3.164a6.919 6.919 0 0 0-1.646-2.52A6.919 6.919 0 0 0 19.112.641c-.845-.313-1.887-.512-3.164-.569C15.668.014 15.259 0 12 0z"/>
-          <circle cx="12" cy="12" r="3.2"/>
-          <circle cx="18.4" cy="5.6" r="1.44"/>
-        </svg>
-        <div class="instagram-text">@coyotetattoo</div>
-      </a>
-        <!-- Facebook -->
-    <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" title="Sígueme en Facebook" rel="noopener">
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#1877F2" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.342v21.316C0 23.4.6 24 1.325 24h11.495V14.709H9.691v-3.62h3.129V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.464.099 2.795.143v3.24l-1.918.001c-1.504 0-1.794.715-1.794 1.763v2.31h3.587l-.467 3.62h-3.12V24h6.116C23.4 24 24 23.4 24 22.658V1.342C24 .6 23.4 0 22.675 0z"/>
-      </svg>
-      <div class="facebook-text">/coyotetattoo</div>
-    </a>
-
-  </div>
- 
-
-  <!-- JS Modal -->
-  <script>
-    const modal    = document.getElementById('modal');
-    const modalImg = document.getElementById('modalImg');
-    const modalDesc= document.getElementById('modalDesc');
-    const closeBtn = document.getElementById('closeBtn');
-
-    document.querySelectorAll('.member').forEach(member => {
-      member.addEventListener('click', (e) => {
-        // Evitar que el click en el botón abra el modal
-        if(e.target.closest('.btn')) return;
-        modal.style.display = 'flex';
-        modalImg.src  = member.dataset.img || '';
-        modalDesc.textContent = member.dataset.desc || '';
-      });
-    });
-
-    closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
-    modal.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
-  </script>
-     </div>
-    <p>© 2025 Coyote's Tattoo | Miraflorehhmdfdmds, Lima</p>
-  </footer>
-  <style>html, body {
-  height: 100%;
-}
-
-body {
+<style>.banner {
+  position: relative;
+  width: 100%;
+  height: 400px; /* 🔥 controla la altura */
+  background: url("img/122.png") no-repeat center center;
+  background-size: cover;
   display: flex;
-  flex-direction: column;
+  align-items: flex-start;  /* contenido arriba */
+  justify-content: space-between;
+  padding: 20px 40px;
 }
 
-main {
-  flex: 1;
+.banner-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
-footer {
-  margin-top: auto;
-}</style>
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 60px; /* ajusta el tamaño del logo */
+}
+
+.title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 28px;
+  color: white;
+  margin: 0;
+}
+
+.menu-toggle {
+  font-size: 36px;
+  color: rgb(13, 13, 13);
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner {
+    height: 250px; /* más pequeño en móvil */
+    padding: 15px 20px;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .menu-toggle {
+    font-size: 30px;
+  }
+}
+</style>
+
+
+
+  <!-- MODAL -->
+ <div class="equipo-grid">
+  <div class="tatuador" data-img="img/9m.jpg" data-desc="Lettering Chicano, Tattoo Custom, Chicano Art, Logos">
+    <img src="img/9m.jpg" alt="Mario Alvarado">
+    <div class="info">
+      <h3>Mario Alvarado</h3>
+      <p>Lettering Chicano, Tattoo Custom, Chicano Art, Logos</p>
+      <a class="btn" href="madek.html">Ver tatuajes</a>
+    </div>
+  </div>
+
+  <div class="tatuador" data-img="img/22a.jpg" data-desc="Realismo color - Black & Grey">
+    <img src="img/22a.jpg" alt="Adan Segura">
+    <div class="info">
+      <h3>Adan Segura</h3>
+      <p>Realismo color - Black & Grey</p>
+      <a class="btn" href="adan.html">Ver tatuajes</a>
+    </div>
+  </div>
+
+  <div class="tatuador" data-img="img/1r.jpg" data-desc="Realismo, Acuarela, Black & Grey, Color, Neotradicional, Blackwork">
+    <img src="img/1r.jpg" alt="Robles Ronnie">
+    <div class="info">
+      <h3>Robles Ronnie</h3>
+      <p>Realismo, Acuarela, Black & Grey, Color, Neotradicional, Blackwork</p>
+      <a class="btn" href="robles.html">Ver tatuajes</a>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <img id="modalImg" src="" alt="">
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+<style>
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 2rem;
+}
+
+.tatuador {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1a1a1a;
+  cursor: pointer;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.tatuador:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(29, 225, 55, 0.3);
+}
+
+.tatuador img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  transition: transform .3s;
+}
+
+.tatuador .info {
+  background: #101010; /* Marrón oscuro */
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.tatuador .info h3 {
+  font-family: 'Permanent Marker', cursive;
+  color: #FFD700; /* Dorado */
+  margin-bottom: 8px;
+}
+
+.tatuador .info p {
+  font-size: 14px;
+  margin: 0 0 10px 0;
+}
+
+.tatuador .info .btn {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #131b8b; /* Marrón intenso */
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform .2s, box-shadow .2s, opacity .2s;
+}
+
+.tatuador .info .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(17, 16, 16, 0.5);
+  opacity: .95;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #111010; /* Marrón oscuro */
+  border-radius: 12px;
+  max-width: 90%;
+  width: auto;
+  text-align: center;
+  padding: 15px;
+  position: relative;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  margin: 10px 0 0 0;
+  color: #fff;
+  font-size: 16px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #8b4513;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+</style>
+
+<script>
+const modal    = document.getElementById('modal');
+const modalImg = document.getElementById('modalImg');
+const modalDesc= document.getElementById('modalDesc');
+const closeBtn = document.getElementById('closeBtn');
+
+document.querySelectorAll('.tatuador img').forEach(img => {
+  img.addEventListener('click', (e) => {
+    const parent = img.closest('.tatuador');
+    modal.style.display = 'flex';
+    modalImg.src = parent.dataset.img;
+    modalDesc.textContent = parent.dataset.desc;
+  });
+});
+
+closeBtn.addEventListener('click', () => modal.style.display = 'none');
+modal.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+</script>
+
+
+  <!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Columna 1 -->
+    <div class="footer-column">
+      <h2>Coyote Tattoo Perú</h2>
+      <p>
+        Descubre nuestro arte en tatuajes de alta calidad, diseñados para expresar tu estilo y personalidad. En <strong>Coyote Tattoo</strong>, nos comprometemos a brindarte la mejor experiencia en cada diseño.
+      </p>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-column">
+      <h3>UBICACIÓN</h3>
+      <p>📍 Miraflores – Lima, Perú 🇵🇪<br>🏠 Bajada Balta 127 y 135</p>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.831319857298!2d-77.03118452491782!3d-12.125219088126265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81c4bdf2cb1%3A0x40b828b0b57232ce!2sBajada%20Balta%20127%2C%20Miraflores%2015047!5e0!3m2!1ses!2spe!4v1724499999999!5m2!1ses!2spe" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-column">
+      <h3>CONTÁCTANOS</h3>
+      <p>📞 Teléfono: (+51) 902769003</p>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="footer-column">
+      <h3>HORARIOS DE ATENCIÓN</h3>
+      <p>⏰ Lun–Sáb: 10am–9pm<br>Dom: 12–9pm</p>
+    </div>
+
+    <!-- Columna 5 -->
+    <div class="footer-column">
+      <h3>REDES SOCIALES</h3>
+      <div class="social-icons">
+        <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://wa.me/51998189846" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTÓN FLOTANTE IR A INICIO -->
+<a href="index.html" class="btn-inicio">⬆️ Ir a inicio</a>
+
+<style>
+  /* Footer general */
+  .footer {
+    background: #231616;
+    color: #fff;
+    padding: 40px 20px;
+    width: 100%;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+  }
+
+  .footer-column {
+    flex: 1 1 200px;
+    min-width: 200px;
+  }
+
+  .footer-column h2, .footer-column h3 {
+    margin-bottom: 15px;
+    color: #FFD700;
+  }
+
+  .footer-column p {
+    line-height: 1.6;
+  }
+
+  /* Iconos de redes sociales */
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .social-icons a {
+    font-size: 28px;
+    transition: transform 0.2s;
+  }
+
+  /* Colores originales */
+  .social-icons a.facebook { color: #1877F2; }
+  .social-icons a.instagram { 
+    color: #E1306C; 
+    background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+   
+    -webkit-text-fill-color: transparent;
+  }
+  .social-icons a.whatsapp { color: #25D366; }
+
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }
+
+  /* Botón flotante */
+  .btn-inicio {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #FFD700;
+    color: #000;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: 0.3s;
+    z-index: 999;
+  }
+
+  .btn-inicio:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.1);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-column {
+      min-width: 100%;
+    }
+
+    .map-container iframe {
+      height: 150px;
+    }
+  }
+</style>
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 </body>
 </html>
