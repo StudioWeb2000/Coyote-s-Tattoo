@@ -3,212 +3,443 @@
 <head>
   <meta charset="UTF-8">
   <title>Coyote's Tattoo | Servicios</title>
-  <!-- Google Fonts: estilo tatuaje -->
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Roboto', sans-serif;
       margin: 0;
-      padding: 0;
-      background: #131212;
+      font-family: 'Roboto', sans-serif;
+      background: #0d0d0d;
       color: #fff;
     }
-  .close {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      color: #fff;
-      font-size: 30px;
-      font-weight: bold;
-      text-decoration: none;
-      background: rgba(0,0,0,0.6);
-      border-radius: 50%;
-      width: 35px;
-      height: 35px;
-      line-height: 35px;
-      text-align: center;
-    }
 
-    .close:hover {
-      background: #e11d48;
-    }
-    header, footer {
-      padding: 20px;
-      text-align: center;
-      background: #231616;
-    }
-
-    nav a {
-      margin: 0 10px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #e11d48;
+    /* ---------- HEADER ---------- */
+    header {
+      background: url("12.png") no-repeat center/cover; /* Imagen completa */
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
     }
 
     header h1 {
       font-family: 'Permanent Marker', cursive;
-      font-size: 48px;
-      color: #e11d48;
-      text-shadow: 2px 2px #000;
-      margin: 0 0 10px 0;
-    }
-
-    main h2 {
-      font-family: 'Permanent Marker', cursive;
-      color: #ff7f50;
-      font-size: 36px;
-      text-align: center;
-      margin: 30px 0 20px 0;
-      text-shadow: 1px 1px #000;
-    }
-
-    main section {
-      background: #1a1a1a;
-      margin: 15px auto;
-      padding: 20px;
-      max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 8px 20px rgba(225,29,72,0.3);
-      transition: transform 0.3s;
-      text-align: center;
-    }
-
-    main section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(225,29,72,0.5);
-    }
-
-    main section h3 {
-      font-family: 'Permanent Marker', cursive;
-      color: #e11d48;
-      margin-bottom: 10px;
-      font-size: 28px;
-      text-shadow: 1px 1px #000;
-    }
-
-    main section p {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #ccc;
-    }
-
-    main section img {
-      width: 200px;
-      border-radius: 8px;
-      margin-top: 10px;
-      cursor: pointer;
-      transition: transform 0.3s;
-    }
-
-    main section img:hover {
-      transform: scale(1.05);
-    }
-
-    footer p {
+      font-size: 42px;
+      color: #fbf8f8;
+      text-shadow: 2px 2px 4px #efdbdb;
       margin: 0;
-      font-size: 14px;
     }
 
-    /* Modal */
+    .menu-toggle {
+      font-size: 32px;
+      cursor: pointer;
+      color: #fff;
+    }
+
+    /* ---------- SECCIONES ---------- */
+        /* ---------- SECCIONES ---------- */
+    /* ✅ Versión PC (por defecto) */
+/* ---- SECCIONES ---- */
+.service {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* imagen y texto al centro */
+  gap: 30px;
+  padding: 50px 20px;
+  background: url("img/16.jpg") no-repeat center/cover;
+}
+
+/* Alternar disposición (imagen izquierda/derecha en PC) */
+.service:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Imagen */
+.service img {
+  width: 320px;
+  max-width: 100%;
+  border: 8px solid #0b0b0b;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0,0,0,0.8);
+  transition: 0.3s;
+}
+.service img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+/* Texto */
+.service-content {
+  max-width: 400px;
+  background: rgba(209, 40, 40, 0.6);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.service-content h3 {
+font-family: 'Rubik Distressed', cursive;
+  font-size: 28px;
+  color: #121212;
+  margin-bottom: 10px;
+  
+}
+
+.service-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ---- VERSIÓN CELULAR ---- */
+@media (max-width: 768px) {
+  .service {
+    flex-direction: column; /* 🔥 se apila */
+    text-align: center;
+  }
+
+  .service img {
+    width: 80%; /* más ancho en móvil */
+  }
+
+  .service-content {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+}
+
+
+    /* ---------- MODAL ---------- */
     .modal {
       display: none;
       position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
+      inset: 0;
+      background: rgba(0,0,0,0.95);
       justify-content: center;
       align-items: center;
+      z-index: 1000;
     }
-
     .modal img {
-      max-width: 50%;  /* Tamaño controlado */
-      max-height: 50%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      max-width: 80%;
+      max-height: 80%;
+      border: 8px solid #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(255,255,255,0.4);
     }
-
     .modal:target {
       display: flex;
     }
-
-
-    
-    /* Header marrón oscuro */
-    header {
-      width: 100%;
-        background-color: #301a0b; 
-      padding: 15px 40px;
-      box-sizing: border-box;
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: #fff;
+      text-decoration: none;
     }
-
-    .header-container {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo {
-      width: 120px;
-      height: auto;
-      display: block;
-    }
-
-    /* Hero */
-    .hero img {
-      width: 300px;
-      height: auto;
-      border-radius: 12px;
-      border: 3px solid #336775;
-      display: block;
-      margin: 30px auto;
-    }
-
   </style>
 </head>
 <body>
- <header>
-    <div class="header-container">
-      <a href="index.html">
-        <img src="logo coyotes tattoo.png" alt="Coyote's Tattoo Logo" class="logo">
-      </a>
+    <!-- Sección Especial con Imagen y Botón -->
+    
+
+  <!-- HEADER -->
+ <!-- BANNER ESPECIAL -->
+<section class="banner">
+  <img src="img/122.png" alt="Promo" class="banner-img">
+
+  <!-- Contenido encima -->
+  <div class="special-overlay">
+    <div class="banner-content">
+      <img src="logo coyotes tattoo.png" alt="Logo Coyote" class="banner-logo">
+      <h2>Coyote's Tattoo</h2>
     </div>
-  </header>
+    <div class="menu-toggle">☰</div>
+  </div>
+</section>
+<style>/* ---------- BANNER ESPECIAL ---------- */
+.special {
+  position: relative;
+  width: 100%;
+  height: 300px; /* altura de la franja que quieras */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.special-img-full {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 🔹 muestra la imagen completa sin recortar */
+  background-color: #000; /* relleno en zonas sobrantes */
+}
+
+
+/* Overlay para centrar el contenido */
+.special-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  background: rgba(0, 0, 0, 0.4); /* efecto oscuro */
+}
+
+/* Contenedor de logo + texto */
+.banner-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.banner-logo {
+  height: 80px; /* tamaño del logo */
+  width: auto;
+}
+
+.banner-content h2 {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 38px;
+  color: #f1efef;
+  text-shadow: 2px 2px 6px #000;
+  margin: 0;
+}
+
+/* Botón hamburguesa */
+.menu-toggle {
+  font-size: 34px;
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 2px 2px 6px #000;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  height: 400px; /* ajusta el alto de tu franja */
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 🔥 llena todo el contenedor */
+}
+</style>
 
   <main>
-    <h2>Nuestros Servicios</h2>
+    <!-- Servicio 1 -->
+    <div class="service">
+      <a href="#modal1"><img src="img/2m.jpg" alt="Tatuajes Línea Fina"></a>
+      <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
 
-    <section>
-      <h3>Tatuajes en Línea Fina</h3>
-      <p>Diseños delicados, minimalistas y llenos de detalle.</p>
-      <a href="#img1"><img src="img/2m.jpg" alt="Tatuaje en Línea Fina"></a>
-    </section>
+      <div class="service-content">
+        <h3>Tatuajes en Línea Fina</h3>
+        <p>Diseños delicados y minimalistas con gran nivel de detalle, perfectos para un estilo elegante y moderno.</p>
+      </div>
+    </div>
 
-    <section>
-      <h3>Painting Tattoo</h3>
-      <p>Efectos artísticos de pintura que resaltan como una obra en la piel.</p>
-      <a href="#img2"><img src="img/6r.jpg" alt="Painting Tattoo"></a>
-    </section>
+    <!-- Servicio 2 -->
+    <div class="service">
+      <a href="#modal2"><img src="img/6r.jpg" alt="Painting Tattoo"></a>
+      <div class="service-content">
+        <h3>Painting Tattoo</h3>
+        <p>Obras de arte sobre la piel con efectos de pintura, logrando un estilo único y llamativo.</p>
+      </div>
+    </div>
+
+    <!-- Servicio 3 -->
+    <div class="service">
+      <a href="#modal3"><img src="img/8r.jpg" alt="Piercings"></a>
+      <div class="service-content">
+        <h3>Piercings</h3>
+        <p>Perforaciones seguras con equipos esterilizados y diseños que se adaptan a tu estilo personal.</p>
+      </div>
+    </div>
+
+    <!-- Servicio 4 -->
+    <div class="service">
+      <a href="#modal4"><img src="img/4r.jpg" alt="Cobertura de Cicatrices"></a>
+      <div class="service-content">
+        <h3>Cobertura de Cicatrices</h3>
+        <p>Transforma cicatrices en arte con diseños personalizados que resaltan tu piel y cuentan tu historia.</p>
+      </div>
+    </div>
   </main>
-
-  <!-- Modal imágenes -->
-  <div id="img1" class="modal">
-    <a href="#"><img src="img/2m.jpg" alt="Tatuaje en Línea Fina"></a>
-  </div>
- <div id="img2" class="modal">
-    <a href="#"><img src="img/6r.jpg" alt="Tatuaje en Línea Fina"></a>
+  
+  <!-- MODALS -->
+  <div id="modal1" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img src="img/2m.jpg" alt="Tatuajes Línea Fina">
   </div>
 
- 
+  <div id="modal2" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img src="img/6r.jpg" alt="Painting Tattoo">
+  </div>
 
-  <footer>
-    <p>© 2025 Coyote's Tattoo | Miraflores, Lima</p>
-  </footer>
+  <div id="modal3" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img src="img/8r.jpg" alt="Piercings">
+  </div>
+
+  <div id="modal4" class="modal">
+    <a href="#" class="close">&times;</a>
+    <img src="img/4r.jpg" alt="Cobertura de Cicatrices">
+  </div>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Columna 1 -->
+    <div class="footer-column">
+      <h2>Coyote Tattoo Perú</h2>
+      <p>
+        Descubre nuestro arte en tatuajes de alta calidad, diseñados para expresar tu estilo y personalidad. En <strong>Coyote Tattoo</strong>, nos comprometemos a brindarte la mejor experiencia en cada diseño.
+      </p>
+    </div>
+
+    <!-- Columna 2 -->
+    <div class="footer-column">
+      <h3>UBICACIÓN</h3>
+      <p>📍 Miraflores – Lima, Perú 🇵🇪<br>🏠 Bajada Balta 127 y 135</p>
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.831319857298!2d-77.03118452491782!3d-12.125219088126265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81c4bdf2cb1%3A0x40b828b0b57232ce!2sBajada%20Balta%20127%2C%20Miraflores%2015047!5e0!3m2!1ses!2spe!4v1724499999999!5m2!1ses!2spe" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+
+    <!-- Columna 3 -->
+    <div class="footer-column">
+      <h3>CONTÁCTANOS</h3>
+      <p>📞 Teléfono: (+51) 902769003</p>
+    </div>
+
+    <!-- Columna 4 -->
+    <div class="footer-column">
+      <h3>HORARIOS DE ATENCIÓN</h3>
+      <p>⏰ Lun–Sáb: 10am–9pm<br>Dom: 12–9pm</p>
+    </div>
+
+    <!-- Columna 5 -->
+    <div class="footer-column">
+      <h3>REDES SOCIALES</h3>
+      <div class="social-icons">
+        <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://wa.me/51998189846" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTÓN FLOTANTE IR A INICIO -->
+<a href="index.html" class="btn-inicio">⬆️ Ir a inicio</a>
+
+<style>
+  /* Footer general */
+  .footer {
+    background: #231616;
+    color: #fff;
+    padding: 40px 20px;
+    width: 100%;
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+  }
+
+  .footer-column {
+    flex: 1 1 200px;
+    min-width: 200px;
+  }
+
+  .footer-column h2, .footer-column h3 {
+    margin-bottom: 15px;
+    color: #FFD700;
+  }
+
+  .footer-column p {
+    line-height: 1.6;
+  }
+
+  /* Iconos de redes sociales */
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .social-icons a {
+    font-size: 28px;
+    transition: transform 0.2s;
+  }
+
+  /* Colores originales */
+  .social-icons a.facebook { color: #1877F2; }
+  .social-icons a.instagram { 
+    color: #E1306C; 
+    background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+   
+    -webkit-text-fill-color: transparent;
+  }
+  .social-icons a.whatsapp { color: #25D366; }
+
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }
+
+  /* Botón flotante */
+  .btn-inicio {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #FFD700;
+    color: #000;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    transition: 0.3s;
+    z-index: 999;
+  }
+
+  .btn-inicio:hover {
+    background: #fff;
+    color: #000;
+    transform: scale(1.1);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-column {
+      min-width: 100%;
+    }
+
+    .map-container iframe {
+      height: 150px;
+    }
+  }
+</style>
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
 </body>
 </html>
+
+   
