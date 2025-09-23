@@ -425,6 +425,199 @@ body {
   </header>
 </div>
 
+<section class="sobre-coyote">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Freckle+Face&display=swap" rel="stylesheet">
+
+  <div class="contenido">
+    <h2>Coyote's Tattoo ✒️</h2>
+    <p>
+   ✒️ Coyote’s Tattoo 
+
+somos un estudio especializado en tatuajes y piercings que combina creatividad, técnica y seguridad.
+
+nos encontramos  Ubicados en el corazón de Miraflores – Lima, Perú, ofrecemos un espacio cómodo y seguro para que transformes
+ tus ideas en arte sobre la piel.
+Nuestro equipo de artistas está listo para crear diseños únicos y personalizados, adaptados a tu estilo.
+
+    </p>
+  </div>
+
+  <div class="foto">
+    <img src="est45.jpg" alt="Coyote's Tattoo Estudio" class="foto-estudio">
+  </div>
+</section>
+<style>.sobre-coyote {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  background: url("ESTUDIOS14.jpg") repeat center center;
+  background-size: cover;
+  gap: 40px;
+}
+
+.foto-estudio {
+  width: 200px !important;   /* 👈 fuerza el tamaño */
+  height: auto !important;   /* mantiene proporción */
+  border-radius: 12px;
+  border: 3px solid #040404;
+  
+  display: block;            /* evita que se expanda raro */
+  margin: 0 auto;            /* centrado si está sola */
+}
+
+
+/* Texto */
+.sobre-coyote .contenido {
+  flex: 1 1 400px;
+  max-width: 600px;
+  color: #f5f5f5;
+}
+
+.sobre-coyote h2 {
+  font-family: "Rock Salt", cursive; /* fuente graffiti (Google Fonts) */
+  font-size: 3rem;
+  color: #f9f5f5;
+  text-shadow: 3px 3px 10px black, 0 0 15px #f7f3f4;
+  margin-bottom: 20px;
+}
+
+.sobre-coyote p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  background: rgba(12, 12, 12, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+
+}
+
+/* Imagen */
+.sobre-coyote .foto {
+  flex: 1 1 300px;
+  max-width: 500px;
+ 
+  border-radius: 20px;
+  overflow: hidden;
+
+}
+
+.sobre-coyote .foto img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+  .sobre-coyote {
+    flex-direction: column-reverse; /* foto abajo, texto arriba */
+    text-align: center;
+  }
+
+  .sobre-coyote h2 {
+    font-size: 2.3rem;
+  }
+
+  .sobre-coyote p {
+    font-size: 1rem;
+  }
+}
+</style>
+<!-- SECCIÓN DE TATUADORES -->
+    <section id="personal" class="container">
+      <h2 class="section-title">Artistas del Tatuaje</h2>
+      <div class="ink-frame">
+        <h1>
+          Arte en piel con <span style="color:var(--primary)">seguridad</span> y 
+          <span style="color:var(--primary)">estilo</span>
+        </h1>
+        <p>
+          Diseños exclusivos y personalizados. Linework fino, blackwork y microrealismo.
+        </p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="personal-card">
+              <img src="img/1r.jpg" alt="Especialista en linea fina y painting" class="clickable-img" />
+              <h5 style="color: #fff;">ROBLES</h5>
+              <p>Realismo, acuarelas, black and grey, color, neotradicional y blackwork.</p>
+              <a href="robles.html" class="btn-ver-tatuajes">Ver tatuajes</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="personal-card">
+              <img src="img/9m.jpg" alt="Especialista en lettering" class="clickable-img" />
+              <h5 style="color: #fff;">MARIO ALVARADO</h5>
+              <p>Especialista en lettering.</p>
+              <a href="madek.html" class="btn-ver-tatuajes">Ver tatuajes</a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="personal-card">
+              <img src="img/22a.jpg" alt="Especialista airbrush y realismo" class="clickable-img" />
+              <h5 style="color: #fff;">ADAN SEGURA</h5>
+              <p>Especialista airbrush y realismo.</p>
+              <a href="adan.html" class="btn-ver-tatuajes">Ver tatuajes</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL GENERAL PARA IMÁGENES -->
+    <div id="imgModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="imgPreview">
+      <div id="caption"></div>
+    </div>
+  <!-- Footer -->
+ 
+
+  <script>
+    // Modal
+    const modal = document.getElementById("imgModal");
+    const modalImg = document.getElementById("imgPreview");
+    const caption = document.getElementById("caption");
+    const closeBtn = document.querySelector(".close");
+
+    // Todas las imágenes clickeables
+    document.querySelectorAll(".gallery img, .personal-card img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        caption.textContent = img.alt || img.dataset.descripcion || "";
+      });
+    });
+
+    // Cerrar modal
+    closeBtn.onclick = () => modal.style.display = "none";
+    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+    
+  </script>
+
+
+
+<style>.btn-ver-tatuajes {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 22px;
+  background: #0d1b2a;  /* Azul oscuro elegante */
+  color: #fff;          /* Texto blanco */
+  font-weight: 600;
+  border-radius: 30px;   /* Bordes redondeados */
+  text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+}
+.btn-ver-tatuajes:hover {
+  background: #1b263b;   /* Azul un poco más claro al hover */
+  transform: scale(1.05);
+}</style>
+
+ 
 <!-- CSS -->
 <style>
 body {
@@ -532,14 +725,14 @@ hamburger.addEventListener("click", () => {
                 <p>Tatuaje dragon en el brazo</p>
               </div>
             </div>
-            <div class="tattoo-card oval">
+            <div class="tattoo-card rectangular">
               <img src="13.png" alt="Tattoo" data-descripcion="Tatuaje de ojo con detalles finos" />
               <div class="info">
                 <h5>Tatuaje de ojo</h5>
                 <p>Tatuaje de ojo con detalles finos</p>
               </div>
             </div>
-            <div class="tattoo-card circular">
+             <div class="tattoo-card rectangular">
               <img src="14.png" alt="Tattoo" data-descripcion="Tatuaje de león en realismo" />
               <div class="info">
                 <h5>Tatuaje de león</h5>
@@ -553,14 +746,14 @@ hamburger.addEventListener("click", () => {
                 <p>Tatuaje de coyote</p>
               </div>
             </div>
-            <div class="tattoo-card oval">
+            <div class="tattoo-card rectangular">
               <img src="img/2m.jpg" alt="Tattoo" data-descripcion="Tatuaje de letering" />
               <div class="info">
                 <h5>Tatuaje de lettering</h5>
                 <p>Tatuaje lettering</p>
               </div>
             </div>
-            <div class="tattoo-card circular">
+             <div class="tattoo-card rectangular">
               <img src="img/5a.jpg" alt="Tattoo" data-descripcion="Tatuaje de león en realismo" />
               <div class="info">
                 <h5>Tatuaje en blanco y negro</h5>
@@ -721,312 +914,11 @@ hamburger.addEventListener("click", () => {
 <!-- Galería -->
 <!-- ===== GALERÍA (AISLADA) ===== -->
 <!-- GALERÍA AISLADA DE SERVICIOS -->
-    <section id="galeria-cg" class="cg-section">
-      <div class="cg-wrap">
-        <div class="cg-header">
-          <h2 class="cg-title">Servicios</h2>
-          <p class="cg-desc">
-            Diseños personalizados, linework fino, blackwork y microrealismo.<br>
-            Esterilización profesional y materiales certificados. Agenda tu cita en línea en menos de 1 minuto.
-          </p>
-        </div>
-        <div class="cg-frame">
-          <div class="cg-grid">
-            <figure class="cg-card">
-              <img src="img/8r.jpg" alt="Tatuaje de ojo" data-desc="Painting Tattoo">
-              <figcaption class="cg-info">
-                <h5>Painting Tattoo</h5>
-              </figcaption>
-            </figure>
-            <figure class="cg-card">
-              <img src="img/2m.jpg" alt="Tatuaje de león" data-desc="Lettering">
-              <figcaption class="cg-info">
-                <h5>Lettering</h5>
-              </figcaption>
-            </figure>
-          </div>
-        </div>
-        <div class="cg-lightbox" id="cgLightbox" aria-hidden="true">
-          <button class="cg-close" id="cgClose" aria-label="Cerrar">&times;</button>
-          <img id="cgLightboxImg" alt="">
-          <p id="cgLightboxCaption"></p>
-        </div>
-      </div>
-    </section>
-
-<!-- SECCIÓN ICONOS DE CALIDAD -->
-
-
-  <!-- Lightbox propio de esta sección -->
- 
-<style>
-/* ===== Estilo AISLADO de la galería (prefijo cg-) ===== */
-#galeria-cg.cg-section {
-  --cg-primary: #e11d48;
-  --cg-ink: #111;
-  --cg-muted: #222;
-  --cg-white: #ffffff;
-
-  background: var(--cg-white);      /* franja blanca */
-  color: var(--cg-ink);
-  padding: 44px 20px;
-  margin: 40px 0;
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-
-#galeria-cg .cg-wrap {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Recuadro TÍTULO + DESCRIPCIÓN */
-#galeria-cg .cg-header {
-  background: #f5f5f5;
-  border: 1px solid #e9e9e9;
-  border-radius: 12px;
-  padding: 22px 18px;
-  margin-bottom: 26px;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
-  text-align: center;
-}
-
-#galeria-cg .cg-title {
-  margin: 0 0 8px 0;
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--cg-ink);   /* fuerte */
-}
-
-#galeria-cg .cg-desc {
-  margin: 0;
-  color: var(--cg-muted); /* fuerte/legible */
-  line-height: 1.55;
-}
-
-/* Recuadro de IMÁGENES (borde punteado) */
-#galeria-cg .cg-frame {
-  background: #fff;
-  border: 2px dotted var(--cg-primary);
-  border-radius: 14px;
-  padding: 18px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-}
-
-/* Grid de tarjetas */
-#galeria-cg .cg-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 18px;
-}
-
-/* Tarjeta */
-#galeria-cg .cg-card {
-  background: #fafafa;
-  border: 1px solid #ececec;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-#galeria-cg .cg-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
-}
-
-#galeria-cg .cg-card img {
-  width: 100%;
-  height: 220px;
-  display: block;
-  object-fit: cover;
-}
-
-#galeria-cg .cg-info {
-  padding: 12px;
-  text-align: center;
-}
-
-#galeria-cg .cg-info h5 {
-  margin: 6px 0;
-  font-size: 1.05rem;
-  color: var(--cg-ink);  /* fuerte */
-}
-
-#galeria-cg .cg-price {
-  display: inline-block;
-  margin-top: 4px;
-  font-weight: 800;
-  color: var(--cg-primary);
-}
-
-/* Lightbox (aislado) */
-#galeria-cg .cg-lightbox {
-  position: fixed;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 40px 20px;
-  background: rgba(0,0,0,0.9);
-  z-index: 9999;
-}
-
-#galeria-cg .cg-lightbox.open { display: flex; }
-
-#galeria-cg .cg-lightbox img {
-  max-width: min(92vw, 1100px);
-  max-height: 80vh;
-  border-radius: 12px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.6);
-}
-
-#galeria-cg #cgLightboxCaption {
-  margin-top: 12px;
-  color: #f1f1f1;
-  text-align: center;
-}
-
-#galeria-cg .cg-close {
-  position: absolute;
-  top: 14px;
-  right: 18px;
-  background: transparent;
-  border: 0;
-  color: #fff;
-  font-size: 40px;
-  line-height: 1;
-  cursor: pointer;
-}
-</style>
-
-<script>
-/* Lightbox aislado para #galeria-cg */
-(()=> {
-  const root = document.getElementById('galeria-cg');
-  if (!root) return;
-
-  const imgs = root.querySelectorAll('.cg-card img');
-  const lightbox = root.querySelector('#cgLightbox');
-  const lbImg = root.querySelector('#cgLightboxImg');
-  const lbCap = root.querySelector('#cgLightboxCaption');
-  const btnClose = root.querySelector('#cgClose');
-
-  const open = (img) => {
-    lbImg.src = img.src;
-    lbImg.alt = img.alt || '';
-    lbCap.textContent = img.getAttribute('data-desc') || img.alt || '';
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const close = () => {
-    lightbox.classList.remove('open');
-    document.body.style.overflow = '';
-  };
-
-  imgs.forEach(img => img.addEventListener('click', ()=> open(img)));
-  btnClose.addEventListener('click', close);
-  lightbox.addEventListener('click', (e)=> { if (e.target === lightbox) close(); });
-  document.addEventListener('keydown', (e)=> { if (e.key === 'Escape') close(); });
-})();
-</script>
-
-
+   
 
  <!-- Personal    <strong>cita</strong> en línea en menos de 1 minuto.-->
 <!-- SECCIÓN DE TATUADORES -->
-    <section id="personal" class="container">
-      <h2 class="section-title">Artistas del Tatuaje</h2>
-      <div class="ink-frame">
-        <h1>
-          Arte en piel con <span style="color:var(--primary)">seguridad</span> y 
-          <span style="color:var(--primary)">estilo</span>
-        </h1>
-        <p>
-          Diseños exclusivos y personalizados. Linework fino, blackwork y microrealismo.
-        </p>
-        <div class="row g-4">
-          <div class="col-md-4">
-            <div class="personal-card">
-              <img src="img/1r.jpg" alt="Especialista en linea fina y painting" class="clickable-img" />
-              <h5 style="color: #fff;">ROBLES</h5>
-              <p>Realismo, acuarelas, black and grey, color, neotradicional y blackwork.</p>
-              <a href="robles.html" class="btn-ver-tatuajes">Ver tatuajes</a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="personal-card">
-              <img src="img/9m.jpg" alt="Especialista en lettering" class="clickable-img" />
-              <h5 style="color: #fff;">MARIO ALVARADO</h5>
-              <p>Especialista en lettering.</p>
-              <a href="madek.html" class="btn-ver-tatuajes">Ver tatuajes</a>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="personal-card">
-              <img src="img/22a.jpg" alt="Especialista airbrush y realismo" class="clickable-img" />
-              <h5 style="color: #fff;">ADAN SEGURA</h5>
-              <p>Especialista airbrush y realismo.</p>
-              <a href="adan.html" class="btn-ver-tatuajes">Ver tatuajes</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MODAL GENERAL PARA IMÁGENES -->
-    <div id="imgModal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="imgPreview">
-      <div id="caption"></div>
-    </div>
-  <!-- Footer -->
  
-
-  <script>
-    // Modal
-    const modal = document.getElementById("imgModal");
-    const modalImg = document.getElementById("imgPreview");
-    const caption = document.getElementById("caption");
-    const closeBtn = document.querySelector(".close");
-
-    // Todas las imágenes clickeables
-    document.querySelectorAll(".gallery img, .personal-card img").forEach(img => {
-      img.addEventListener("click", () => {
-        modal.style.display = "block";
-        modalImg.src = img.src;
-        caption.textContent = img.alt || img.dataset.descripcion || "";
-      });
-    });
-
-    // Cerrar modal
-    closeBtn.onclick = () => modal.style.display = "none";
-    window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
-    
-  </script>
-
-
-
-<style>.btn-ver-tatuajes {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 22px;
-  background: #0d1b2a;  /* Azul oscuro elegante */
-  color: #fff;          /* Texto blanco */
-  font-weight: 600;
-  border-radius: 30px;   /* Bordes redondeados */
-  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: 1px;
-  transition: all 0.3s ease;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-}
-.btn-ver-tatuajes:hover {
-  background: #1b263b;   /* Azul un poco más claro al hover */
-  transform: scale(1.05);
-}</style>
-
  <style>
 /* Reset de márgenes y padding */
 * {
@@ -1486,6 +1378,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!-- FOOTER -->
 <!-- FOOTER -->
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-container">
     <!-- Columna 1 -->
@@ -1520,16 +1413,26 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Columna 5 -->
     <div class="footer-column">
       <h3>REDES SOCIALES</h3>
-      <div class="social-icons">
-        <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank"><i class="bi bi-instagram"></i></a>
-        <a href="https://wa.me/51998189846" target="_blank"><i class="bi bi-whatsapp"></i></a>
+        <div class="social-icons">
+    
+        <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="https://wa.me/51998189846" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
       </div>
     </div>
   </div>
 </footer>
 
 <style>
+    
+  /* Colores originales */
+ .social-icons a.facebook { color: #1877F2; }
+  .social-icons a.instagram { 
+    color: #E1306C; 
+   
+   
+  }
+  .social-icons a.whatsapp { color: #25D366; }
   /* Footer general */
   .footer {
   background: #231616;
@@ -1609,9 +1512,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+ 
   
 </body>
 </html>
-
-
-
