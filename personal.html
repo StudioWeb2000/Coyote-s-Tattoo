@@ -115,7 +115,7 @@
   position: relative;
   width: 100%;
   height: 400px; /* 🔥 controla la altura */
-  background: url("img/122.png") no-repeat center center;
+  background: url("122.png") no-repeat center center;
   background-size: cover;
   display: flex;
   align-items: flex-start;  /* contenido arriba */
@@ -220,12 +220,28 @@
   display: grid;
   gap: 20px;
   padding: 2rem;
-  grid-template-columns: 1fr; /* 🔹 Por defecto 1 en móviles */
+  grid-template-columns: 1fr; /* 🔹 1 en móvil */
 }
 
+.tatuador img {
+  width: 100%;
+  height: auto;   /* 🔹 Para que no se recorte */
+  max-height: 450px; /* opcional: limita altura sin cortar */
+  object-fit: cover;
+  display: block;
+}
+
+/* Tablet → 2 en fila */
+@media (min-width: 768px) and (max-width: 991px) {
+  .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* PC → 3 en fila */
 @media (min-width: 992px) {
   .equipo-grid {
-    grid-template-columns: repeat(3, 1fr); /* 🔹 3 en pantallas grandes (PC) */
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -243,13 +259,7 @@
   box-shadow: 0 10px 25px rgba(29, 225, 55, 0.3);
 }
 
-.tatuador img {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  display: block;
-  transition: transform .3s;
-}
+
 
 .tatuador .info {
   background: #101010; /* Marrón oscuro */
@@ -520,4 +530,5 @@ modal.addEventListener('click', e => { if(e.target === modal) modal.style.displa
  
 </body>
 </html>
+
 
