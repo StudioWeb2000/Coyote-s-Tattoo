@@ -40,16 +40,17 @@
         /* ---------- SECCIONES ---------- */
     /* ✅ Versión PC (por defecto) */
 /* ---- SECCIONES ---- */
+/* ---- PC (por defecto) ---- */
 .service {
   display: flex;
   align-items: center;
-  justify-content: center; /* imagen y texto al centro */
+  justify-content: center;
   gap: 30px;
   padding: 50px 20px;
-  background: url("img/16.jpg") no-repeat center/cover;
+  background: url("16.jpg") no-repeat center/cover;
 }
 
-/* Alternar disposición (imagen izquierda/derecha en PC) */
+/* Alternar disposición en PC (intercalado) */
 .service:nth-child(even) {
   flex-direction: row-reverse;
 }
@@ -78,6 +79,7 @@
   text-align: center;
 }
 
+
 .service-content h3 {
 font-family: 'Rubik Distressed', cursive;
   font-size: 28px;
@@ -93,24 +95,24 @@ font-family: 'Rubik Distressed', cursive;
 
 /* ---- VERSIÓN CELULAR ---- */
 /* ---- VERSIÓN CELULAR ---- */
+/* ---- CELULAR ---- */
 @media (max-width: 768px) {
   .service {
-    flex-direction: column !important; /* 🔥 siempre en columna */
+    flex-direction: column !important; /* siempre en columna */
     text-align: center;
   }
 
   .service img {
     width: 90%; /* ocupa casi todo el ancho */
-    order: 1;   /* 👈 siempre primero */
+    order: 1;   /* primero la foto */
   }
 
   .service-content {
     max-width: 95%;
     margin-top: 15px;
-    order: 2;   /* 👈 siempre segundo */
+    order: 2;   /* luego el texto */
   }
 }
-
 
 
     /* ---------- MODAL ---------- */
@@ -459,5 +461,6 @@ font-family: 'Rubik Distressed', cursive;
    
 
    
+
 
 
