@@ -1,9 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Coyote's Tattoo | Servicios</title>
   <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
@@ -12,58 +14,218 @@
       color: #fff;
     }
 
-  /* ---------- HEADER ---------- */ header { background: url("122.png") no-repeat center/cover; height: 200px; 
-                                             display: flex; align-items: center; justify-content: space-between; padding: 0 60px; } 
-    header h1 { font-family: 'Permanent Marker', cursive; font-size: 42px; color: #fbf8f8; text-shadow: 2px 2px 4px #efdbdb; margin: 0; } 
-    .menu-toggle { font-size: 32px; cursor: pointer; color: #fff; }
-    /* ---------- SECCIONES ---------- */ .service { display: flex; align-items: center; justify-content: center; gap: 30px; 
-                                                    padding: 50px 20px; background: url("16.jpg") no-repeat center/cover; } /* Alternar disposición en PC */ .service:nth-child(even) { flex-direction: row-reverse; } /* Imagen */ .service img { width: 320px; max-width: 100%; border: 8px solid #0b0b0b; border-radius: 12px; cursor: pointer; box-shadow: 0 0 15px rgba(0,0,0,0.8); transition: 0.3s; } .service img:hover { transform: scale(1.05); filter: brightness(1.2); } /* Texto */ .service-content { max-width: 400px; background: rgba(209, 40, 40, 0.6); padding: 20px; border-radius: 12px; text-align: center; } .service-content h3 { font-family: 'Rubik Distressed', cursive; font-size: 28px; color: #121212; margin-bottom: 10px; } .service-content p { font-size: 16px; line-height: 1.5; } /* ---------- CELULAR ---------- */ @media (max-width: 768px) { .service, .service:nth-child(even) { /* 🔥 anula el intercalado en móvil */ flex-direction: column !important; text-align: center; } .service img { width: 90%; order: 1; /* arriba */ } .service-content { max-width: 95%; margin-top: 15px; order: 2; /* abajo */ } } /* ---------- MODAL ---------- */ .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); justify-content: center; align-items: center; z-index: 1000; } .modal img { max-width: 80%; max-height: 80%; border: 8px solid #fff; border-radius: 12px; box-shadow: 0 0 30px rgba(255,255,255,0.4); } .modal:target { display: flex; }
-   .close { position: absolute; top: 20px; right: 30px; font-size: 40px; color: #fff; text-decoration: none; }
+
+/* ---------- BANNER ---------- */
+header.banner {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  background: url("122.png") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+.banner-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  height: 60px;
+}
+
+.title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 32px;
+  color: white;
+  margin: 0;
+}
+
+.menu-toggle {
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  header.banner {
+    height: 220px;
+    padding: 15px 20px;
+  }
+  .logo { height: 50px; }
+  .title { font-size: 22px; }
+  .menu-toggle { font-size: 30px; }
+}
+
+/* ---------- SERVICIOS ---------- */
+section.services {
+  background: url("16.jpg") no-repeat center/cover;
+  padding: 60px 20px;
+}
+
+.service {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.service:nth-child(even) {
+  direction: rtl; /* invierte orden visual */
+}
+
+.service:nth-child(even) .service-content {
+  direction: ltr; /* corrige texto */
+}
+
+.service img {
+  width: 100%;
+  max-width: 420px;
+  border: 8px solid #0b0b0b;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0,0,0,0.8);
+  transition: 0.3s;
+}
+
+.service img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.service-content {
+  background: rgba(209, 40, 40, 0.65);
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.service-content h3 {
+  font-family: 'Rubik Distressed', cursive;
+  font-size: 28px;
+  color: #121212;
+  margin-bottom: 10px;
+}
+
+.service-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Móvil: siempre columna */
+@media (max-width: 768px) {
+  .service {
+    grid-template-columns: 1fr;
+  }
+  .service:nth-child(even) {
+    direction: ltr;
+  }
+}
+
+/* ---------- MODAL ---------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal img {
+  max-width: 90%;
+  max-height: 80%;
+  border: 8px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.4);
+}
+.modal:target {
+  display: flex;
+}
+.close {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  font-size: 50px; /* 🔥 mucho más grande */
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.close:hover {
+  color: #f44;
+}
+
   </style>
 </head>
 <body>
-    <!-- Sección Especial con Imagen y Botón -->
-    
 
   <!-- HEADER -->
- <!-- BANNER ESPECIAL -->
-<!-- HEADER / BANNER -->
-<header class="banner">
-  <div class="banner-content">
-    <!-- Logo y nombre -->
-    <div class="logo-container">
-    <a href="index.html"><img src="logo coyotes tattoo.png" alt="Coyote's Tattoo Logo" class="logo"></a>
-      <h1 class="title">Coyote Tattoo</h1>
+
+  <header class="banner">
+    <div class="banner-content">
+      <div class="logo-container">
+        <a href="index.html"><img src="logo coyotes tattoo.png" alt="Coyote's Tattoo Logo" class="logo"></a>
+        <h1 class="title">Coyote Tattoo</h1>
+      </div>
+      <div class="menu-toggle">
+        <i class="bi bi-list"></i>
+      </div>
     </div>
+  </header>
 
-    <!-- Menú hamburguesa -->
-    <div class="menu-toggle">
-      <i class="bi bi-list"></i>
-    </div>
-  </div>
-</header>
+  <!-- SERVICIOS -->
 
-
-<style>
-  /* ---------- BANNER ---------- */ .banner { position: relative; width: 100%; height: 400px; background: url("122.png") no-repeat center center; background-size: cover; display: flex; align-items: flex-start; justify-content: space-between; padding: 20px 40px; } .banner-content { display: flex; width: 100%; justify-content: space-between; align-items: center; } .logo-container { display: flex; align-items: center; gap: 10px; } .logo { height: 60px; } .title { font-family: 'Permanent Marker', cursive; font-size: 28px; color: white; margin: 0; } .menu-toggle { font-size: 36px; color: rgb(13, 13, 13); cursor: pointer; } /* Responsive banner */ @media (max-width: 768px) { .banner { height: 250px; padding: 15px 20px; }
-   .logo { height: 50px; } .title { font-size: 22px; } .menu-toggle { font-size: 30px; } }
-</style>
-  <main>
-    <!-- Servicio 1 -->
+  <section class="services">
     <div class="service">
       <a href="#modal1"><img src="img/2m.jpg" alt="Tatuajes Línea Fina"></a>
-      <link href="https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap" rel="stylesheet">
-
       <div class="service-content">
         <h3>Tatuajes en Línea Fina</h3>
         <p>Diseños delicados y minimalistas con gran nivel de detalle, perfectos para un estilo elegante y moderno.</p>
       </div>
     </div>
 
-    <!-- Servicio 2 -->
-    <!-- Servicio 2 --> <div class="service"> <a href="#modal2"><img src="img/6r.jpg" alt="Painting Tattoo"></a> <div class="service-content"> <h3>Painting Tattoo</h3> <p>Obras de arte sobre la piel con efectos de pintura, logrando un estilo único y llamativo.</p> </div> </div> <!-- Servicio 3 --> <div class="service"> <a href="#modal3"><img src="img/8r.jpg" alt="Piercings"></a> <div class="service-content"> <h3>Piercings</h3> <p>Perforaciones seguras con equipos esterilizados y diseños que se adaptan a tu estilo personal.</p> </div> </div> <!-- Servicio 4 --> <div class="service"> <a href="#modal4"><img src="img/4r.jpg" alt="Cobertura de Cicatrices"></a> <div class="service-content"> <h3>Cobertura de Cicatrices</h3>
-       <p>Transforma cicatrices en arte con diseños personalizados que resaltan tu piel y cuentan tu historia.</p> </div> </div>
+
+<div class="service">
+  <a href="#modal2"><img src="img/6r.jpg" alt="Painting Tattoo"></a>
+  <div class="service-content">
+    <h3>Painting Tattoo</h3>
+    <p>Obras de arte sobre la piel con efectos de pintura, logrando un estilo único y llamativo.</p>
+  </div>
+</div>
+
+<div class="service">
+  <a href="#modal3"><img src="img/8r.jpg" alt="Piercings"></a>
+  <div class="service-content">
+    <h3>Piercings</h3>
+    <p>Perforaciones seguras con equipos esterilizados y diseños que se adaptan a tu estilo personal.</p>
+  </div>
+</div>
+
+<div class="service">
+  <a href="#modal4"><img src="img/4r.jpg" alt="Cobertura de Cicatrices"></a>
+  <div class="service-content">
+    <h3>Cobertura de Cicatrices</h3>
+    <p>Transforma cicatrices en arte con diseños personalizados que resaltan tu piel y cuentan tu historia.</p>
+  </div>
+</div>
+
+
+  </section>
+
   <!-- MODALS -->
+
   <div id="modal1" class="modal">
     <a href="#" class="close">&times;</a>
     <img src="img/2m.jpg" alt="Tatuajes Línea Fina">
@@ -83,6 +245,9 @@
     <a href="#" class="close">&times;</a>
     <img src="img/4r.jpg" alt="Cobertura de Cicatrices">
   </div>
+
+
+
 <!-- FOOTER -->
 
 <!-- FOOTER -->
