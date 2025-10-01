@@ -30,45 +30,51 @@
     }
 
     /* Sección artista */
-    .artist-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      padding: 40px;
-      flex-wrap: wrap;
-    }
-    .artist-photo img {
-      width: 350px;
-      height: auto;
-      border-radius: 12px;
-      border: 3px solid #070707;
-      box-shadow: 0 0 25px rgba(6, 6, 6, 0.6);
-    }
-    .artist-info {
-      max-width: 500px;
-      text-align: left;
-    }
-    .artist-name {
-      font-family: 'UnifrakturMaguntia', cursive;
-      font-size: 3em;
-      color: #fff;
-      text-shadow: 0 0 10px #ff0000, 0 0 20px #8B0000, 0 0 35px #ff4d4d;
-      margin: 0;
-    }
-    .artist-tag {
-      font-size: 1.2em;
-      color: #aaa;
-      font-style: italic;
-      margin-bottom: 20px;
-    }
-    .artist-description {
-      font-family: 'Tangerine', cursive;
-      font-size: 2em;
-      line-height: 1.5;
-      color: #f0f0f0;
-      text-shadow: 0 0 6px rgba(255,255,255,0.8), 0 0 12px rgba(255,255,255,0.6);
-    }
+   .artist-section {
+  display: flex;
+  flex-direction: column; /* 🔥 foto arriba, letras abajo */
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px;
+  text-align: center; /* Centrar el texto */
+}
+
+.artist-photo img {
+  width: 400px;   /* 🔥 más grande */
+  max-width: 90%;
+  height: auto;
+  border-radius: 12px;
+  border: 3px solid #070707;
+  box-shadow: 0 0 25px rgba(6, 6, 6, 0.6);
+}
+
+.artist-info {
+  max-width: 700px;  /* 🔥 más ancho */
+}
+
+.artist-name {
+  font-family: 'UnifrakturMaguntia', cursive;
+  font-size: 4em;   /* 🔥 LETRAS GRANDES */
+  color: #fff;
+  text-shadow: 0 0 15px #ff0000, 0 0 30px #8B0000, 0 0 50px #ff4d4d;
+  margin: 0 0 10px;
+}
+
+.artist-tag {
+  font-size: 1.8em; /* 🔥 más grande */
+  color: #FFD700;
+  margin-bottom: 20px;
+}
+
+.artist-description {
+  font-family: 'Tangerine', cursive;
+  font-size: 2.5em; /* 🔥 más grande */
+  line-height: 1.6;
+  color: #f0f0f0;
+  text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 15px rgba(255,255,255,0.7);
+}
+
 
     /* Responsive */
     @media(max-width: 768px) {
@@ -271,7 +277,7 @@
   <!-- Sección artista -->
   <section class="artist-section">
     <div class="artist-photo">
-      <img src="img/9m.jpg" alt="Mario Alvarado, artista del lettering">
+      <img src="madek.jpeg" alt="Mario Alvarado, artista del lettering">
     </div>
     <div class="artist-info">
       <h2 class="artist-name">𝕸𝖆𝖗𝖎𝖔 𝕬𝖑𝖛𝖆𝖗𝖆𝖉𝖔</h2>
@@ -633,5 +639,3 @@ document.querySelectorAll('.gallery-btn').forEach(btn => {
 
 </body>
 </html>
-
-
