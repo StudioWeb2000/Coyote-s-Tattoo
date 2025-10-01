@@ -30,14 +30,27 @@
     }
 
     /* Sección artista */
-    .artist-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
-      padding: 40px;
-      flex-wrap: wrap;
-    }
+   /* Sección artista */
+.artist-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+/* 📱 Vista en celular */
+@media (max-width: 768px) {
+  .artist-section {
+    flex-direction: column;   /* 🔥 Columna en celular */
+    text-align: center;
+  }
+  .artist-info {
+    text-align: center;       /* Centrar texto en celular */
+  }
+}
+
     .artist-photo img {
       width: 350px;
       height: auto;
@@ -45,10 +58,7 @@
       border: 3px solid #070707;
       box-shadow: 0 0 25px rgba(6, 6, 6, 0.6);
     }
-    .artist-info {
-      max-width: 500px;
-      text-align: left;
-    }
+   
     .artist-name {
       font-family: 'UnifrakturMaguntia', cursive;
       font-size: 3em;
@@ -209,7 +219,7 @@
   position: relative;
   width: 100%;
   height: 400px; /* 🔥 controla la altura */
-  background: url("122.png") no-repeat center center;
+  background: url("img/122.png") no-repeat center center;
   background-size: cover;
   display: flex;
   align-items: flex-start;  /* contenido arriba */
@@ -274,7 +284,7 @@
  <!-- Sección artista -->
   <section class="artist-section">
     <div class="artist-photo">
-      <img src="img/22a.jpg" alt="Mario Alvarado, artista del lettering">
+      <img src="adan.jpeg" alt="Mario Alvarado, artista del lettering">
     </div>
     <div class="artist-info">
       <h2 class="artist-name">𝕸𝖆𝖗𝖎𝖔 𝕬𝖑𝖛𝖆𝖗𝖆𝖉𝖔</h2>
@@ -627,5 +637,6 @@ document.querySelectorAll('.gallery-btn').forEach(btn => {
 
 </body>
 </html>
+
 
 
