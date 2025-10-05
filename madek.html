@@ -2,599 +2,947 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Mario Alvarado | Coyote's Tattoo</title>
-  <!-- Fuentes -->
-  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Pirata+One&family=UnifrakturMaguntia&family=Tangerine:wght@700&family=MedievalSharp&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Coyote's Tattoo | Adan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Estilos -->
   <style>
-    /* Reset */
-    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(180deg, #161515, #161515, #161515);
-      color: #f5f5f5;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+    }
+
+    /* HEADER */
+    header {
+      background: black;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header {
-      background: linear-gradient(90deg, #000000, #000000);
-      padding: 20px 40px;
-    }
-    .logo {
-      height: 60px;
-      width: auto;
-    }
-
-    /* Sección artista */
-   .artist-section {
-  display: flex;
-  flex-direction: column; /* 🔥 foto arriba, letras abajo */
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  padding: 40px;
-  text-align: center; /* Centrar el texto */
-}
-
-.artist-photo img {
-  width: 400px;   /* 🔥 más grande */
-  max-width: 90%;
-  height: auto;
-  border-radius: 12px;
-  border: 3px solid #070707;
-  box-shadow: 0 0 25px rgba(6, 6, 6, 0.6);
-}
-
-.artist-info {
-  max-width: 700px;  /* 🔥 más ancho */
-}
-
-.artist-name {
-  font-family: 'UnifrakturMaguntia', cursive;
-  font-size: 4em;   /* 🔥 LETRAS GRANDES */
-  color: #fff;
-  text-shadow: 0 0 15px #ff0000, 0 0 30px #8B0000, 0 0 50px #ff4d4d;
-  margin: 0 0 10px;
-}
-
-.artist-tag {
-  font-size: 1.8em; /* 🔥 más grande */
-  color: #FFD700;
-  margin-bottom: 20px;
-}
-
-.artist-description {
-  font-family: 'Tangerine', cursive;
-  font-size: 2.5em; /* 🔥 más grande */
-  line-height: 1.6;
-  color: #f0f0f0;
-  text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 15px rgba(255,255,255,0.7);
-}
-
-
-    /* Responsive */
-    @media(max-width: 768px) {
-      .artist-section {
-        flex-direction: column;
-        text-align: center;
-      }
-      .artist-info {
-        text-align: center;
-      }
-    }
-
-    /* Galería */
-    .gallery-title {
+      align-items: center;
       text-align: center;
-      font-family: 'Pirata One', cursive;
-      font-size: 2.5em;
-      margin: 40px 0 20px;
-      color: #fff;
-      text-shadow: 0 0 8px #e11d48, 0 0 20px rgba(225,29,72,0.7);
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 15px;
-      padding: 20px;
-    }
-    .gallery img {
+    header img.banner {
       width: 100%;
-      height: 250px;
+      max-height: 250px;
       object-fit: cover;
-      border-radius: 10px;
-      border: 2px solid #e11d48;
-      transition: transform .3s, box-shadow .3s;
-      cursor: pointer;
     }
-    .gallery img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 35px rgba(225,29,72,0.4);
+    header .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
     }
 
-    /* Lightbox */
-    .lightbox {
+    /* PRESENTACION */
+    .presentacion {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+    .presentacion img {
+      width: 280px;
+      border-radius: 20px;
+    }
+    .presentacion .texto {
+      max-width: 400px;
+      font-size: 18px;
+      line-height: 1.5;
+      font-family: "Permanent Marker", cursive;
+    }
+    .presentacion .texto h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #e63946;
+    }
+
+    /* SECCION CATEGORIAS */
+    .categorias {
+      background: #b91c1c;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .categorias h2 {
+      margin-bottom: 20px;
+    }
+    .opciones {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .opciones img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .opciones img:hover {
+      transform: scale(1.1);
+    }
+
+    /* GALERIA */
+    .galeria {
+      display: none;
+      padding: 40px;
+      text-align: center;
+    }
+    .grid {
+      display: grid;
+      gap: 20px;
+    }
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 767px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+   .grid img {
+  width: 100%;
+  height: 250px;   /* todas mismas alturas */
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+
+    /* MODAL */
+    .modal {
       display: none;
       position: fixed;
       z-index: 9999;
-      top: 0; left: 0;
+      left: 0; top: 0;
       width: 100%; height: 100%;
       background: rgba(0,0,0,0.9);
       justify-content: center;
       align-items: center;
     }
-    .lightbox img {
+    .modal img {
       max-width: 90%;
       max-height: 80%;
-      border: 4px solid #e11d48;
-      border-radius: 12px;
+      border-radius: 10px;
     }
-    .lightbox:target { display: flex; }
-    .lightbox a {
+    .close, .prev, .next {
       position: absolute;
-      top: 20px;
-      right: 30px;
+      top: 50%;
       font-size: 40px;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      user-select: none;
     }
-    .lightbox a:hover { color: #e11d48; }
+    .close { top: 20px; right: 30px; font-size: 50px; }
+    .prev { left: 30px; }
+    .next { right: 30px; }
 
-    /* Botón siguiente tatuador */
-    .next-artist {
-      text-align: center;
-      margin: 40px 0;
-    }
-    .next-artist a {
-      font-family: 'Pirata One', cursive;
-      font-size: 1.5em;
-      text-decoration: none;
-      color: #fff;
-      padding: 12px 25px;
-      background: #e11d48;
-      border-radius: 8px;
-      box-shadow: 0 0 12px rgba(225,29,72,0.8);
-      transition: 0.3s;
-    }
-    .next-artist a:hover {
-      background: #ff2d6d;
-      box-shadow: 0 0 20px rgba(255,45,109,0.9);
-    }
-
-    /* Footer */
+    /* FOOTER */
     footer {
-      background: #111;
-      padding: 40px 20px;
+      background: #000;
       text-align: center;
+      padding: 20px;
+      font-size: 14px;
     }
-    .social-follow {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      margin: 20px 0;
-    }
-    .social-follow a {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    .instagram { color: #E1306C; }
-    .facebook { color: #1877F2; }
-    .social-follow i { font-size: 45px; }
   </style>
 </head>
 <body>
 
   <!-- HEADER -->
- <!-- HEADER / BANNER -->
-<header class="banner">
-  <div class="banner-content">
-    <!-- Logo y nombre -->
-    <div class="logo-container">
-     <a href="index.html"><img src="logo coyotes tattoo.png" alt="Coyote's Tattoo Logo" class="logo"></a>
-      <h1 class="title">Coyote Tattoo</h1>
+  <header>
+    <img src="img/122.png" class="banner" alt="Banner tatuajes">
+    <img src="logo coyotes tattoo.png" class="logo" alt="Logo artista">
+  </header>
+
+  <!-- PRESENTACION -->
+   <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+  <section class="presentacion">
+    <img src="madek.jpeg" alt="Foto artista">
+   
+   <!-- Fuente caligráfica -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+ 
+
+    h4 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 80px;
+      color: #ff1a1a;
+      text-shadow: 
+        0 0 10px rgba(255, 50, 50, 0.9),
+        0 0 20px rgba(255, 0, 0, 0.8),
+        0 0 40px rgba(255, 0, 0, 0.6),
+        0 0 80px rgba(255, 0, 0, 0.4);
+      -webkit-text-stroke: 1px #300000;
+      letter-spacing: 3px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    /* ✨ Animación del brillo pulsante */
+    @keyframes glow {
+      from {
+        text-shadow:
+          0 0 10px rgba(255, 80, 80, 0.8),
+          0 0 20px rgba(255, 0, 0, 0.7),
+          0 0 30px rgba(255, 0, 0, 0.5);
+      }
+      to {
+        text-shadow:
+          0 0 20px rgba(255, 0, 0, 1),
+          0 0 40px rgba(255, 0, 0, 0.8),
+          0 0 80px rgba(255, 0, 0, 0.6);
+      }
+    }
+  </style>
+ <h4>Mario Alvarado</h4>
+    <p class="descripcion">
+      Artista especializado en Lettering Chicano y Tattoo Custom Lettering.  
+      Cada trazo refleja identidad, fuerza y personalidad, fusionando la tradición del arte urbano  
+      con un estilo moderno y único.
+    </p>
+  </section>
+  </section>
+<!-- Fuente estilo lettering de tatuador -->
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+
+<style>
+  h2 {
+    font-family: 'Alex Brush', cursive;   /* Fuente tipo lettering tatuador */
+    font-size: 80px;                     /* Tamaño grande (ajústalo si deseas) */
+    color: #c50e0e;                       /* Rojo sangre / tinta */
+    text-align: center;
+    margin: 60px 0;
+    letter-spacing: 2px;
+
+    /* Contorno y difuminado de tinta */
+    -webkit-text-stroke: 1.5px #fafafa;   /* Contorno claro */
+    text-shadow:
+      0 0 10px rgba(255, 0, 0, 0.6),
+      0 0 30px rgba(255, 0, 0, 0.4),
+      0 0 60px rgba(255, 0, 0, 0.3);
+
+    /* Efecto de tinta respirando */
+    filter: blur(0.6px);
+    animation: tinta 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes tinta {
+    0% {
+      text-shadow:
+        0 0 8px rgba(255, 0, 0, 0.5),
+        0 0 20px rgba(255, 255, 0, 0.2),
+        0 0 40px rgba(255, 0, 0, 0.3);
+      filter: blur(0.6px);
+    }
+    100% {
+      text-shadow:
+        0 0 15px rgba(255, 0, 0, 0.8),
+        0 0 35px rgba(255, 255, 0, 0.4),
+        0 0 80px rgba(255, 0, 0, 0.5);
+      filter: blur(1px);
+    }
+  }
+
+  body {
+    background-color: #111; /* Fondo oscuro para resaltar el lettering */
+  }
+</style>
+
+
+
+ 
+  <!-- CATEGORIAS -->
+<section class="categorias">
+  <h2>Explora mi trabajo</h2>
+  <div class="opciones">
+    <div class="imagen-con-texto">
+      <img src="img/2m.jpg" alt="Tatuajes" onclick="mostrarGaleria('tatuajes')">
+      <div class="texto-encima">lettering</div>
     </div>
 
-    <!-- Menú hamburguesa -->
-    <div class="menu-toggle">
-      <i class="bi bi-list"></i>
+    <div class="imagen-con-texto">
+      <img src="img/1m.jpg" alt="Airbrush" onclick="mostrarGaleria('airbrush')">
+      <div class="texto-encima">logos</div>
     </div>
   </div>
-</header>
+</section>
+
+<style>
+.categorias {
+  text-align: center;
+  padding: 40px 20px;
+  background: #111;
+  color: white;
+}
+
+.categorias h2 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 42px;
+  color: #ff0000;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #ff3333;
+}
+
+.opciones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.imagen-con-texto {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.imagen-con-texto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+}
+
+.imagen-con-texto:hover img {
+  opacity: 0.5;
+}
+
+.texto-encima {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Permanent Marker', cursive;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.imagen-con-texto:hover .texto-encima {
+  opacity: 1;
+}
+
+/* Responsive: en celulares uno debajo del otro */
+@media (max-width: 768px) {
+  .opciones {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+<script>
+function mostrarGaleria(tipo) {
+  // Oculta todas las galerías
+  const galerias = document.querySelectorAll('.galeria');
+  galerias.forEach(g => g.style.display = 'none');
+
+  // Muestra solo la galería seleccionada
+  if (tipo === 'tatuajes') {
+    document.getElementById('galeria-tatuajes').style.display = 'block';
+  } else if (tipo === 'airbrush') {
+    document.getElementById('galeria-airbrush').style.display = 'block';
+  }
+
+  // Desplaza suavemente hacia la galería
+  const galeria = document.getElementById(`galeria-${tipo}`);
+  galeria.scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ----- MODAL ----- */
+let imagenActual = 0;
+let imagenes = [];
+
+function abrirModal(img, tipo) {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+
+  // Busca todas las imágenes dentro de la galería actual
+  imagenes = Array.from(document.querySelectorAll(`#galeria-${tipo} .grid img`));
+
+  imagenActual = imagenes.indexOf(img);
+  modalImg.src = img.src;
+  modal.style.display = 'block';
+}
+
+function cerrarModal() {
+  document.getElementById('modal').style.display = 'none';
+}
+
+function cambiar(direccion) {
+  imagenActual += direccion;
+
+  if (imagenActual < 0) {
+    imagenActual = imagenes.length - 1;
+  } else if (imagenActual >= imagenes.length) {
+    imagenActual = 0;
+  }
+
+  document.getElementById('modal-img').src = imagenes[imagenActual].src;
+}
+</script>
 
 
-<style>.banner {
+
+  <!-- GALERIAS -->
+ <section id="galeria-tatuajes" class="galeria" style="display:block;">
+
+
+
+    <h2>lettering</h2>
+    <div class="grid">
+      <img src="img/3m.jpg" alt="tat1" onclick="abrirModal(this, 'tatuajes')">
+      <img src="img/1m.jpg" alt="tat2" onclick="abrirModal(this, 'tatuajes')">
+      <img src="img/2m.jpg" alt="tat3" onclick="abrirModal(this, 'tatuajes')">
+        <img src="img/4m.jpg" alt="tat4" onclick="abrirModal(this, 'tatuajes')">
+        
+    </div>
+  </section>
+
+  <section id="galeria-airbrush" class="galeria">
+    <h2>logos</h2>
+    <div class="grid">
+      <img src="img/5m.jpg" alt="air1" onclick="abrirModal(this, 'airbrush')">
+      <img src="img/6m.jpg" alt="air2" onclick="abrirModal(this, 'airbrush')">
+      <img src="img/7m.jpg" alt="air3" onclick="abrirModal(this, 'airbrush')">
+      <img src="img/8m.jpg" alt="air4" onclick="abrirModal(this, 'airbrush')">
+     
+     
+    </div>
+  </section>
+
+
+
+
+
+
+  <!-- MODAL -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="cerrarModal()">&times;</span>
+    <span class="prev" onclick="cambiar(-1)">&#10094;</span>
+    <img id="modal-img" src="">
+    <span class="next" onclick="cambiar(1)">&#10095;</span>
+  </div>
+<!-- CUIDADOS POSTERIORES 🖤-->
+<!-- CUIDADOS POSTERIORES -->
+<!-- CUIDADOS POSTERIORES -->
+<section class="seccion-cuidados">
+  <h2> Cuidados posteriores</h2>
+  <p class="intro-cuidados">
+    Después de hacerte un tatuaje, es fundamental seguir una rutina de cuidados 
+    para mantener su color e intensidad.
+  </p>
+
+  <div class="contenedor-carrusel">
+    <div class="item-cuidado activo">
+      <div class="texto-cuidado">
+        <h3>Limpiar con jabón neutro</h3>
+        <p>Usa un jabón neutro y agua tibia para limpiar suavemente el tatuaje sin frotar.</p>
+      </div>
+      <div class="imagen-cuidado">
+        <img src="jabon.png" alt="Jabón neutro">
+      </div>
+    </div>
+
+    <div class="item-cuidado">
+      <div class="texto-cuidado">
+        <h3>Aplicar crema cicatrizante</h3>
+        <p>Aplica una capa delgada de crema cicatrizante para mantener la piel hidratada.</p>
+      </div>
+      <div class="imagen-cuidado">
+        <img src="cremas.jpg" alt="Crema cicatrizante">
+      </div>
+    </div>
+
+    <div class="item-cuidado">
+      <div class="texto-cuidado">
+        <h3>Evitar exposición al sol</h3>
+        <p>No expongas el tatuaje al sol hasta que haya cicatrizado completamente.</p>
+      </div>
+      <div class="imagen-cuidado">
+        <img src="exposicion.jpg" alt="Evitar el sol">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ======== SECCIÓN CUIDADOS POSTERIORES ======== */
+.seccion-cuidados {
+  background: radial-gradient(circle at center, #0a0a0a 40%, #000 100%);
+  color: #f5f5f5;
+  padding: 60px 20px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+.seccion-cuidados h2 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 46px;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff3333, 0 0 20px #ff0000;
+  margin-bottom: 20px;
+}
+
+.intro-cuidados {
+  font-size: 18px;
+  color: #ddd;
+  margin-bottom: 40px;
+}
+
+/* ======== CARRUSEL ======== */
+.contenedor-carrusel {
   position: relative;
   width: 100%;
-  height: 400px; /* 🔥 controla la altura */
-  background: url("122.png") no-repeat center center;
-  background-size: cover;
-  display: flex;
-  align-items: flex-start;  /* contenido arriba */
-  justify-content: space-between;
-  padding: 20px 40px;
+  max-width: 900px;
+  margin: auto;
 }
 
-.banner-content {
+.item-cuidado {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.item-cuidado.activo {
   display: flex;
+}
+
+/* Imagen y texto */
+.texto-cuidado {
+  flex: 1;
+  text-align: left;
+}
+
+.texto-cuidado h3 {
+  font-size: 24px;
+  color: #ff4d4d;
+  margin-bottom: 10px;
+}
+
+.texto-cuidado p {
+  color: #ccc;
+  font-size: 16px;
+}
+
+.imagen-cuidado {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.imagen-cuidado img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border: 3px solid #ff4d4d;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.imagen-cuidado img:hover {
+  transform: scale(1.05);
+}
+
+/* ======== ANIMACIÓN ======== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  .item-cuidado {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .texto-cuidado {
+    text-align: center;
+  }
+
+  .imagen-cuidado img {
+    width: 300px;
+    height: 300px;
+  }
+}
+</style>
+
+<script>
+let index = 0;
+const items = document.querySelectorAll('.item-cuidado');
+
+function mostrarSiguiente() {
+  items[index].classList.remove('activo');
+  index = (index + 1) % items.length;
+  items[index].classList.add('activo');
+}
+
+setInterval(mostrarSiguiente, 5000); // cambia cada 5 segundos
+</script>
+
+
+<!-- OLA DIVISOR 🖤(SVG directo) -->
+
+<!-- BLOG / NOVEDADES -->
+<section class="seccion-blog">
+  <h2> Blog y Novedades</h2>
+  <p class="intro-blog">
+    Explora artículos sobre tendencias, cuidados, técnicas y noticias del mundo del tatuaje.
+  </p>
+
+  <div class="contenedor-blog">
+
+    <!-- Artículo 1 -->
+    <div class="tarjeta-blog">
+      <img src="img/9r.jpg" alt="Cuidados tatuaje">
+      <h3>Cuidados después de tatuarte</h3>
+      <p class="texto-blog">
+        Aprende cómo cuidar tu tatuaje durante las primeras semanas para mantener su brillo e intensidad.
+        <span class="mas">
+          Lava suavemente con jabón neutro, evita rascar y usa cremas cicatrizantes recomendadas por tu tatuador. 
+          Un buen cuidado garantiza que tu tatuaje se mantenga vibrante por más tiempo.
+        </span>
+      </p>
+      <button class="btn-blog" onclick="toggleTexto(this)">Leer más</button>
+    </div>
+
+    <!-- Artículo 2 -->
+    <div class="tarjeta-blog">
+      <img src="img/4a.jpg" alt="Estilos de tatuaje">
+      <h3>Estilos que marcan tendencia</h3>
+      <p class="texto-blog">
+        Desde el realismo hasta el lettering, conoce los estilos más buscados por los amantes del arte corporal.
+        <span class="mas">
+          El minimalismo y los tatuajes fineline están en auge, pero el tradicional japonés y el neotradicional 
+          siguen siendo clásicos entre artistas y coleccionistas.
+        </span>
+      </p>
+      <button class="btn-blog" onclick="toggleTexto(this)">Leer más</button>
+    </div>
+
+    <!-- Artículo 3 -->
+    <div class="tarjeta-blog">
+      <img src="img/2r.jpg" alt="Tintas veganas">
+      <h3>Tintas veganas y su importancia</h3>
+      <p class="texto-blog">
+        Descubre por qué cada vez más artistas prefieren tintas veganas y cómo benefician tu piel.
+        <span class="mas">
+          Estas tintas están libres de ingredientes animales y reducen el riesgo de alergias. 
+          Además, su composición natural permite un proceso de curación más saludable.
+        </span>
+      </p>
+      <button class="btn-blog" onclick="toggleTexto(this)">Leer más</button>
+    </div>
+
+  </div>
+</section>
+
+<style>
+/* ======== BLOG / NOVEDADES ======== */
+.seccion-blog {
+  background: radial-gradient(circle at center, #0a0a0a 40%, #000 100%);
+  color: #f5f5f5;
+  padding: 70px 20px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  border-top: 1px solid #222;
+}
+
+.seccion-blog h2 {
+  font-family: 'UnifrakturCook', cursive;
+  font-size: 46px;
+  color: #ff0000;
+  text-shadow: 0 0 10px #ff3333, 0 0 20px #ff0000;
+  margin-bottom: 15px;
+}
+
+.intro-blog {
+  color: #ccc;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+
+.contenedor-blog {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Tarjetas del blog */
+.tarjeta-blog {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  width: 300px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  position: relative;
+}
+
+.tarjeta-blog:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.tarjeta-blog img {
   width: 100%;
-  justify-content: space-between;
-  align-items: center;
+  height: 180px;
+  object-fit: cover;
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.tarjeta-blog h3 {
+  font-size: 20px;
+  color: #ff4d4d;
+  margin: 15px;
 }
 
-.logo {
-  height: 60px; /* ajusta el tamaño del logo */
+.texto-blog {
+  font-size: 15px;
+  color: #ccc;
+  margin: 0 15px 15px 15px;
 }
 
-.title {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 28px;
-  color: white;
-  margin: 0;
+.texto-blog .mas {
+  display: none;
 }
 
-.menu-toggle {
-  font-size: 36px;
-  color: rgb(13, 13, 13);
+.btn-blog {
+  display: inline-block;
+  margin: 0 15px 20px 15px;
+  padding: 8px 15px;
+  color: #fff;
+  background: linear-gradient(90deg, #ff0000, #ff3333);
+  border: none;
   cursor: pointer;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.btn-blog:hover {
+  background: linear-gradient(90deg, #ff3333, #ff0000);
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .banner {
-    height: 250px; /* más pequeño en móvil */
-    padding: 15px 20px;
+  .contenedor-blog {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .logo {
-    height: 50px;
+  .tarjeta-blog {
+    width: 90%;
   }
 
-  .title {
-    font-size: 22px;
-  }
-
-  .menu-toggle {
-    font-size: 30px;
+  .seccion-blog h2 {
+    font-size: 36px;
   }
 }
 </style>
 
-  <!-- Sección artista -->
-  <section class="artist-section">
-    <div class="artist-photo">
-      <img src="madek.jpeg" alt="Mario Alvarado, artista del lettering">
-    </div>
-    <div class="artist-info">
-      <h2 class="artist-name">𝕸𝖆𝖗𝖎𝖔 𝕬𝖑𝖛𝖆𝖗𝖆𝖉𝖔</h2>
-      <h3 class="artist-tag">(madek_404)</h3>
-      <p class="artist-description">
-        Artista especializado en <strong>Lettering Chicano</strong> y 
-        <strong>Tattoo Custom Lettering</strong>.  
-        Cada trazo refleja <em>identidad, fuerza y personalidad</em>, 
-        fusionando la tradición del arte urbano con un estilo moderno y único.
-      </p>
-    </div>
-  </section>
-
-  <!-- Galería -->
-  <!-- GALERÍA -->
-<section class="galeria-seccion">
-  <h2 class="gallery-title">𝕲𝖆𝖑𝖊𝖗𝖎́𝖆 𝕬𝖗𝖙𝖎́𝖘𝖙𝖎𝖈𝖆</h2>
-
-  <!-- Botones -->
-  <div class="gallery-buttons">
-    <button class="gallery-btn active" data-gallery="lettering">
-      <img src="img/1m.jpg" alt="Lettering">
-      <span>Lettering</span>
-    </button>
-    <button class="gallery-btn" data-gallery="tintas">
-      <img src="img/4r.jpg" alt="Tintas">
-      <span>logos</span>
-    </button>
-  </div>
-
-  <!-- Galería -->
-  <div class="gallery-container">
-    <!-- Lettering -->
-    <div class="gallery-set active" id="lettering">
-      <a href="#img1"><img src="img/1m.jpg" alt="Lettering 1"></a>
-      <a href="#img2"><img src="img/2m.jpg" alt="Lettering 2"></a>
-      <a href="#img3"><img src="img/3m.jpg" alt="Lettering 3"></a>
-       <a href="#img8"><img src="img/8m.jpg" alt="Lettering 3"></a>
-       
-    </div>
-
-    <!-- Tintas -->
-    <div class="gallery-set" id="tintas">
-      <a href="#img4"><img src="img/4m.jpg" alt="Tintas 1"></a>
-      <a href="#img5"><img src="img/5m.jpg" alt="Tintas 2"></a>
-      <a href="#img6"><img src="img/6m.jpg" alt="Tintas 3"></a>
-       <a href="#img7"><img src="img/7m.jpg" alt="Tintas 4"></a>
-
-    </div>
-  </div>
-</section>
-
-<!-- LIGHTBOX -->
-<div id="img1" class="lightbox"><img src="img/1m.jpg"><a href="#">✖</a></div>
-<div id="img2" class="lightbox"><img src="img/2m.jpg"><a href="#">✖</a></div>
-<div id="img3" class="lightbox"><img src="img/3m.jpg"><a href="#">✖</a></div>
-<div id="img4" class="lightbox"><img src="img/4r.jpg"><a href="#">✖</a></div>
-<div id="img5" class="lightbox"><img src="img/5r.jpg"><a href="#">✖</a></div>
-<div id="img6" class="lightbox"><img src="img/6r.jpg"><a href="#">✖</a></div>
-<div id="img7" class="lightbox"><img src="img/7m.jpg"><a href="#">✖</a></div>
-<div id="img8" class="lightbox"><img src="img/8m.jpg"><a href="#">✖</a></div>
-
-<style>.galeria-seccion {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.gallery-title {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 32px;
-  margin-bottom: 20px;
-  color: #FFD700;
-}
-
-/* Botones */
-.gallery-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 30px;
-}
-
-.gallery-btn {
-  border: none;
-  background: none;
-  text-align: center;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.gallery-btn img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid #FFD700;
-  transition: 0.3s;
-}
-
-.gallery-btn span {
-  display: block;
-  margin-top: 8px;
-  font-weight: bold;
-  color: white;
-}
-
-.gallery-btn:hover img,
-.gallery-btn.active img {
-  transform: scale(1.1);
-  border-color: #e11d48;
-}
-
-/* Galería */
-.gallery-container {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.gallery-set {
-  display: none;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.gallery-set.active {
-  display: grid;
-}
-
-.gallery-set img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: transform .3s;
-}
-
-.gallery-set img:hover {
-  transform: scale(1.05);
-}
-</style>
 <script>
-document.querySelectorAll('.gallery-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    // Quitar activo de botones
-    document.querySelectorAll('.gallery-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+function toggleTexto(boton) {
+  const parrafo = boton.previousElementSibling;
+  const textoExtra = parrafo.querySelector(".mas");
 
-    // Mostrar set correspondiente
-    const target = btn.dataset.gallery;
-    document.querySelectorAll('.gallery-set').forEach(set => {
-      set.classList.remove('active');
-    });
-    document.getElementById(target).classList.add('active');
-  });
-});
+  if (textoExtra.style.display === "inline") {
+    textoExtra.style.display = "none";
+    boton.textContent = "Leer más";
+  } else {
+    textoExtra.style.display = "inline";
+    boton.textContent = "Leer menos";
+  }
+}
 </script>
 
 
-  <!-- Botón siguiente tatuador   <div class="next-artist">
-    <a href="adan.html">⟶ Ver siguiente tatuador</a>
-      <a href="robles.html">⟶ Ver anterior tatuador</a>
-  </div>
--->
-  
-<!-- Navegación entre tatuadores -->
-<section class="artist-navigation">
-  <a href="robles.html" class="nav-btn">← Anterior Tatuador</a>
-  <a href="adan.html" class="nav-btn">Siguiente Tatuador →</a>
-</section>
 
-<style>/* Navegación de tatuadores */
-.artist-navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #111;
-  padding: 20px 40px;
-  margin-top: 30px;
-}
-.artist-navigation .nav-btn {
-  color: #f5f5f5;
-  font-size: 1.1rem;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s, transform 0.3s;
-}
-.artist-navigation .nav-btn:hover {
-  color: #e11d48;
-  transform: scale(1.05);
-}
-</style>
-<!-- Footer -->
-
-  
 
   <!-- FOOTER -->
- <!-- FOOTER -->
-<footer class="footer">
+  <footer>
+  <footer class="footer">
   <div class="footer-container">
-    <!-- Columna 1 -->
+
+    <!-- Columna 1: Descripción -->
     <div class="footer-column">
-      <h2>Coyote Tattoo Perú</h2>
+      <h1>Coyote Tattoo Perú</h1>
       <p>
-        Descubre nuestro arte en tatuajes de alta calidad, diseñados para expresar tu estilo y personalidad. En <strong>Coyote Tattoo</strong>, nos comprometemos a brindarte la mejor experiencia en cada diseño.
+        Descubre nuestro arte en tatuajes de <strong>alta calidad</strong>, diseñados para expresar tu estilo y personalidad. En <strong>Coyote Tattoo</strong> nos comprometemos a brindarte la mejor experiencia en cada diseño.
       </p>
     </div>
 
-    <!-- Columna 2 -->
+    <!-- Columna 2: Ubicación y mapa -->
     <div class="footer-column">
-      <h3>UBICACIÓN</h3>
-      <p>📍 Miraflores – Lima, Perú 🇵🇪<br>🏠 Bajada Balta 127 y 135</p>
+      <h3>Ubicación</h3>
+      <p>📍 Miraflores – Lima, Perú<br>🏠 Bajada Balta 127 y 135</p>
       <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.831319857298!2d-77.03118452491782!3d-12.125219088126265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81c4bdf2cb1%3A0x40b828b0b57232ce!2sBajada%20Balta%20127%2C%20Miraflores%2015047!5e0!3m2!1ses!2spe!4v1724499999999!5m2!1ses!2spe" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.831319857298!2d-77.03118452491782!3d-12.125219088126265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81c4bdf2cb1%3A0x40b828b0b57232ce!2sBajada%20Balta%20127%2C%20Miraflores%2015047!5e0!3m2!1ses!2spe!4v1724499999999!5m2!1ses!2spe" width="100%" height="180" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
       </div>
     </div>
 
-    <!-- Columna 3 -->
+    <!-- Columna 3: Contacto -->
     <div class="footer-column">
-      <h3>CONTÁCTANOS</h3>
-      <p>Teléfono: (+51) 📞 902769003</p>
-    </div>
-
-    <!-- Columna 4 -->
-    <div class="footer-column">
-      <h3>HORARIOS DE ATENCIÓN</h3>
+      <h3>Contáctanos</h3>
+      <p>Teléfono: (+51) 902769003</p>
+      <h3>Horarios</h3>
       <p>⏰ Lun–Sáb: 10am–9pm<br>Dom: 12–9pm</p>
     </div>
 
-    <!-- Columna 5 -->
+    <!-- Columna 4: Redes sociales -->
     <div class="footer-column">
-      <h3>REDES SOCIALES</h3>
-        <div class="social-icons">
-    
+      <h3>Redes Sociales</h3>
+      <div class="social-icons">
         <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="https://wa.me/51998189846" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
       </div>
     </div>
+
   </div>
 </footer>
 
+<!-- Estilos -->
 <style>
-    
-  /* Colores originales */
- .social-icons a.facebook { color: #1877F2; }
-  .social-icons a.instagram { 
-    color: #E1306C; 
-   
-   
-  }
-  .social-icons a.whatsapp { color: #25D366; }
-  /* Footer general */
-  .footer {
-  background: #231616;
-    color: #fff;
-    padding: 40px 20px;
-    width: 100%;
-  }
+.footer {
+  background: #060606;
+  color: #fff;
+  padding: 40px 20px;
+  width: 100%;
+}
 
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.footer-column {
+  flex: 1 1 220px; /* ancho mínimo y crece según espacio */
+  min-width: 220px;
+  text-align: center; /* centra el contenido en móvil */
+}
+
+.footer-column h2, .footer-column h3 {
+  color: #FFD700;
+  margin-bottom: 15px;
+}
+
+.footer-column p {
+  line-height: 1.6;
+}
+
+/* Redes sociales */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  font-size: 24px;
+  transition: transform 0.2s;
+  color: #fff;
+}
+
+.social-icons a.facebook { color: #1877F2; }
+.social-icons a.instagram { color: #E1306C; }
+.social-icons a.whatsapp { color: #25D366; }
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  color: #FFD700;
+}
+
+/* Mapa */
+.map-container iframe {
+  border: 0;
+  border-radius: 10px;
+  width: 100%;
+  height: 180px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
   .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center; /* centra columnas en móvil */
   }
 
   .footer-column {
-    flex: 1 1 200px;
-    min-width: 200px;
+    max-width: 500px;
+    margin-bottom: 25px;
   }
+}
+</style>
 
-  .footer-column h2, .footer-column h3 {
-    margin-bottom: 15px;
-    color: #FFD700;
-  }
+<!-- Bootstrap icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-  .footer-column p {
-    line-height: 1.6;
-  }
+  </footer>
 
-  /* Iconos de redes sociales */
-  .social-icons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
+  <!-- JS -->
+  <script>
+    let currentIndex = 0;
+    let currentGaleria = [];
 
-  .social-icons a {
-    color: #fff;
-    font-size: 24px;
-    transition: transform 0.2s;
-  }
-
-  .social-icons a:hover {
-    transform: scale(1.2);
-    color: #FFD700;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .footer-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+    function mostrarGaleria(tipo) {
+      document.querySelectorAll('.galeria').forEach(g => g.style.display = "none");
+      document.getElementById("galeria-" + tipo).style.display = "block";
     }
 
-    .footer-column {
-      min-width: 100%;
+    function abrirModal(img, tipo) {
+      const galeria = document.querySelectorAll("#galeria-" + tipo + " img");
+      currentGaleria = Array.from(galeria);
+      currentIndex = currentGaleria.indexOf(img);
+      document.getElementById("modal-img").src = img.src;
+      document.getElementById("modal").style.display = "flex";
     }
 
-    .map-container iframe {
-      height: 150px;
+    function cerrarModal() {
+      document.getElementById("modal").style.display = "none";
     }
-  }
+
+    function cambiar(n) {
+      currentIndex = (currentIndex + n + currentGaleria.length) % currentGaleria.length;
+      document.getElementById("modal-img").src = currentGaleria[currentIndex].src;
+    }
+  </script>
+  <script>window.onload = function() {
+  mostrarGaleria('tatuajes');
+}
+</script>
+<!-- Botón de inicio -->
+<!-- Botón flotante de inicio -->
+ <!-- 🔥 BOTÓN FLOTANTE DE INICIO -->
+
+
+<a href="index.html" class="btn-inicio">🏠 ir a Inicio</a>
+<style>  /* Botón flotante */
   .btn-inicio {
     position: fixed;
     bottom: 25px;
@@ -614,28 +962,10 @@ document.querySelectorAll('.gallery-btn').forEach(btn => {
     background: #fff;
     color: #000;
     transform: scale(1.1);
-  }
+  }</style>
 
-</style>
-
-</style>
-
-<a href="index.html" class="btn-inicio">⬆️ Ir a inicio</a>
-
-</style>
-
-
- 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- WhatsApp -->
- 
-
-
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
- 
 
 </body>
 </html>
+
+
