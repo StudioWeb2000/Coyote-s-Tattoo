@@ -23,6 +23,20 @@
 
  
 body {
+
+ 
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+
+  /* Fondo general: textura o graffiti */
+  background-image: url('TIGRE.jpg'); /* 🖼️ cambia por tu imagen (graffiti o papel) */
+  background-size: cover;       /* Cubre toda la pantalla */
+  background-position: center;  /* Centrado */
+  background-repeat: repeat-y;  /* Se repite verticalmente */
+  background-attachment: fixed; /* Fijo al hacer scroll */
+
+
   padding-top: 80px; /* deja espacio debajo del navbar fijo */
 }
 
@@ -122,13 +136,7 @@ body {
       --accent:#f59e0b;
     }
 
-    body {
-    
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: #000000;   /*BORDE PRINCIPAK PARA CAMBIAR  Navbar */
-      color: #e3dbdb;
-    }
+  
 
     /* Navbar */
     .navbar {
@@ -282,9 +290,10 @@ body {
   <div class="overlay-text">
     <h1 id="frasePrincipal"></h1>
     <p id="miniFrase"></p>
-    <a href="citas.html" class="btn-cta">Reserva tu cita</a>
-
   </div>
+
+  <!-- Botón dentro del video, abajo -->
+  <a href="citas.html" class="btn-cta">Reserva tu cita</a>
 </section>
 
 <style>
@@ -292,7 +301,7 @@ body {
 .video-container {
   position: relative;
   width: 100%;
-  height: 600px;   /* ✅ Ajusta la altura del video */
+  height: 600px;
   overflow: hidden;
 }
 
@@ -307,28 +316,17 @@ body {
   z-index: -1;
 }
 
-/* Texto encima */
+/* Texto central */
 .overlay-text {
-  position: relative;
-  z-index: 1;
-  top: 50%;
+  position: absolute;
+  top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   color: #fff;
   text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-  max-width: 90%;
-}
-
-/* Animaciones */
-.overlay-text h1, .overlay-text p {
-  opacity: 0;
-  animation: fadeIn 1.5s forwards;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  z-index: 1;
+  width: 90%;
 }
 
 .overlay-text h1 {
@@ -343,16 +341,12 @@ body {
   margin-bottom: 2rem;
 }
 
-/* Botón estilo marketing */
-.btn-overlay {
+/* Botón dentro del video, abajo */
+.btn-cta {
   position: absolute;
-  bottom: 30px;       /* Ajusta la distancia desde el fondo */
+  bottom: 0.6cm; /* 🔹 Deja espacio antes de tocar el borde inferior */
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
-}
-
-.btn-cta {
   background: linear-gradient(45deg, #c59d5f, #ffd700);
   color: #111;
   padding: 12px 25px;
@@ -360,10 +354,12 @@ body {
   text-decoration: none;
   font-weight: bold;
   transition: all 0.3s;
+  z-index: 2;
 }
+
 .btn-cta:hover {
   background: linear-gradient(45deg, #ffd700, #c59d5f);
-  transform: scale(1.05);
+  transform: translateX(-50%) scale(1.05);
 }
 </style>
 
@@ -393,40 +389,152 @@ body {
 
 
 <body>
-
-
-<body>
 <!-- Google Fonts para letras artísticas -->
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+ 
 
-<!-- Contenedor principal -->
-<div id="contenedorPrincipal" class="container-fluid" style="padding:0; margin:0;">
+    /* ---------- NAVBAR GENERAL ---------- */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 25px;
+      background: #040404;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
 
-  <!-- Navbar -->
-  <header class="navbar d-flex justify-content-between align-items-center" 
-          style="padding:10px 20px; background:#111; color:#fff; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
-    
-    <!-- Logo -->
-    <div class="logo d-flex align-items-center">
-      <img src="3LOGO.png" alt="Logo Tatuaje Coyote" style="width:100px; height:100px; margin-right:10px;">
-      <h1 style="font-family: 'Permanent Marker', cursive; font-size: 28px;">Coyote's Tattoo</h1>
-    </div>
+    /* LOGO */
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-    <!-- Botón hamburguesa (siempre visible) -->
-    <button class="hamburger" id="hamburger">☰</button>
+    .logo img {
+      width: 100px;
+      height: 60px;
+    }
 
-    <!-- Menú -->
-    <nav class="nav-menu" id="navMenu">
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="galeria.html">Tatuajes</a></li>
-        <li><a href="personal.html">Tatuadores</a></li>
-        <li><a href="citas.html">Citas</a></li>
-      </ul>
-    </nav>
-  </header>
-</div>
+    .logo h1 {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 24px;
+      margin: 0;
+    }
+
+    /* BOTÓN HAMBURGUESA */
+    .hamburger {
+      background: none;
+      border: 2px solid #fff;
+      border-radius: 6px;
+      color: white;
+      font-size: 24px;
+      cursor: pointer;
+      padding: 4px 10px;
+      transition: background 0.3s ease;
+      margin-left: 20px;
+    }
+
+    .hamburger:hover {
+      background: #ff4d4d;
+    }
+
+    /* MENÚ */
+    .nav-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    .nav-menu a:hover {
+      color: #ff4d4d;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 15px;
+      }
+
+      /* LOGO Y HAMBURGUESA EN LA MISMA LÍNEA */
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .hamburger {
+        order: 2;
+        margin-left: 10px;
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #040404;
+        display: none;
+        text-align: center;
+        border-top: 1px solid #333;
+      }
+
+      .nav-menu.open {
+        display: block;
+      }
+
+      .nav-menu ul {
+        flex-direction: column;
+        padding: 10px 0;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Contenedor principal -->
+  <div id="contenedorPrincipal" style="padding:0; margin:0;">
+
+    <!-- Navbar -->
+    <header>
+      <div class="logo">
+        <img src="3LOGO.png" alt="Logo Tatuaje Coyote">
+        <h1>Coyote's Tattoo</h1>
+      </div>
+
+      <!-- Botón hamburguesa (a la derecha en PC, al costado en celular) -->
+      <button class="hamburger" id="hamburger">☰</button>
+
+      <!-- Menú -->
+      <nav class="nav-menu" id="navMenu">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="galeria.html">Tatuajes</a></li>
+          <li><a href="personal.html">Tatuadores</a></li>
+          <li><a href="citas.html">Citas</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+
 
 <section class="sobre-coyote">
   <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Freckle+Face&display=swap" rel="stylesheet">
@@ -449,13 +557,16 @@ Nuestro equipo de artistas está listo para crear diseños únicos y personaliza
     <img src="est45.jpg" alt="Coyote's Tattoo Estudio" class="foto-estudio">
   </div>
 </section>
-<style>.sobre-coyote {
+<style>
+
+
+.sobre-coyote {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding: 60px 20px;
-  background: url("ESTUDIOS14.jpg") repeat center center;
+  background: url("R.jpg") repeat center center;
   background-size: cover;
   gap: 40px;
 }
@@ -568,7 +679,7 @@ Nuestro equipo de artistas está listo para crear diseños únicos y personaliza
             <div class="personal-card">
               <img src="yorman.jpeg" alt="Especialista en lettering" class="clickable-img" />
               <h5 style="color: #fff;">YORMAN</h5>
-              <p>Especialista en lettering.</p>
+              <p>especialista en black & grey, color realista, acuarelas, oriental y neotradicional</p>
               <a href="" class="btn-ver-tatuajes">Ver tatuajes</a>
             </div>
           </div>
@@ -1794,7 +1905,6 @@ document.addEventListener('DOMContentLoaded', () => {
   
 </body>
 </html>
-
 
 
 
