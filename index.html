@@ -280,88 +280,6 @@ body {
 
 
 </style>
-<section id="inicio" class="video-container">
-  <video autoplay muted loop playsinline class="video-fondo">
-    <source src="video16.mp4" type="video/mp4">
-    Tu navegador no soporta la reproducción de video.
-  </video>
-
-  <!-- Texto dinámico sobre el video -->
-  <div class="overlay-text">
-    <h1 id="frasePrincipal"></h1>
-    <p id="miniFrase"></p>
-  </div>
-
-  <!-- Botón dentro del video, abajo -->
-  <a href="citas.html" class="btn-cta">Reserva tu cita</a>
-</section>
-
-<style>
-/* Contenedor */
-.video-container {
-  position: relative;
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
-}
-
-/* Video de fondo */
-.video-fondo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-}
-
-/* Texto central */
-.overlay-text {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-  z-index: 1;
-  width: 90%;
-}
-
-.overlay-text h1 {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-}
-
-.overlay-text p {
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-}
-
-/* Botón dentro del video, abajo */
-.btn-cta {
-  position: absolute;
-  bottom: 0.6cm; /* 🔹 Deja espacio antes de tocar el borde inferior */
-  left: 50%;
-  transform: translateX(-50%);
-  background: linear-gradient(45deg, #c59d5f, #ffd700);
-  color: #111;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s;
-  z-index: 2;
-}
-
-.btn-cta:hover {
-  background: linear-gradient(45deg, #ffd700, #c59d5f);
-  transform: translateX(-50%) scale(1.05);
-}
-</style>
 
 
 </script>
@@ -369,6 +287,77 @@ body {
 </style>
 
 
+<!-- Botón flotante circular con logo y texto encima -->
+<!-- BOTÓN FLOTANTE CON LOGO Y TEXTO -->
+<a href="citas.html" class="btn-flotante">
+  <div class="contenido-boton">
+    <img src="3LOGO.png" alt="Logo Coyote">
+    <span>Reservar cita</span>
+  </div>
+</a>
+
+
+<style>
+
+/* ===== BOTÓN FLOTANTE ===== */
+.btn-flotante {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 170px;           /* 🔹 tamaño del círculo */
+  height: 170px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #000 60%, #111 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 999;
+}
+
+/* EFECTO HOVER */
+.btn-flotante:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.8);
+}
+
+/* ===== CONTENIDO ===== */
+.contenido-boton {
+  position: relative;
+  width: 60%;
+  height: 60%;
+  text-align: center;
+}
+
+/* LOGO: se muestra completo dentro del círculo */
+.contenido-boton img {
+  width: 80%;               /* 🔹 se reduce un poco para no recortarse */
+  height: 80%;
+  object-fit: contain;       /* 🔹 evita que se corte */
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+/* TEXTO DENTRO DEL CÍRCULO */
+.contenido-boton span {
+  position: absolute;
+  bottom: 4px;              /* 🔹 texto dentro del círculo */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 4px black;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+
+</style>
 
 
 <style>
@@ -534,6 +523,84 @@ body {
     </header>
   </div>
 
+<!-- ---------- SECCIÓN PORTADA ---------- -->
+<!-- ---------- SECCIÓN PORTADA SIN FRANJAS NEGRAS ---------- -->
+<!-- ---------- SECCIÓN PORTADA CON DISTANCIA DEL MENÚ ---------- -->
+<section class="portada">
+  <div class="overlay">
+   <a href="galeria.html" class="btn-catalogo">VER CATÁLOGO</a>
+  </div>
+</section>
+
+<style>
+/* ======== PORTADA ======== */
+section.portada {
+  position: relative;
+  width: 94%;
+  height: 70vh; /* 🔹 agrega altura para que se vea la imagen */
+  margin: 0 auto;
+  background-image: url('portada.png'); /* cambia por tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* ======== CAPA Y BOTÓN ======== */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3); /* leve sombra */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end; /* botón abajo */
+  padding-bottom: 30px; /* distancia del borde inferior */
+}
+
+.btn-catalogo {
+
+ color: #fff;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+ text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #0ff,
+        0 0 20px #0ff,
+        0 0 40px #0ff;
+      animation: brillar 2s infinite alternate;
+      transition: 0.3s;
+    }
+
+.btn-catalogo:hover {
+  background-color: #ff4040;
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  section.portada {
+    height: 28vh; /* 🔹 más pequeña en celular */
+    background-size: contain; /* muestra toda la imagen */
+    margin-top: 0.6cm; /* espacio con el menú */
+  }
+
+  .overlay {
+    padding-bottom: 20px; /* un poco más arriba */
+  }
+
+  .btn-catalogo {
+  
+      padding: 4px 10px;   /* 🔹 botón más chico */
+  font-size: 11px;     /* 🔹 letras más pequeñas */
+  }
+}
+</style>
 
 
 <section class="sobre-coyote">
@@ -849,6 +916,173 @@ hamburger.addEventListener("click", () => {
 }
 </style>
 
+<!-- Fuente artística (Google Fonts: 'Black Ops One' o puedes cambiar por 'Rubik Wet Paint', 'Creepster', etc.) -->
+<style> /* ---------- IMAGEN PRINCIPAL ---------- */
+    .portada {
+      width: 100%;
+      height: 80vh;
+      background-image: url('tattoo.jpg'); /* Cambia por tu imagen */
+      background-size: cover;
+      background-position: center;
+    }
+</style>
+  <section class="portada"></section>
+
+<!-- CUIDADOS POSTERIORES -->
+<section class="seccion-cuidados">
+  <h2 class="section-title">CUIDADO POSTERIOR</h2>
+  <p class="intro-cuidados">
+    Después de hacerte un tatuaje, es fundamental seguir una rutina de cuidados 
+    para mantener su color e intensidad.
+  </p>
+
+  <div class="contenedor-carrusel">
+    <div class="item-cuidado activo">
+      <div class="texto-cuidado">
+        <h3>Limpiar con jabón neutro</h3>
+        <p>Usa un jabón neutro y agua tibia para limpiar suavemente el tatuaje sin frotar.</p>
+      </div>
+      <div class="imagen-cuidado">
+        <img src="jabon.png" alt="Jabón neutro">
+      </div>
+    </div>
+
+    <div class="item-cuidado">
+      <div class="texto-cuidado">
+        <h3>Aplicar crema cicatrizante</h3>
+        <p>Aplica una capa delgada de crema cicatrizante para mantener la piel hidratada.</p>
+      </div>
+      <div class="imagen-cuidado">
+        <img src="cremas.jpg" alt="Crema cicatrizante">
+      </div>
+    </div>
+
+    <div class="item-cuidado">
+      <div class="texto-cuidado">
+        <h3>Evitar exposición al sol</h3>
+        <p>No expongas el tatuaje al sol hasta que haya cicatrizado completamente.</p>
+      </div>
+      <div class="imagen-cuidado">
+        <img src="exposicion.jpg" alt="Evitar el sol">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ======== SECCIÓN CUIDADOS POSTERIORES ======== */
+.seccion-cuidados {
+  background: radial-gradient(circle at center, #0a0a0a 40%, #000 100%);
+  color: #f5f5f5;
+  padding: 40px 15px;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+
+
+.intro-cuidados {
+  font-size: 18px;
+  color: #ddd;
+  margin-bottom: 40px;
+}
+
+/* ======== CARRUSEL ======== */
+.contenedor-carrusel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.item-cuidado {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.item-cuidado.activo {
+  display: flex;
+}
+
+/* Imagen y texto */
+.texto-cuidado {
+  flex: 1;
+  text-align: left;
+}
+
+.texto-cuidado h3 {
+  font-size: 24px;
+  color: #ff4d4d;
+  margin-bottom: 10px;
+}
+
+.texto-cuidado p {
+  color: #ccc;
+  font-size: 16px;
+}
+
+.imagen-cuidado {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.imagen-cuidado img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border: 3px solid #ff4d4d;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.imagen-cuidado img:hover {
+  transform: scale(1.05);
+}
+
+/* ======== ANIMACIÓN ======== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 768px) {
+  .item-cuidado {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .texto-cuidado {
+    text-align: center;
+  }
+
+  .imagen-cuidado img {
+    width: 300px;
+    height: 300px;
+  }
+}
+</style>
+
+<script>
+let index = 0;
+const items = document.querySelectorAll('.item-cuidado');
+
+function mostrarSiguiente() {
+  items[index].classList.remove('activo');
+  index = (index + 1) % items.length;
+  items[index].classList.add('activo');
+}
+
+setInterval(mostrarSiguiente, 5000); // cambia cada 5 segundos
+</script>
+
+
+
 <!-- Tatuajes -->
  <section id="galeria" class="container">
   <h2 class="section-title">Diseño ARTISTICO</h2>
@@ -1157,159 +1391,6 @@ document.addEventListener("DOMContentLoaded", function() {
   text-align: center;
 }
 </style>
-
-<!-- CUIDADOS POSTERIORES -->
-<section class="seccion-cuidados">
-  <h2 class="section-title">CUIDADO POSTERIOR</h2>
-  <p class="intro-cuidados">
-    Después de hacerte un tatuaje, es fundamental seguir una rutina de cuidados 
-    para mantener su color e intensidad.
-  </p>
-
-  <div class="contenedor-carrusel">
-    <div class="item-cuidado activo">
-      <div class="texto-cuidado">
-        <h3>Limpiar con jabón neutro</h3>
-        <p>Usa un jabón neutro y agua tibia para limpiar suavemente el tatuaje sin frotar.</p>
-      </div>
-      <div class="imagen-cuidado">
-        <img src="jabon.png" alt="Jabón neutro">
-      </div>
-    </div>
-
-    <div class="item-cuidado">
-      <div class="texto-cuidado">
-        <h3>Aplicar crema cicatrizante</h3>
-        <p>Aplica una capa delgada de crema cicatrizante para mantener la piel hidratada.</p>
-      </div>
-      <div class="imagen-cuidado">
-        <img src="cremas.jpg" alt="Crema cicatrizante">
-      </div>
-    </div>
-
-    <div class="item-cuidado">
-      <div class="texto-cuidado">
-        <h3>Evitar exposición al sol</h3>
-        <p>No expongas el tatuaje al sol hasta que haya cicatrizado completamente.</p>
-      </div>
-      <div class="imagen-cuidado">
-        <img src="exposicion.jpg" alt="Evitar el sol">
-      </div>
-    </div>
-  </div>
-</section>
-
-<style>
-/* ======== SECCIÓN CUIDADOS POSTERIORES ======== */
-.seccion-cuidados {
-  background: radial-gradient(circle at center, #0a0a0a 40%, #000 100%);
-  color: #f5f5f5;
-  padding: 40px 15px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-}
-
-
-
-.intro-cuidados {
-  font-size: 18px;
-  color: #ddd;
-  margin-bottom: 40px;
-}
-
-/* ======== CARRUSEL ======== */
-.contenedor-carrusel {
-  position: relative;
-  width: 100%;
-  max-width: 900px;
-  margin: auto;
-}
-
-.item-cuidado {
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  animation: fadeIn 1s ease-in-out;
-}
-
-.item-cuidado.activo {
-  display: flex;
-}
-
-/* Imagen y texto */
-.texto-cuidado {
-  flex: 1;
-  text-align: left;
-}
-
-.texto-cuidado h3 {
-  font-size: 24px;
-  color: #ff4d4d;
-  margin-bottom: 10px;
-}
-
-.texto-cuidado p {
-  color: #ccc;
-  font-size: 16px;
-}
-
-.imagen-cuidado {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.imagen-cuidado img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border: 3px solid #ff4d4d;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
-  transition: transform 0.3s ease;
-}
-
-.imagen-cuidado img:hover {
-  transform: scale(1.05);
-}
-
-/* ======== ANIMACIÓN ======== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ======== RESPONSIVE ======== */
-@media (max-width: 768px) {
-  .item-cuidado {
-    flex-direction: column-reverse;
-    text-align: center;
-  }
-
-  .texto-cuidado {
-    text-align: center;
-  }
-
-  .imagen-cuidado img {
-    width: 300px;
-    height: 300px;
-  }
-}
-</style>
-
-<script>
-let index = 0;
-const items = document.querySelectorAll('.item-cuidado');
-
-function mostrarSiguiente() {
-  items[index].classList.remove('activo');
-  index = (index + 1) % items.length;
-  items[index].classList.add('activo');
-}
-
-setInterval(mostrarSiguiente, 5000); // cambia cada 5 segundos
-</script>
 
 
 
