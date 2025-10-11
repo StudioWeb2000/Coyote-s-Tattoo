@@ -99,7 +99,7 @@ body {
 
 /* Tarjetas de tatuadores */
 .personal-card {
-  background: #1a2e1a; /* verde más suave */
+  background: #040404; /* verde más suave */
   border: 2px solid #040505; /* contorno verde */
   border-radius: 15px;
   text-align: center;
@@ -192,7 +192,7 @@ body {
 
     /* Personal */
     .personal-card {
-      background: #1a2e1a;
+      background: #171717;
       border: 2px solid #121513;
       border-radius: 15px;
       text-align: center;
@@ -269,17 +269,12 @@ body {
     
   </style>
 </head>
-<!-- Carrusel -->
- <style>
-
-.carousel-inner, 
+<!-- Carrusel .carousel-inner, 
 .carousel-item {
   height: 100%;
 }
+-->
 
-
-
-</style>
 
 
 </script>
@@ -304,8 +299,8 @@ body {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 170px;           /* 🔹 tamaño del círculo */
-  height: 170px;
+  width: 100px;           /* 🔹 tamaño del círculo */
+  height: 100px;
   border-radius: 50%;
   background: radial-gradient(circle at center, #000 60%, #111 100%);
   display: flex;
@@ -334,25 +329,27 @@ body {
 
 /* LOGO: se muestra completo dentro del círculo */
 .contenido-boton img {
-  width: 80%;               /* 🔹 se reduce un poco para no recortarse */
-  height: 80%;
-  object-fit: contain;       /* 🔹 evita que se corte */
-  border-radius: 50%;
-  margin-top: 5px;
+  position: absolute;        /* 🔹 Permite posicionarla dentro del círculo */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 🔹 La centra perfectamente */
+  width: 180%;               /* 🔹 Controla tamaño horizontal */
+  height: 130%;              /* 🔹 Controla tamaño vertical */
+  object-fit: contain;       /* 🔹 Evita que se corte */
+  border-radius: 40%;
 }
-
 /* TEXTO DENTRO DEL CÍRCULO */
 .contenido-boton span {
   position: absolute;
-  bottom: 4px;              /* 🔹 texto dentro del círculo */
+  bottom: -5px; /* 🔹 mueve el texto un poco más abajo */
   left: 50%;
   transform: translateX(-50%);
-  font-size: 14px;
+  font-size: 10px;
   font-weight: bold;
   color: #fff;
   text-shadow: 1px 1px 4px black;
   background: rgba(0, 0, 0, 0.5);
-  padding: 3px 8px;
+  padding: 2px 6px;
   border-radius: 8px;
 }
 
@@ -360,18 +357,8 @@ body {
 </style>
 
 
-<style>
-.carousel-container {
-  margin-top: 40px; /* separa el carrusel del header */
-}
 
-.carousel-media {
-  max-width: 80%;        /* ajusta ancho */
-  max-height: 500px;     /* limita altura */
-  object-fit: contain;   /* mantiene proporción sin recortar */
-  margin-top: 20px;      /* espacio superior */
-}
-</style>
+
 
 
 
@@ -379,22 +366,33 @@ body {
 
 <body>
 <!-- Google Fonts para letras artísticas -->
-<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-<style>
- 
+ <style>
+    /* ===== RESETEO ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    /* ---------- NAVBAR GENERAL ---------- */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    /* ===== NAVBAR ===== */
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 25px;
-      background: #040404;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
       z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      backdrop-filter: blur(5px);
     }
 
     /* LOGO */
@@ -403,125 +401,137 @@ body {
       align-items: center;
       gap: 10px;
     }
-
-    .logo img {
-      width: 100px;
-      height: 60px;
+       .logo img {
+      width: 140px;    /* 🔹 tamaño grande y claro */
+      height: auto;    /* 🔹 mantiene proporción natural */
+      border-radius: 0; /* 🔹 sin recorte circular */
+      object-fit: contain; /* 🔹 evita pixelado o distorsión */
+      image-rendering: auto; /* 🔹 mejora nitidez */
     }
+
 
     .logo h1 {
-      font-family: 'Permanent Marker', cursive;
-      font-size: 24px;
-      margin: 0;
+      font-size: 22px;
+      font-family: 'UnifrakturCook', cursive;
+      color: #ff4444;
     }
 
-    /* BOTÓN HAMBURGUESA */
-    .hamburger {
-      background: none;
-      border: 2px solid #fff;
-      border-radius: 6px;
-      color: white;
-      font-size: 24px;
-      cursor: pointer;
-      padding: 4px 10px;
-      transition: background 0.3s ease;
-      margin-left: 20px;
-    }
-
-    .hamburger:hover {
-      background: #ff4d4d;
-    }
-
-    /* MENÚ */
-    .nav-menu ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    /* MENÚ NORMAL */
+    nav ul {
       display: flex;
-      gap: 25px;
+      list-style: none;
+      gap: 30px;
     }
 
-    .nav-menu a {
-      color: white;
+    nav ul li a {
       text-decoration: none;
-      font-size: 18px;
-      transition: color 0.3s;
+      color: #fff;
+      font-weight: bold;
+      transition: color 0.3s ease;
     }
 
-    .nav-menu a:hover {
-      color: #ff4d4d;
+    nav ul li a:hover {
+      color: #ff4444;
     }
 
-    /* ---------- RESPONSIVE ---------- */
+    /* ===== MENÚ HAMBURGUESA ===== */
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 6px;
+    }
+
+    .menu-icon div {
+      width: 28px;
+      height: 3px;
+      background-color: #fff;
+    }
+
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      header {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 10px 15px;
-      }
-
-      /* LOGO Y HAMBURGUESA EN LA MISMA LÍNEA */
-      .logo {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-
-      .hamburger {
-        order: 2;
-        margin-left: 10px;
-      }
-
-      .nav-menu {
-        position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background: #040404;
-        display: none;
-        text-align: center;
-        border-top: 1px solid #333;
-      }
-
-      .nav-menu.open {
-        display: block;
-      }
-
-      .nav-menu ul {
+      nav ul {
+        position: fixed;
+        top: 80px;
+        right: -100%;
+        background: rgba(0, 0, 0, 0.95);
         flex-direction: column;
-        padding: 10px 0;
-        gap: 15px;
+        width: 200px;
+        height: calc(100vh - 80px);
+        justify-content: start;
+        align-items: center;
+        padding-top: 40px;
+        gap: 25px;
+        transition: right 0.3s ease;
+      }
+
+      nav ul.active {
+        right: 0;
+      }
+
+      .menu-icon {
+        display: flex;
       }
     }
+
+    /* ===== CONTENIDO PRINCIPAL ===== */
+    .hero {
+      background: url('portada.jpg') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .hero h2 {
+      font-size: 3em;
+      background: rgba(0,0,0,0.6);
+      padding: 20px 40px;
+      border-radius: 20px;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Contenedor principal -->
-  <div id="contenedorPrincipal" style="padding:0; margin:0;">
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="logo">
+      <img src="3LOGO.png" alt="Logo del estudio">
+    <h1>Coyote’s Tattoo</h1>
+    </div>
 
-    <!-- Navbar -->
-    <header>
-      <div class="logo">
-        <img src="3LOGO.png" alt="Logo Tatuaje Coyote">
-        <h1>Coyote's Tattoo</h1>
-      </div>
+    <div class="menu-icon" id="menu-icon">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
 
-      <!-- Botón hamburguesa (a la derecha en PC, al costado en celular) -->
-      <button class="hamburger" id="hamburger">☰</button>
+    <nav>
+      <ul id="menu-list">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#tatuajes">Tatuajes</a></li>
+        <li><a href="#artistas">Artistas</a></li>
+        <li><a href="#reservas">Reservas</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
 
-      <!-- Menú -->
-      <nav class="nav-menu" id="navMenu">
-        <ul>
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
-          <li><a href="galeria.html">Tatuajes</a></li>
-          <li><a href="personal.html">Tatuadores</a></li>
-          <li><a href="citas.html">Citas</a></li>
-        </ul>
-      </nav>
-    </header>
-  </div>
+  <!-- ===== SECCIÓN PRINCIPAL ===== -->
+
+
+  <script>
+    const menuIcon = document.getElementById('menu-icon');
+    const menuList = document.getElementById('menu-list');
+
+    menuIcon.addEventListener('click', () => {
+      menuList.classList.toggle('active');
+    });
+  </script>
 
 <!-- ---------- SECCIÓN PORTADA ---------- -->
 <!-- ---------- SECCIÓN PORTADA SIN FRANJAS NEGRAS ---------- -->
@@ -536,8 +546,8 @@ body {
 /* ======== PORTADA ======== */
 section.portada {
   position: relative;
-  width: 94%;
-  height: 70vh; /* 🔹 agrega altura para que se vea la imagen */
+  width: 100%;
+  height: 100vh; /* 🔹 agrega altura para que se vea la imagen */
   margin: 0 auto;
   background-image: url('portada.png'); /* cambia por tu imagen */
   background-size: cover;
@@ -587,7 +597,7 @@ section.portada {
   section.portada {
     height: 28vh; /* 🔹 más pequeña en celular */
     background-size: contain; /* muestra toda la imagen */
-    margin-top: 0.6cm; /* espacio con el menú */
+     margin-top: 0; /* 🔹 sin espacio arriba */
   }
 
   .overlay {
@@ -600,6 +610,10 @@ section.portada {
   font-size: 11px;     /* 🔹 letras más pequeñas */
   }
 }
+
+.logo h1 {
+        font-size: 18px; /* 🔹 texto del logo más pequeño */
+      }
 </style>
 
 
@@ -721,7 +735,7 @@ Nuestro equipo de artistas está listo para crear diseños únicos y personaliza
           <div class="col-md-4">
             <div class="personal-card">
               <img src="adan.jpeg" alt="Especialista en linea fina y painting" class="clickable-img" />
-              <h5 style="color: #fff;">ADAN</h5>
+              <h5 style="color: #fff;"></h5>
               <p>Especialista airbrush y realismo.</p>
               <a href="adan.html" class="btn-ver-tatuajes">Ver tatuajes</a>
             </div>
@@ -729,7 +743,7 @@ Nuestro equipo de artistas está listo para crear diseños únicos y personaliza
           <div class="col-md-4">
             <div class="personal-card">
               <img src="madek.jpeg" alt="Especialista en lettering" class="clickable-img" />
-              <h5 style="color: #fff;">MARIO ALVARADO</h5>
+              <h5 style="color: #fff;"></h5>
               <p>Especialista en lettering.</p>
               <a href="madek.html" class="btn-ver-tatuajes">Ver tatuajes</a>
             </div>
@@ -737,7 +751,7 @@ Nuestro equipo de artistas está listo para crear diseños únicos y personaliza
            <div class="col-md-4">
             <div class="personal-card">
               <img src="lobo.jpeg" alt="Especialista en lettering" class="clickable-img" />
-              <h5 style="color: #fff;">EL LOBO</h5>
+              <h5 style="color: #fff;"></h5>
               <p>Especialista en lettering.</p>
               <a href="" class="btn-ver-tatuajes">Ver tatuajes</a>
             </div>
@@ -745,7 +759,7 @@ Nuestro equipo de artistas está listo para crear diseños únicos y personaliza
            <div class="col-md-4">
             <div class="personal-card">
               <img src="yorman.jpeg" alt="Especialista en lettering" class="clickable-img" />
-              <h5 style="color: #fff;">YORMAN</h5>
+              <h5 style="color: #fff;"></h5>
               <p>especialista en black & grey, color realista, acuarelas, oriental y neotradicional</p>
               <a href="" class="btn-ver-tatuajes">Ver tatuajes</a>
             </div>
@@ -753,7 +767,7 @@ Nuestro equipo de artistas está listo para crear diseños únicos y personaliza
            <div class="col-md-4">
             <div class="personal-card">
               <img src="dario.jpeg" alt="Especialista en lettering" class="clickable-img" />
-              <h5 style="color: #fff;">DARIO</h5>
+              <h5 style="color: #fff;"></h5>
               <p>Especialista en lettering.</p>
               <a href="" class="btn-ver-tatuajes">Ver tatuajes</a>
             </div>
@@ -761,7 +775,7 @@ Nuestro equipo de artistas está listo para crear diseños únicos y personaliza
           <div class="col-md-4">
             <div class="personal-card">
               <img src="vanesa.jpeg" alt="Especialista airbrush y realismo" class="clickable-img" />
-              <h5 style="color: #fff;">VANESA</h5>
+              <h5 style="color: #fff;"></h5>
               <p>Especialista airbrush y realismo.</p>
               <a href="" class="btn-ver-tatuajes">Ver tatuajes</a>
             </div>
@@ -896,14 +910,8 @@ body {
 </style>
 
 <!-- JS -->
-<script>
-const hamburger = document.getElementById("hamburger");
-const navMenu = document.getElementById("navMenu");
 
-hamburger.addEventListener("click", () => {
-  navMenu.classList.toggle("show");
-});
-</script>
+
 
 <style>.section-title {
   font-family: 'Cinzel Decorative', serif; /* otra fuente artística de Google Fonts */
@@ -917,17 +925,9 @@ hamburger.addEventListener("click", () => {
 </style>
 
 <!-- Fuente artística (Google Fonts: 'Black Ops One' o puedes cambiar por 'Rubik Wet Paint', 'Creepster', etc.) -->
-<style> /* ---------- IMAGEN PRINCIPAL ---------- */
-    .portada {
-      width: 100%;
-      height: 80vh;
-      background-image: url('tattoo.jpg'); /* Cambia por tu imagen */
-      background-size: cover;
-      background-position: center;
-    }
-</style>
-  <section class="portada"></section>
 
+
+<!-- CUIDADOS POSTERIORES -->
 <!-- CUIDADOS POSTERIORES -->
 <section class="seccion-cuidados">
   <h2 class="section-title">CUIDADO POSTERIOR</h2>
@@ -969,14 +969,18 @@ hamburger.addEventListener("click", () => {
   </div>
 </section>
 
+
 <style>
 /* ======== SECCIÓN CUIDADOS POSTERIORES ======== */
 .seccion-cuidados {
   background: radial-gradient(circle at center, #0a0a0a 40%, #000 100%);
+  
   color: #f5f5f5;
   padding: 40px 15px;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+
+    background-image: url('pagina.jpg');
 }
 
 
@@ -1166,10 +1170,10 @@ setInterval(mostrarSiguiente, 5000); // cambia cada 5 segundos
 <style>
 /* Recuadro general */
 .ink-frame {
-  border: 2px solid #444;
+  border: 2px solid #030303;
   border-radius: 15px;
   padding: 20px;
-  background: #1a1a1a;
+  background: #000000;
   margin-bottom: 40px;
   box-shadow: 0 0 20px rgba(255,255,255,0.05);
 }
@@ -1986,9 +1990,3 @@ document.addEventListener('DOMContentLoaded', () => {
   
 </body>
 </html>
-
-
-
-
-
-
