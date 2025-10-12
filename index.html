@@ -510,15 +510,16 @@ body {
       <div></div>
     </div>
 
-    <nav>
-      <ul id="menu-list">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#tatuajes">Tatuajes</a></li>
-        <li><a href="#artistas">Artistas</a></li>
-        <li><a href="#reservas">Reservas</a></li>
-        <li><a href="#contacto">Contacto</a></li>
-      </ul>
-    </nav>
+   <nav>
+  <ul id="menu-list">
+    <li><a href="#contenido">Inicio</a></li>
+    <li><a href="galeria.html">Tatuajes</a></li>
+    <li><a href="personal.html">Artistas</a></li>
+    <li><a href="citas.html">Reservar cita</a></li>
+    <li><a href="#footer">Contacto</a></li>
+  </ul>
+</nav>
+
   </header>
 
   <!-- ===== SECCIÓN PRINCIPAL ===== -->
@@ -617,7 +618,7 @@ section.portada {
 </style>
 
 
-<section class="sobre-coyote">
+<section id="contenido" class="sobre-coyote">
   <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Freckle+Face&display=swap" rel="stylesheet">
 
   <div class="contenido">
@@ -1396,7 +1397,223 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 </style>
 
+<!-- SECCIÓN DE SERVICIOS DESTACADOS -->
+<section id="servicios-destacados" class="servicios-section">
+  <!-- Switch elegante -->
+  <label class="switch">
+    <input type="checkbox" id="toggleServicios">
+    <span class="slider"></span>
+  </label>
 
+  <div id="contenidoServicios" class="contenido">
+    <!-- Galería de tatuajes -->
+    <div class="servicio" id="tatuajes">
+      <h2 style="color:#ffffff;">Tatuajes personalizados</h2>
+      <div class="galeria">
+        <img src="img/4a.jpg" alt="Tatuaje 1" data-descripcion="Tatuaje geométrico en el brazo">
+        <img src="img/9r.jpg" alt="Tatuaje 2" data-descripcion="Tatuaje en realismo">
+        <img src="img/2m.jpg" alt="Tatuaje 3" data-descripcion="Tatuaje lettering">
+        <img src="img/3a.jpg" alt="Tatuaje 4" data-descripcion="Tatuaje artístico en blanco y negro">
+      </div>
+    </div>
+
+    <!-- Cuidado y mantenimiento -->
+    <div class="servicio hidden" id="aftercare">
+      <h3>Cuidado y mantenimiento</h3>
+      <div class="aftercare-icons">
+        <div class="item">
+          <span class="icon">💧</span>
+          <p>Lava tu tatuaje suavemente con agua tibia y jabón neutro.</p>
+        </div>
+        <div class="item">
+          <span class="icon">🧴</span>
+          <p>Aplica crema cicatrizante recomendada por el tatuador.</p>
+        </div>
+        <div class="item">
+          <span class="icon">☀️</span>
+          <p>Evita la exposición directa al sol durante la cicatrización.</p>
+        </div>
+        <div class="item">
+          <span class="icon">🚫</span>
+          <p>No rasques ni retires costras para evitar infecciones.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL EXCLUSIVO SOLO PARA ESTA GALERÍA -->
+  <div id="modalTatuajes" class="modal-tatuajes">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImgTatuaje">
+    <div id="modalDescTatuaje"></div>
+  </div>
+</section>
+
+<!-- ===== ESTILOS MODAL ===== -->
+<style>
+/* Modal SOLO de tatuajes */
+#servicios-destacados .modal-tatuajes {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 80px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
+
+#servicios-destacados .modal-tatuajes img {
+  margin: auto;
+  display: block;
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 12px;
+}
+
+#servicios-destacados .modal-tatuajes #modalDescTatuaje {
+  text-align: center;
+  color: #fff;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+#servicios-destacados .modal-tatuajes .close {
+  position: absolute;
+  top: 20px; right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+</style>
+
+<!-- ===== JS SOLO PARA ESTA GALERÍA ===== -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const modal = document.querySelector("#modalTatuajes");
+  const modalImg = document.querySelector("#modalImgTatuaje");
+  const modalDesc = document.querySelector("#modalDescTatuaje");
+  const closeBtn = document.querySelector("#modalTatuajes .close");
+
+  // Solo imágenes de la galería de tatuajes
+  document.querySelectorAll("#tatuajes .galeria img").forEach(img => {
+    img.addEventListener("click", function() {
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      modalDesc.textContent = this.dataset.descripcion || this.alt;
+    });
+  });
+
+  // Cerrar modal
+  closeBtn.onclick = () => modal.style.display = "none";
+  modal.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
+});
+</script>
+
+<style>
+/* ESTILOS DE LA SECCIÓN */
+.servicios-section {
+  width: 100%;
+  padding: 3rem 1rem;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(90deg, #080808, #080808); /* Franja azul verdosa oscura */
+  color: #f2f1f1;
+  margin: 0;
+  border-radius: 0;
+}
+
+/* Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-bottom: 2rem;
+}
+.switch input { display: none; }
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #f1ecec;
+  border-radius: 34px;
+  top: 0; left: 0; right: 0; bottom: 0;
+  transition: .4s;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px; width: 26px;
+  left: 4px; bottom: 4px;
+  background-color: rgb(248, 241, 241);
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider { background-color: #99caf2; }
+input:checked + .slider:before { transform: translateX(26px); }
+
+/* Galería de imágenes */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 1rem;
+}
+.galeria img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform .3s;
+}
+.galeria img:hover { transform: scale(1.05); }
+
+/* Aftercare icons */
+.aftercare-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 1rem;
+}
+.aftercare-icons .item {
+  flex: 1 1 200px;
+ background: #ffffff;
+  border-radius: 12px;
+  padding: 15px;
+  text-align: center;
+}
+.aftercare-icons .icon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 10px;
+}
+.aftercare-icons p {
+  color: #0f0f0f;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Responsive para móvil */
+@media (max-width: 768px) {
+  .galeria img { height: 140px; }
+  .aftercare-icons .item { flex: 1 1 100%; }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const toggle = document.getElementById('toggleServicios');
+  const tatuajes = document.getElementById('tatuajes');
+  const aftercare = document.getElementById('aftercare');
+
+  toggle.addEventListener('change', () => {
+    tatuajes.classList.toggle('hidden');
+    aftercare.classList.toggle('hidden');
+  });
+});
+</script>
 
 <!-- SECCIÓN RESEÑAS DE CLIENTES -->
 <section id="reseñas" style="background-color:#ffffff; width:100%; padding:60px 20px;">
@@ -1631,228 +1848,12 @@ toggle.addEventListener("change", () => {
 
 
 
-<!-- SECCIÓN DE SERVICIOS DESTACADOS -->
-<section id="servicios-destacados" class="servicios-section">
-  <!-- Switch elegante -->
-  <label class="switch">
-    <input type="checkbox" id="toggleServicios">
-    <span class="slider"></span>
-  </label>
 
-  <div id="contenidoServicios" class="contenido">
-    <!-- Galería de tatuajes -->
-    <div class="servicio" id="tatuajes">
-      <h2 style="color:#ffffff;">Tatuajes personalizados</h2>
-      <div class="galeria">
-        <img src="img/4a.jpg" alt="Tatuaje 1" data-descripcion="Tatuaje geométrico en el brazo">
-        <img src="img/9r.jpg" alt="Tatuaje 2" data-descripcion="Tatuaje en realismo">
-        <img src="img/2m.jpg" alt="Tatuaje 3" data-descripcion="Tatuaje lettering">
-        <img src="img/3a.jpg" alt="Tatuaje 4" data-descripcion="Tatuaje artístico en blanco y negro">
-      </div>
-    </div>
-
-    <!-- Cuidado y mantenimiento -->
-    <div class="servicio hidden" id="aftercare">
-      <h3>Cuidado y mantenimiento</h3>
-      <div class="aftercare-icons">
-        <div class="item">
-          <span class="icon">💧</span>
-          <p>Lava tu tatuaje suavemente con agua tibia y jabón neutro.</p>
-        </div>
-        <div class="item">
-          <span class="icon">🧴</span>
-          <p>Aplica crema cicatrizante recomendada por el tatuador.</p>
-        </div>
-        <div class="item">
-          <span class="icon">☀️</span>
-          <p>Evita la exposición directa al sol durante la cicatrización.</p>
-        </div>
-        <div class="item">
-          <span class="icon">🚫</span>
-          <p>No rasques ni retires costras para evitar infecciones.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MODAL EXCLUSIVO SOLO PARA ESTA GALERÍA -->
-  <div id="modalTatuajes" class="modal-tatuajes">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImgTatuaje">
-    <div id="modalDescTatuaje"></div>
-  </div>
-</section>
-
-<!-- ===== ESTILOS MODAL ===== -->
-<style>
-/* Modal SOLO de tatuajes */
-#servicios-destacados .modal-tatuajes {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  padding-top: 80px;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.9);
-}
-
-#servicios-destacados .modal-tatuajes img {
-  margin: auto;
-  display: block;
-  max-width: 80%;
-  max-height: 80%;
-  border-radius: 12px;
-}
-
-#servicios-destacados .modal-tatuajes #modalDescTatuaje {
-  text-align: center;
-  color: #fff;
-  margin-top: 15px;
-  font-size: 18px;
-}
-
-#servicios-destacados .modal-tatuajes .close {
-  position: absolute;
-  top: 20px; right: 35px;
-  color: #fff;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-</style>
-
-<!-- ===== JS SOLO PARA ESTA GALERÍA ===== -->
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  const modal = document.querySelector("#modalTatuajes");
-  const modalImg = document.querySelector("#modalImgTatuaje");
-  const modalDesc = document.querySelector("#modalDescTatuaje");
-  const closeBtn = document.querySelector("#modalTatuajes .close");
-
-  // Solo imágenes de la galería de tatuajes
-  document.querySelectorAll("#tatuajes .galeria img").forEach(img => {
-    img.addEventListener("click", function() {
-      modal.style.display = "block";
-      modalImg.src = this.src;
-      modalDesc.textContent = this.dataset.descripcion || this.alt;
-    });
-  });
-
-  // Cerrar modal
-  closeBtn.onclick = () => modal.style.display = "none";
-  modal.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
-});
-</script>
-
-<style>
-/* ESTILOS DE LA SECCIÓN */
-.servicios-section {
-  width: 100%;
-  padding: 3rem 1rem;
-  text-align: center;
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(90deg, #080808, #080808); /* Franja azul verdosa oscura */
-  color: #f2f1f1;
-  margin: 0;
-  border-radius: 0;
-}
-
-/* Switch */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  margin-bottom: 2rem;
-}
-.switch input { display: none; }
-.slider {
-  position: absolute;
-  cursor: pointer;
-  background-color: #f1ecec;
-  border-radius: 34px;
-  top: 0; left: 0; right: 0; bottom: 0;
-  transition: .4s;
-}
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px; width: 26px;
-  left: 4px; bottom: 4px;
-  background-color: rgb(248, 241, 241);
-  transition: .4s;
-  border-radius: 50%;
-}
-input:checked + .slider { background-color: #99caf2; }
-input:checked + .slider:before { transform: translateX(26px); }
-
-/* Galería de imágenes */
-.galeria {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-  margin-top: 1rem;
-}
-.galeria img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: transform .3s;
-}
-.galeria img:hover { transform: scale(1.05); }
-
-/* Aftercare icons */
-.aftercare-icons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 1rem;
-}
-.aftercare-icons .item {
-  flex: 1 1 200px;
- background: #ffffff;
-  border-radius: 12px;
-  padding: 15px;
-  text-align: center;
-}
-.aftercare-icons .icon {
-  font-size: 2rem;
-  display: block;
-  margin-bottom: 10px;
-}
-.aftercare-icons p {
-  color: #0f0f0f;
-  font-weight: 500;
-  line-height: 1.4;
-}
-
-/* Responsive para móvil */
-@media (max-width: 768px) {
-  .galeria img { height: 140px; }
-  .aftercare-icons .item { flex: 1 1 100%; }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-  const toggle = document.getElementById('toggleServicios');
-  const tatuajes = document.getElementById('tatuajes');
-  const aftercare = document.getElementById('aftercare');
-
-  toggle.addEventListener('change', () => {
-    tatuajes.classList.toggle('hidden');
-    aftercare.classList.toggle('hidden');
-  });
-});
-</script>
 
 <!-- FOOTER -->
 <!-- FOOTER -->
 <!-- FOOTER -->
-<footer class="footer">
+<footer id="footer"class="footer">
   <div class="footer-container">
     <!-- Columna 1 -->
     <div class="footer-column">
