@@ -2,386 +2,336 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Coyote's Tattoo | Galería</title>
+  <title>Coyote’s Tattoo| Galería</title>
   <style>
-     header {
-      width: 100%;
-        background-color: #301a0b; 
-      padding: 15px 40px;
-      box-sizing: border-box;
+    /* ====== ESTILOS GENERALES ====== */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+       background-image: url('TIGRE.jpg'); /* Reemplaza con tu imagen */
+      color: #fff;
     }
 
-    .header-container {
+    /* ====== HEADER / BANNER ====== */
+    .banner {
+      position: relative;
+      width: 94%;
+      height: 400px;
+      background: url("img/122.png") no-repeat center center;
+      background-size: cover;
       display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 20px 40px;
+    }
+
+    .banner-content {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
       align-items: center;
     }
 
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .logo {
-      width: 120px;
-      height: auto;
-      display: block;
+      height: 80px;
     }
 
-    /* Hero */
-    .hero img {
-      width: 300px;
-      height: auto;
+    .title {
+      font-family: 'Permanent Marker', cursive;
+      font-size: 32px;
+      color: white;
+      margin: 0;
+      text-shadow: 0 0 8px #000;
+    }
+
+    .menu-toggle {
+      font-size: 36px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    /* ====== TÍTULO DE LA GALERÍA ====== */
+  .titulo-tatuaje {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  color: #eae3e3; /* rojo principal */
+  font-size: 50px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  /* Brillo inicial suave */
+  text-shadow:
+    0 0 5px #ff0000,
+    0 0 10px #ff0000,
+    0 0 15px #ff0000;
+
+  /* Animación suave de encendido */
+  animation: lightIncrease 4s ease-in forwards;
+}
+
+/* ✨ Efecto: la luz aumenta sin parpadear */
+@keyframes lightIncrease {
+  0% {
+    text-shadow:
+      0 0 2px #ff0000,
+      0 0 4px #ff0000,
+      0 0 6px #ff0000;
+  }
+  100% {
+    text-shadow:
+      0 0 10px #ff0000,
+      0 0 20px #ff1a1a,
+      0 0 40px #ff1a1a,
+      0 0 80px #ff1a1a;
+  }
+}
+
+/* 📱 Ajuste para celular */
+@media (max-width: 600px) {
+  .titulo-tatuaje {
+    font-size: 32px;
+    animation: lightIncreaseMobile 4s ease-in forwards;
+  }
+
+  @keyframes lightIncreaseMobile {
+    0% {
+      text-shadow:
+        0 0 2px #ff0000,
+        0 0 4px #ff0000;
+    }
+    100% {
+      text-shadow:
+        0 0 8px #ff0000,
+        0 0 16px #ff1a1a,
+        0 0 30px #ff1a1a;
+    }
+  }
+}
+
+
+    /* ====== GALERÍA ====== */
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin: 0 auto;
+      padding: 0 1rem 3rem;
+      max-width: 1200px;
+    }
+
+    .galeria img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
       border-radius: 12px;
-      border: 3px solid #336775;
-      display: block;
-      margin: 30px auto;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
     }
 
-    body { font-family: sans-serif; margin:0; padding:0; background:#131212; color:#fff; }
-    header, footer { padding:20px; text-align:center; background:#231616; }
-    nav a { margin:0 10px; color:#fff; text-decoration:none; }
-    nav a:hover { color:#e11d48; }
+    .galeria img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.7);
+    }
 
-    h1,h2 { margin:10px 0; }
-    
-    /* Galería */
-    .gallery {
-  display:grid; 
-  gap:15px; 
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); 
-  padding:20px;
-}
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .galeria { grid-template-columns: repeat(3, 1fr); }
+    }
 
-.gallery img {
-  width:100%; 
-  height:250px;       /* altura fija para todas */
-  object-fit:cover;   /* recorta la imagen para que llene el contenedor */
-  border-radius:12px; 
-  cursor:pointer;
-  transition:0.3s;
-}
+    @media (max-width: 768px) {
+      .galeria { grid-template-columns: repeat(2, 1fr); }
+      .galeria img { height: 160px; }
+      .banner { height: 250px; }
+      .logo { height: 60px; }
+      .title { font-size: 24px; }
+    }
 
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-    /* Modal */
+    /* ====== MODAL ====== */
     .modal {
-      display:none;
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: rgba(0,0,0,0.8);
-      justify-content:center;
-      align-items:center;
-      z-index:1000;
-      padding:20px;
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
     }
+
     .modal-content {
-      background:#222;
-      border-radius:12px;
-      max-width:600px;
-      width:100%;
-      text-align:center;
-      padding:15px;
-      position:relative;
+      position: relative;
+      max-width: 90%;
+      max-height: 80%;
+      text-align: center;
     }
+
     .modal-content img {
-  width: 100%;          /* ancho máximo del modal */
-  max-height: 70vh;     /* no más alto que 70% del viewport */
-  object-fit: cover;    /* recorta y ajusta proporcionalmente */
-  border-radius: 12px;
+      width: 100%;
+      max-height: 70vh;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .modal-desc {
+      color: #ddd;
+      margin-top: 10px;
+    }
+
+    /* BOTÓN CERRAR (X) */
+    .close-btn {
+      position: absolute;
+      top: -40px;
+      right: -10px;
+      background: #e11d48;
+      border: none;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 8px;
+        font-size: 36px; 
+      cursor: pointer;
+    }
+
+    /* FLECHAS */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 50%;
+    }
+
+    .arrow:hover {
+      background: rgba(255, 0, 0, 0.6);
+    }
+
+    .prev { left: -60px; }
+    .next { right: -60px; }
+
+    @media (max-width: 768px) {
+      .prev { left: -30px; }
+      .next { right: -30px; }
+    }
+
+    @media (max-width: 768px) {
+  .close-btn {
+    font-size: 36px;     /* tamaño del símbolo X */
+    top: -50px;           /* ajusta su posición vertical */
+    right: -5px;          /* mueve un poco a la izquierda */
+    padding: 8px 14px;    /* más área táctil */
+  }
 }
 
-    .modal-content p { margin:10px 0; color:#f0f0f0; }
-    .close-btn {
-      position:absolute;
-      top:10px; right:10px;
-      background:#e11d48;
-      border:none;
-      color:#fff;
-      font-size:18px;
-      padding:4px 10px;
-      border-radius:6px;
-      cursor:pointer;
-    }
-
-    
   </style>
 </head>
 <body>
- <!-- HEADER / BANNER -->
-<header class="banner">
-  <div class="banner-content">
-    <!-- Logo y nombre -->
-    <div class="logo-container">
-       <a href="index.html"><img src="3LOGO.png" alt="Coyote's Tattoo Logo" class="logo"></a>
-      <h1 class="title">Coyote Tattoo</h1>
+
+  <!-- ====== BANNER ====== -->
+  <header class="banner">
+    <div class="banner-content">
+      <div class="logo-container">
+        <a href="index.html"><img src="3LOGO.png" alt="Logo Coyote" class="logo"></a>
+        <h1 class="title">Coyote’s Tattoo</h1>
+      </div>
+     
     </div>
+  </header>
 
-    <!-- Menú hamburguesa -->
-    <div class="menu-toggle">
-      <i class="bi bi-list"></i>
-    </div>
-  </div>
-</header>
-
-
-<style>.banner {
-  position: relative;
-  width: 100%;
-  height: 400px; /* 🔥 controla la altura */
-  background: url("122.png") no-repeat center center;
-  background-size: cover;
-  display: flex;
-  align-items: flex-start;  /* contenido arriba */
-  justify-content: space-between;
-  padding: 20px 40px;
-}
-
-.banner-content {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.logo {
-  height: 60px; /* ajusta el tamaño del logo */
-}
-
-.title {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 28px;
-  color: white;
-  margin: 0;
-}
-
-.menu-toggle {
-  font-size: 36px;
-  color: rgb(13, 13, 13);
-  cursor: pointer;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .banner {
-    height: 250px; /* más pequeño en móvil */
-    padding: 15px 20px;
-  }
-
-  .logo {
-    height: 50px;
-  }
-
-  .title {
-    font-size: 22px;
-  }
-
-  .menu-toggle {
-    font-size: 30px;
-  }
-}
-</style>
-
-
+  <!-- ====== GALERÍA ====== -->
   <main>
-<h2 class="titulo-tatuaje">GALERIA ARTISTICA</h2>
+    <h2 class="titulo-tatuaje">Galería Artística</h2>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
-
-.titulo-tatuaje {
-  font-family: 'arial', cursive;
-  color: #ff0000;
-  font-size: 3rem;
-  text-transform: uppercase;
-  text-shadow:
-    0 0 10px rgba(255, 0, 0, 0.8),
-    0 0 20px rgba(255, 0, 0, 0.6),
-    0 0 40px rgba(255, 100, 100, 0.4);
-  -webkit-text-stroke: 1px black;
-  letter-spacing: 3px;
-  text-align: center;
-  margin: 40px 0;
-}
-</style>
-
-    <div class="gallery">
-      <img src="img/2m.jpg" alt="Tatuaje estilo blackwork" data-desc="tatuaje coyote">
-      <img src="img/14a.png" alt="Tatuaje realista" data-desc="tatuaje blanco y negro">
-      <img src="img/1m.jpg" alt="Cover up" data-desc="lettering">
-      <img src="img/3r.jpg" alt="Linework fino" data-desc="tatuaje  a color ">
-
-
-      <img src="img/4r.jpg" alt="Tatuaje estilo blackwork" data-desc="tatuaje  a color">
-      <img src="img/5m.jpg" alt="Tatuaje realista" data-desc="lettering">
-      <img src="img/6m.jpg" alt="tatuales " data-desc="lettering">
-      <img src="img/7m.jpg" alt="Linework fino" data-desc="lettering ">
-
-      <img src="img/7r.jpg" alt="Tatuaje estilo blackwork" data-desc="tatuaje  a color">
-      <img src="img/8m.jpg" alt="Tatuaje realista" data-desc="lettering">
-      <img src="img/8r.jpg" alt="Cover up" data-desc="tatuaje  a color ">
-      <img src="img/9r.jpg" alt="Linework fino" data-desc="tatuaje  a color ">
-
+    <div class="galeria">
+      <img src="img/2m.jpg" alt="" data-desc="Tatuaje coyote">
+      <img src="img/1a.jpg" alt="" data-desc="Tatuaje blanco y negro">
+      <img src="img/1m.jpg" alt="" data-desc="Lettering">
+      <img src="img/3r.jpg" alt="" data-desc="Tatuaje a color">
+      <img src="img/4r.jpg" alt="" data-desc="Tatuaje blackwork">
+      <img src="img/5m.jpg" alt="" data-desc="Lettering">
+      <img src="img/6m.jpg" alt="" data-desc="Tatuaje artístico">
+      <img src="img/7m.jpg" alt="" data-desc="Tatuaje lettering">
+      <img src="img/7r.jpg" alt="" data-desc="Tatuaje a color">
+      <img src="img/8m.jpg" alt="" data-desc="Lettering negro">
+      <img src="img/8r.jpg" alt="" data-desc="Tatuaje a color">
+      <img src="img/9r.jpg" alt="" data-desc="Tatuaje artístico">
     </div>
-    
   </main>
 
-  <main>
-    <h2></h2>
-    <div class="gallery">
-      <img src="img/r18.png" alt="Tatuaje estilo blackwork" data-desc="tatuaje a color">
-      <img src="img/3m.jpg" alt="Tatuaje realista" data-desc="lettering">
-      <img src="img/2r.jpg" alt="Cover up" data-desc="tatuaje a color">
-      <img src="img/5r.jpg" alt="Linework fino" data-desc="tatuaje a color">
-
-      
-      <img src="img/2a.jpg" alt="Linework fino" data-desc="tatuaje  a blanco y negro">
-
-      
-
-    </div>
-    
-  </main>
-  <!-- Modal -->
+  <!-- ====== MODAL ====== -->
   <div class="modal" id="modal">
     <div class="modal-content">
-      <button class="close-btn" id="closeBtn">&times;</button>
+      <span class="close-btn" id="closeBtn">&times;</span>
+      <span class="arrow prev" id="prevBtn">&#10094;</span>
       <img id="modalImg" src="" alt="">
-      <p id="modalDesc"></p>
+      <span class="arrow next" id="nextBtn">&#10095;</span>
+      <p class="modal-desc" id="modalDesc"></p>
     </div>
   </div>
 
- 
-
+  <!-- ====== SCRIPT ====== -->
   <script>
     const modal = document.getElementById('modal');
     const modalImg = document.getElementById('modalImg');
     const modalDesc = document.getElementById('modalDesc');
     const closeBtn = document.getElementById('closeBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const images = document.querySelectorAll('.galeria img');
+    let currentIndex = 0;
 
-    document.querySelectorAll('.gallery img').forEach(img => {
+    images.forEach((img, index) => {
       img.addEventListener('click', () => {
         modal.style.display = 'flex';
-        modalImg.src = img.src;
-        modalDesc.textContent = img.dataset.desc;
+        showImage(index);
       });
     });
 
-    closeBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
+    function showImage(index) {
+      currentIndex = index;
+      modalImg.src = images[index].src;
+      modalDesc.textContent = images[index].dataset.desc;
+    }
+
+    closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    modal.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+
+    nextBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
     });
 
-    modal.addEventListener('click', e => {
-      if(e.target === modal) modal.style.display = 'none';
+    prevBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
     });
   </script>
   <!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-container">
-    <!-- Columna 1 -->
-    <div class="footer-column">
-      <h2>Coyote Tattoo Perú</h2>
-      <p>
-        Descubre nuestro arte en tatuajes de alta calidad, diseñados para expresar tu estilo y personalidad. En <strong>Coyote Tattoo</strong>, nos comprometemos a brindarte la mejor experiencia en cada diseño.
-      </p>
-    </div>
 
-    <!-- Columna 2 -->
-    <div class="footer-column">
-      <h3>UBICACIÓN</h3>
-      <p>📍 Miraflores – Lima, Perú 🇵🇪<br>🏠 Bajada Balta 127 y 135</p>
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.831319857298!2d-77.03118452491782!3d-12.125219088126265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81c4bdf2cb1%3A0x40b828b0b57232ce!2sBajada%20Balta%20127%2C%20Miraflores%2015047!5e0!3m2!1ses!2spe!4v1724499999999!5m2!1ses!2spe" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
-    </div>
-
-    <!-- Columna   'Pirata One', cursive; 3 -->
-    <div class="footer-column">
-      <h3>CONTÁCTANOS</h3>
-      <p>📞 Teléfono: (+51) 902769003</p>
-    </div>
-
-    <!-- Columna 4 -->
-    <div class="footer-column">
-      <h3>HORARIOS DE ATENCIÓN</h3>
-      <p>⏰ Lun–Sáb: 10am–9pm<br>Dom: 12–9pm</p>
-    </div>
-
-    <!-- Columna 5 -->
-    <div class="footer-column">
-      <h3>REDES SOCIALES</h3>
-      <div class="social-icons">
-        <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://wa.me/51998189846" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
-      </div>
-    </div>
-  </div>
-</footer>
 
 <!-- BOTÓN FLOTANTE IR A INICIO -->
 <a href="index.html" class="btn-inicio">⬆️ Ir a inicio</a>
 
 <style>
   /* Footer general */
-  .footer {
-    background: #231616;
-    color: #fff;
-    padding: 40px 20px;
-    width: 100%;
-  }
+ 
 
-  .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: space-between;
-  }
-
-  .footer-column {
-    flex: 1 1 200px;
-    min-width: 200px;
-  }
-
-  .footer-column h2, .footer-column h3 {
-    margin-bottom: 15px;
-    color: #FFD700;
-  }
-
-  .footer-column p {
-    line-height: 1.6;
-  }
-
-  /* Iconos de redes sociales */
-  .social-icons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-  }
-
-  .social-icons a {
-    font-size: 28px;
-    transition: transform 0.2s;
-  }
-
-  /* Colores originales */
-  .social-icons a.facebook { color: #1877F2; }
-  .social-icons a.instagram { 
-    color: #E1306C; 
-    background: radial-gradient(circle at 30% 30%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-   
-    -webkit-text-fill-color: transparent;
-  }
-  .social-icons a.whatsapp { color: #25D366; }
-
-  .social-icons a:hover {
-    transform: scale(1.2);
-  }
 
   /* Botón flotante */
   .btn-inicio {
@@ -405,20 +355,144 @@
     transform: scale(1.1);
   }
 
-  /* Responsive */
+
+</style>
+<!-- ======== FOOTER COYOTE TATTOO PERÚ ======== -->
+<footer>
+  <div class="footer-container">
+    <!-- Descripción -->
+    <div class="footer-section">
+      <h3>Coyote Tattoo Perú</h3>
+      <p>Descubre nuestro arte en tatuajes de alta calidad, diseñados para expresar tu estilo y personalidad. En Coyote Tattoo, nos comprometemos a brindarte la mejor experiencia en cada diseño. Arte, tinta y expresión. Síguenos en nuestras redes para conocer más de nuestros trabajos.</p>
+    </div>
+
+    <!-- Ubicación -->
+    <div class="footer-section">
+      <h4>📍 UBICACIÓN</h4>
+      <p>Miraflores – Lima, Perú 🇵🇪<br>Bajada Balta 127 y 135</p>
+      <iframe 
+        src="https://www.google.com/maps?q=Bajada%20Balta%20127%20Miraflores%20Lima%20Peru&output=embed"
+        width="100%" height="200" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+
+    <!-- Contacto -->
+    <div class="footer-section">
+      <h4>📞 CONTÁCTANOS</h4>
+      <p>Teléfono: (+51) 902769003</p>
+      <h4>⏰ HORARIOS DE ATENCIÓN</h4>
+      <p>Lun–Sáb: 10am–9pm<br>Dom: 12–9pm</p>
+
+      <h4>🌐 REDES SOCIALES</h4>
+      <div class="social-icons">
+        <a href="https://web.facebook.com/coyotestattoo/?locale=es_LA&_rdc=1&_rdr#" target="_blank" class="facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+         <a href="https://wa.me/51998189846" target="_blank" class="whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Coyote Tattoo Perú. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- Font Awesome actual -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  footer {
+    background-color: #1b1b1b;
+    color: #ddd;
+    padding: 40px 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .footer-section {
+    flex: 1;
+    min-width: 300px;
+  }
+
+  .footer-section h3, .footer-section h4 {
+    color: #f44336;
+    margin-bottom: 10px;
+  }
+
+  .footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .social-icons a {
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 26px;
+    transition: transform 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    transform: scale(1.2);
+  }
+
+  /* Colores oficiales */
+  .facebook { color: #1877f2; }
+  .instagram { color: #e4405f; }
+  .whatsapp { color: #25D366; }
+
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 13px;
+  }
+
+  /* ✅ En celular: se apila uno debajo del otro */
   @media (max-width: 768px) {
     .footer-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      flex-direction: column;       /* los pone en columna */
+      align-items: center;          /* centra el contenido */
+      text-align: center;           /* texto centrado */
     }
 
-    .footer-column {
-      min-width: 100%;
+    .footer-section {
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 25px;          /* espacio entre secciones */
     }
 
-    .map-container iframe {
-      height: 150px;
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 250px;
     }
   }
 </style>
@@ -427,4 +501,3 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 </body>
 </html>
-
