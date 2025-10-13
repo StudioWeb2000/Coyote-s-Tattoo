@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -299,8 +301,8 @@ body {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  width: 100px;           /* 🔹 tamaño del círculo */
-  height: 100px;
+  width: 80px;           /* 🔹 tamaño del círculo */
+  height: 90px;
   border-radius: 50%;
   background: radial-gradient(circle at center, #000 60%, #111 100%);
   display: flex;
@@ -341,7 +343,7 @@ body {
 /* TEXTO DENTRO DEL CÍRCULO */
 .contenido-boton span {
   position: absolute;
-  bottom: -5px; /* 🔹 mueve el texto un poco más abajo */
+  bottom: -8px; /* 🔹 mueve el texto un poco más abajo */
   left: 50%;
   transform: translateX(-50%);
   font-size: 10px;
@@ -402,7 +404,7 @@ body {
       gap: 10px;
     }
        .logo img {
-      width: 140px;    /* 🔹 tamaño grande y claro */
+      width: 118px;    /* 🔹 tamaño grande y claro */
       height: auto;    /* 🔹 mantiene proporción natural */
       border-radius: 0; /* 🔹 sin recorte circular */
       object-fit: contain; /* 🔹 evita pixelado o distorsión */
@@ -413,7 +415,7 @@ body {
     .logo h1 {
       font-size: 22px;
       font-family: 'UnifrakturCook', cursive;
-      color: #ff4444;
+      color: #f9f5f5;
     }
 
     /* MENÚ NORMAL */
@@ -515,6 +517,7 @@ body {
     <li><a href="#contenido">Inicio</a></li>
     <li><a href="galeria.html">Tatuajes</a></li>
     <li><a href="personal.html">Artistas</a></li>
+      <li><a href="servicios.html">Servicios</a></li>
     <li><a href="citas.html">Reservar cita</a></li>
     <li><a href="#footer">Contacto</a></li>
   </ul>
@@ -843,8 +846,8 @@ Nuestro equipo de artistas está listo para crear diseños únicos y personaliza
 <style>
 body {
   margin: 0;
-  padding-top: 120px; /* deja espacio para el navbar fijo */
-  background: #000;
+  padding-top: 90px; /* deja espacio para el navbar fijo  entre le menu de rriba y la iamgen principal*/
+  background: #010101;
 }
 
 /* Fuente artística en todo el menú */
@@ -1161,7 +1164,7 @@ setInterval(mostrarSiguiente, 5000); // cambia cada 5 segundos
     h5 {
       font-family: 'Permanent Marker', cursive;
       font-size: 28px;
-      color: #fff;
+      color: #f4efef;
       text-shadow: 2px 2px 6px #000; /* efecto graffiti */
       letter-spacing: 1px;
       text-transform: uppercase;
@@ -1288,7 +1291,7 @@ setInterval(mostrarSiguiente, 5000); // cambia cada 5 segundos
 #galeria .gallery-modal .close {
   position: absolute;
   top: 20px; right: 35px;
-  color: #fff;
+  color: #ece8e8;
   font-size: 40px;
   font-weight: bold;
   cursor: pointer;
@@ -1398,6 +1401,9 @@ document.addEventListener("DOMContentLoaded", function() {
 </style>
 
 <!-- SECCIÓN DE SERVICIOS DESTACADOS -->
+
+
+<!-- SECCIÓN DE SERVICIOS DESTACADOS -->
 <section id="servicios-destacados" class="servicios-section">
   <!-- Switch elegante -->
   <label class="switch">
@@ -1418,7 +1424,7 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
 
     <!-- Cuidado y mantenimiento -->
-    <div class="servicio hidden" id="aftercare">
+    <div class="servicio" id="aftercare" style="display:none;">
       <h3>Cuidado y mantenimiento</h3>
       <div class="aftercare-icons">
         <div class="item">
@@ -1451,7 +1457,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <!-- ===== ESTILOS MODAL ===== -->
 <style>
-/* Modal SOLO de tatuajes */
 #servicios-destacados .modal-tatuajes {
   display: none;
   position: fixed;
@@ -1461,7 +1466,6 @@ document.addEventListener("DOMContentLoaded", function() {
   width: 100%; height: 100%;
   background-color: rgba(0,0,0,0.9);
 }
-
 #servicios-destacados .modal-tatuajes img {
   margin: auto;
   display: block;
@@ -1469,14 +1473,12 @@ document.addEventListener("DOMContentLoaded", function() {
   max-height: 80%;
   border-radius: 12px;
 }
-
 #servicios-destacados .modal-tatuajes #modalDescTatuaje {
   text-align: center;
   color: #fff;
   margin-top: 15px;
   font-size: 18px;
 }
-
 #servicios-destacados .modal-tatuajes .close {
   position: absolute;
   top: 20px; right: 35px;
@@ -1487,7 +1489,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 </style>
 
-<!-- ===== JS SOLO PARA ESTA GALERÍA ===== -->
+<!-- ===== JS GALERÍA ===== -->
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const modal = document.querySelector("#modalTatuajes");
@@ -1495,7 +1497,6 @@ document.addEventListener("DOMContentLoaded", function() {
   const modalDesc = document.querySelector("#modalDescTatuaje");
   const closeBtn = document.querySelector("#modalTatuajes .close");
 
-  // Solo imágenes de la galería de tatuajes
   document.querySelectorAll("#tatuajes .galeria img").forEach(img => {
     img.addEventListener("click", function() {
       modal.style.display = "block";
@@ -1504,26 +1505,26 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
-  // Cerrar modal
   closeBtn.onclick = () => modal.style.display = "none";
   modal.onclick = e => { if (e.target === modal) modal.style.display = "none"; }
 });
 </script>
 
+<!-- ===== ESTILOS   background: linear-gradient(135deg, #1b0034 0%, #3b006a 40%, #0078ff 100%);PRINCIPALES ===== -->
 <style>
-/* ESTILOS DE LA SECCIÓN */
 .servicios-section {
   width: 100%;
   padding: 3rem 1rem;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(90deg, #080808, #080808); /* Franja azul verdosa oscura */
-  color: #f2f1f1;
+  background: linear-gradient(135deg, #030303 0%, #050505 40%, #060606 100%);
+  color: #f8f8f8;
   margin: 0;
   border-radius: 0;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Switch */
+/* SWITCH */
 .switch {
   position: relative;
   display: inline-block;
@@ -1545,14 +1546,14 @@ document.addEventListener("DOMContentLoaded", function() {
   content: "";
   height: 26px; width: 26px;
   left: 4px; bottom: 4px;
-  background-color: rgb(248, 241, 241);
+  background-color: rgb(247, 243, 243);
   transition: .4s;
   border-radius: 50%;
 }
-input:checked + .slider { background-color: #99caf2; }
+input:checked + .slider { background-color: #a46df2; }
 input:checked + .slider:before { transform: translateX(26px); }
 
-/* Galería de imágenes */
+/* GALERÍA */
 .galeria {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -1564,12 +1565,17 @@ input:checked + .slider:before { transform: translateX(26px); }
   height: 180px;
   object-fit: cover;
   border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: transform .3s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  transition: all .3s ease;
+  border: 2px solid transparent;
 }
-.galeria img:hover { transform: scale(1.05); }
+.galeria img:hover {
+  transform: scale(1.05);
+  border-color: #00d5ff;
+  box-shadow: 0 0 25px rgba(0, 213, 255, 0.8);
+}
 
-/* Aftercare icons */
+/* AFTERCARE */
 .aftercare-icons {
   display: flex;
   flex-wrap: wrap;
@@ -1578,11 +1584,18 @@ input:checked + .slider:before { transform: translateX(26px); }
   margin-top: 1rem;
 }
 .aftercare-icons .item {
-  flex: 1 1 200px;
- background: #ffffff;
-  border-radius: 12px;
-  padding: 15px;
+  flex: 1 1 220px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
   text-align: center;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: transform .3s, box-shadow .3s;
+}
+.aftercare-icons .item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(10, 10, 10, 0.7);
 }
 .aftercare-icons .icon {
   font-size: 2rem;
@@ -1590,30 +1603,41 @@ input:checked + .slider:before { transform: translateX(26px); }
   margin-bottom: 10px;
 }
 .aftercare-icons p {
-  color: #0f0f0f;
+  color: #ffffff;
   font-weight: 500;
   line-height: 1.4;
 }
 
-/* Responsive para móvil */
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .galeria img { height: 140px; }
   .aftercare-icons .item { flex: 1 1 100%; }
 }
 </style>
 
+<!-- ===== SCRIPT SWITCH CORREGIDO ===== -->
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('toggleServicios');
   const tatuajes = document.getElementById('tatuajes');
   const aftercare = document.getElementById('aftercare');
 
+  // Estado inicial: mostrar tatuajes
+  tatuajes.style.display = 'block';
+  aftercare.style.display = 'none';
+
   toggle.addEventListener('change', () => {
-    tatuajes.classList.toggle('hidden');
-    aftercare.classList.toggle('hidden');
+    if (toggle.checked) {
+      tatuajes.style.display = 'none';
+      aftercare.style.display = 'block';
+    } else {
+      tatuajes.style.display = 'block';
+      aftercare.style.display = 'none';
+    }
   });
 });
 </script>
+
 
 <!-- SECCIÓN RESEÑAS DE CLIENTES -->
 <section id="reseñas" style="background-color:#ffffff; width:100%; padding:60px 20px;">
