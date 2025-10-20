@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -61,7 +59,7 @@ body {
   display: block;
   max-width: 80%;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.7);
+  box-shadow: 0 0 15px rgba(8, 8, 8, 0.7);
 }
 
 /* Texto debajo de la imagen */
@@ -74,7 +72,7 @@ body {
 
 
   #personal {
-  background: #0e0e0e; /* verde oscuro de fondo */
+  background: #060606; /* verde oscuro de fondo */
   padding: 60px 20px;
   border-radius: 20px;
 }
@@ -378,7 +376,7 @@ body {
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #000;
+      background-color: #e92525;
       color: #fff;
     }
 
@@ -478,7 +476,7 @@ body {
 
     /* ===== CONTENIDO PRINCIPAL ===== */
     .hero {
-      background: url('portada.jpg') center/cover no-repeat;
+      background: url('portada.png') center/cover no-repeat;
       height: 100vh;
       display: flex;
       align-items: center;
@@ -498,12 +496,25 @@ body {
   </style>
 </head>
 <body>
-
+<style>h6 {
+      font-family: 'Black Ops One', cursive;
+      font-size: 26px;
+      color: #f8f2f4;
+      text-shadow: 3px 3px 8px #000, 0 0 10px #ff0040;
+      letter-spacing: 3px;
+    }</style>
   <!-- ===== HEADER ===== -->
   <header>
     <div class="logo">
       <img src="3LOGO.png" alt="Logo del estudio">
-    <h1>Coyote’s Tattoo</h1>
+       <!-- Fuente estilo graffiti -->
+  <!-- Fuente estilo tatuaje -->
+  <!-- Fuente gruesa estilo tatuaje -->
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap" rel="stylesheet">
+
+
+
+    <h6>Coyote’s Tattoo</h6>
     </div>
 
     <div class="menu-icon" id="menu-icon">
@@ -551,7 +562,7 @@ body {
 section.portada {
   position: relative;
   width: 100%;
-  height: 100vh; /* 🔹 agrega altura para que se vea la imagen */
+  height: 88vh; /* 🔹 agrega altura para que se vea la imagen */
   margin: 0 auto;
   background-image: url('portada.png'); /* cambia por tu imagen */
   background-size: cover;
@@ -567,7 +578,7 @@ section.portada {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.3); /* leve sombra */
+ /*   background-color: rgba(170, 77, 77, 0.3);leve sombra */
   display: flex;
   justify-content: center;
   align-items: flex-end; /* botón abajo */
@@ -599,7 +610,7 @@ section.portada {
 /* ======== RESPONSIVE ======== */
 @media (max-width: 768px) {
   section.portada {
-    height: 28vh; /* 🔹 más pequeña en celular */
+    height: 38vh; /* 🔹 más pequeña en celular */
     background-size: contain; /* muestra toda la imagen */
      margin-top: 0; /* 🔹 sin espacio arriba */
   }
@@ -924,6 +935,7 @@ body {
   letter-spacing: 4px;
   color: #fff;
   text-align: center;
+   font-size: 40px;
   text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055;
 }
 </style>
@@ -1447,7 +1459,8 @@ document.addEventListener("DOMContentLoaded", function() {
   <div id="contenidoServicios" class="contenido">
     <!-- Galería de tatuajes -->
     <div class="servicio" id="tatuajes">
-      <h2 style="color:#ffffff;">Tatuajes personalizados</h2>
+      <h2 style="text-align:center; color:#e7dddd; margin-bottom:40px; font-family:'Great Vibes', cursive; font-size:3rem;">
+ >Nuestro Trabajo</h2>
       <div class="galeria">
         <img src="img/4a.jpg" alt="Tatuaje 1" data-descripcion="">
         <img src="img/9r.jpg" alt="Tatuaje 2" data-descripcion="">
@@ -1459,7 +1472,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <!-- Cuidado y mantenimiento -->
     <div class="servicio" id="aftercare" style="display:none;">
-      <h3>Cuidado y mantenimiento</h3>
+      <h2 style="text-align:center; color:#f1e9e9; margin-bottom:40px; font-family:'Great Vibes', cursive; font-size:3rem;">
+ >Cuidado y mantenimiento</h2>
       <div class="aftercare-icons">
         <div class="item">
           <span class="icon">💧</span>
@@ -1554,7 +1568,7 @@ document.addEventListener("DOMContentLoaded", function() {
   padding: 3rem 1rem;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  color: #f8f8f8;
+  color: #c14040;
   margin: 0;
   border-radius: 0;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
@@ -1690,7 +1704,9 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- SECCIÓN ICONOS DE CALIDAD -->
 <section class="calidad-tatuajes">
   <div class="contenedor-calidad">
-    <h2>Por Qué Elegirnos</h2>
+    <h2 style="text-align:center; color:#f5f0f0; margin-bottom:40px; font-family:'Arial black', cursive; font-size:3rem;">
+ 
+ Porque Elegirnos</h2>
 
     <div class="carousel-unico">
       <!-- Limpieza -->
@@ -1737,7 +1753,7 @@ document.addEventListener('DOMContentLoaded', () => {
 .contenedor-calidad h2 {
   font-size: 2rem;
   margin-bottom: 40px;
-  color: #f81f0f;
+  color: #fefbfa;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -1931,140 +1947,148 @@ document.addEventListener('DOMContentLoaded', () => {
 <!-- FOOTER -->
 <!-- FOOTER -->
 <!-- FOOTER -->
-<footer id="footer"class="footer">
+<!-- ======== FOOTER COYOTE TATTOO PERÚ ======== -->
+<footer>
   <div class="footer-container">
-    <!-- Columna 1 -->
-    <div class="footer-column">
-      <h2>Coyote Tattoo Perú</h2>
-      <p>
-        Descubre nuestro arte en tatuajes de alta calidad, diseñados para expresar tu estilo y personalidad. En <strong>Coyote Tattoo</strong>, nos comprometemos a brindarte la mejor experiencia en cada diseño.
-      </p>
+    <!-- Descripción -->
+    <div class="footer-section">
+      <h3>Coyote Tattoo Perú</h3>
+      <p>Descubre nuestro arte en tatuajes de alta calidad, diseñados para expresar tu estilo y personalidad. En Coyote Tattoo, nos comprometemos a brindarte la mejor experiencia en cada diseño. Arte, tinta y expresión. Síguenos en nuestras redes para conocer más de nuestros trabajos.</p>
     </div>
 
-    <!-- Columna 2 -->
-    <div class="footer-column">
-      <h3>UBICACIÓN</h3>
-      <p>📍 Miraflores – Lima, Perú 🇵🇪<br>🏠 Bajada Balta 127 y 135</p>
-      <div class="map-container">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.831319857298!2d-77.03118452491782!3d-12.125219088126265!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c81c4bdf2cb1%3A0x40b828b0b57232ce!2sBajada%20Balta%20127%2C%20Miraflores%2015047!5e0!3m2!1ses!2spe!4v1724499999999!5m2!1ses!2spe" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-      </div>
+    <!-- Ubicación -->
+    <div class="footer-section">
+      <h4>📍 UBICACIÓN</h4>
+      <p>Miraflores – Lima, Perú 🇵🇪<br>Bajada Balta 127 y 135</p>
+      <iframe 
+        src="https://www.google.com/maps?q=Bajada%20Balta%20127%20Miraflores%20Lima%20Peru&output=embed"
+        width="100%" height="200" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy">
+      </iframe>
     </div>
 
-    <!-- Columna 3 -->
-    <div class="footer-column">
-      <h3>CONTÁCTANOS</h3>
-      <p>Teléfono: (+51) 📞 902769003</p>
-    </div>
+    <!-- Contacto -->
+    <div class="footer-section">
+      <h4>📞 CONTÁCTANOS</h4>
+      <p>Teléfono: (+51) 902769003</p>
+      <h4>⏰ HORARIOS DE ATENCIÓN</h4>
+      <p>Lun–Sáb: 10am–9pm<br>Dom: 12–9pm</p>
 
-    <!-- Columna 4 -->
-    <div class="footer-column">
-      <h3>HORARIOS DE ATENCIÓN</h3>
-      <p>⏰ Lun–Sáb: 10am–9pm<br>Dom: 12–9pm</p>
-    </div>
-
-    <!-- Columna 5 -->
-    <div class="footer-column">
-      <h3>REDES SOCIALES</h3>
-        <div class="social-icons">
-    
-        <a href="https://es-la.facebook.com/coyotestattoo/about/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="https://wa.me/51998189846" target="_blank" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+      <h4>🌐 REDES SOCIALES</h4>
+      <div class="social-icons">
+        <a href="https://web.facebook.com/coyotestattoo/?locale=es_LA&_rdc=1&_rdr#" target="_blank" class="facebook">
+          <i class="fa-brands fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/coyotestattooperu/" target="_blank" class="instagram">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+         <a href="https://wa.me/51998189846" target="_blank" class="whatsapp">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
       </div>
     </div>
   </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Coyote Tattoo Perú. Todos los derechos reservados.</p>
+  </div>
 </footer>
 
+<!-- Font Awesome actual -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
-    
-  /* Colores originales */
- .social-icons a.facebook { color: #1877F2; }
-  .social-icons a.instagram { 
-    color: #E1306C; 
-   
-   
-  }
-  .social-icons a.whatsapp { color: #25D366; }
-  /* Footer general */
-  .footer {
-  background: #070707;
-    color: #fff;
+  footer {
+    background-color: #1b1b1b;
+    color: #ddd;
     padding: 40px 20px;
-    width: 100%;
+    font-family: Arial, sans-serif;
   }
 
   .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
     justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
   }
 
-  .footer-column {
-    flex: 1 1 200px;
-    min-width: 200px;
+  .footer-section {
+    flex: 1;
+    min-width: 300px;
   }
 
-  .footer-column h2, .footer-column h3 {
-    margin-bottom: 15px;
-    color: #FFD700;
+  .footer-section h3, .footer-section h4 {
+    color: #f44336;
+    margin-bottom: 10px;
   }
 
-  .footer-column p {
+  .footer-section p {
+    font-size: 14px;
     line-height: 1.6;
   }
 
-  /* Iconos de redes sociales */
   .social-icons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
+    margin-top: 10px;
   }
 
   .social-icons a {
-    color: #fff;
-    font-size: 24px;
-    transition: transform 0.2s;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 26px;
+    transition: transform 0.3s ease;
   }
 
   .social-icons a:hover {
     transform: scale(1.2);
-    color: #FFD700;
   }
 
-  /* Responsive */
+  /* Colores oficiales */
+  .facebook { color: #1877f2; }
+  .instagram { color: #e4405f; }
+  .whatsapp { color: #25D366; }
+
+  .footer-bottom {
+    text-align: center;
+    border-top: 1px solid #444;
+    margin-top: 30px;
+    padding-top: 15px;
+    font-size: 13px;
+  }
+
+  /* ✅ En celular: se apila uno debajo del otro */
   @media (max-width: 768px) {
     .footer-container {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
+      flex-direction: column;       /* los pone en columna */
+      align-items: center;          /* centra el contenido */
+      text-align: center;           /* texto centrado */
     }
 
-    .footer-column {
-      min-width: 100%;
+    .footer-section {
+      width: 100%;
+      max-width: 500px;
+      margin-bottom: 25px;          /* espacio entre secciones */
     }
 
-    .map-container iframe {
-      height: 150px;
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      font-size: 32px;
+      margin: 0;
+    }
+
+    iframe {
+      width: 100%;
+      height: 250px;
     }
   }
 </style>
 
-</style>
-
-
- 
+<!-- Bootstrap Icons -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-  <!-- WhatsApp -->
- 
-
-
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
  
   
 </body>
